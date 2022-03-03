@@ -1,0 +1,52 @@
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+#app {
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+img {
+    cursor:pointer;
+}
+
+.product-card {
+    max-width:250px;
+    display: inline-block;
+
+    .product-title {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+
+    img {
+        max-height:209px;
+        display:block;
+    }
+
+    .product-price {
+        text-align: right;
+    }
+}
+
+.block {
+    height: 30px;
+    display: block;
+}
+
+@media screen and (max-width: 650px) {
+    .product-card {
+        max-width:100%;
+        margin-bottom: 40px;
+
+        img {
+            max-height: 300px;
+        }
+    }
+    .block {
+        display: none;
+    }
+}
