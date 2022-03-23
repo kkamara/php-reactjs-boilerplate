@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect, } from 'react-router-dom'
+import { Route, Navigate, } from 'react-router-dom'
 
 export const Guard = ({
   component:Component, 
@@ -10,7 +10,8 @@ export const Guard = ({
   <Route {...rest} render={props => (
       localStorage.getItem(Token) ?
       <Component {...props}/> : 
-      <Redirect 
+      <Navigate
+        replace 
         to={{ 
           pathname:routeRedirect, 
           state: {

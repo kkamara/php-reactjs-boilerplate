@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, } from '@material-ui/core'
 import { makeStyles, } from '@material-ui/core/styles'
-import { useHistory, } from 'react-router-dom'
+import { useNavigate, } from 'react-router-dom'
 
 export default function HomeComponent() {
-  const history = useHistory()
+  const navigate = useNavigate()
   
   return (
     <>

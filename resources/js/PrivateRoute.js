@@ -1,8 +1,8 @@
 import React from 'react'
 import {
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
 } from 'react-router-dom'
 
 import Home from './components/pages/HomeComponent'
@@ -11,12 +11,12 @@ export default function PrivateRoute(props) {
   return (
     <div>
       {/*<Header/>*/}
-       <Switch>
-          <Route exact path={`${props.match.path}/`} component={Home}/>
+       <Routes>
+          <Route exact path={`${props.match.path}/`} element={<Home />}/>
           <Route exact path={props.match.path} render={props=> (
-            <Redirect to={{ pathname: `${props.match.path}/` }} />
+            <Navigate to={{ pathname: `${props.match.path}/` }} replace />
           )} />
-       </Switch>
+       </Routes>
     </div>
   )
 }

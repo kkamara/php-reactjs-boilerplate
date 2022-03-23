@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector, } from 'react-redux'
-import { useHistory } from 'react-router-dom' 
+import { useNavigate, } from 'react-router-dom' 
 import { makeStyles, } from '@material-ui/core'
 
 export default function Header(props) {
-  const history = useHistory()
+  const navigate = useNavigate()
   
   const dispatch = useDispatch()
   const authResponse = useSelector(state=>state.auth)
 
   const logOut = () => {
     // dispatch(LogoutAction())
-    history.push("/login")
+    navigate("/login")
   }
 
   const login = () => {
-    history.push("/login")
+    navigate("/login")
   }
 
   const token = localStorage.getItem('user-token')

@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-    Switch,
-    Route,
-    Redirect,
-} from 'react-router-dom'
+import { Routes, Route, } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
 import { Guard } from './Guard'
@@ -14,12 +10,12 @@ import Home from "./components/pages/HomeComponent"
 
 import { url } from './utils/config'
 
-function Routes(){
+export default () => {
   return (
     <>
       <Header/>
-      <Switch>
-        <Route path={url("/")} component={Home}/>  
+      <Routes>
+        <Route path={url("/")} element={<Home />}/>  
 
         {/*Redirect if not authenticated */} 
         {/* <Guard 
@@ -28,9 +24,7 @@ function Routes(){
             routeRedirect={url("/user/login" )}
             component={PrivateRoute}
         /> */}
-      </Switch>
+      </Routes>
     </>
   )
 }
-
-export default Routes

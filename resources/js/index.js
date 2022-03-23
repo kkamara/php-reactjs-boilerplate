@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot, } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
@@ -9,7 +9,10 @@ import store from './redux/store'
 import './index.css'
 import favicon from './favicon.png'
 
-ReactDOM.render(
+const container = document.getElementById('app')
+const root = createRoot(container)
+
+root.render(
   <React.StrictMode>
     <Helmet>
       <link 
@@ -21,6 +24,5 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('app')
+  </React.StrictMode>
 )
