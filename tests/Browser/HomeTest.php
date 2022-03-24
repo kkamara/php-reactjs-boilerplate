@@ -16,7 +16,7 @@ class HomeTest extends DuskTestCase
             $browser->visit('/')
                 ->screenshot('homepage')
                 ->assertSee('Test')
-                ->assertsee('TEST BUTTON');
+                ->assertsee('Test button');
         });
     }
 }
