@@ -9,6 +9,11 @@ import store from './redux/store'
 import './index.css'
 import favicon from './favicon.png'
 
+import $ from'jquery'
+import Popper from'popper.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
+
 const container = document.getElementById('app')
 const root = createRoot(container)
 
