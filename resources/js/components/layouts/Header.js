@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector, } from 'react-redux'
 import { useNavigate, } from 'react-router-dom' 
-import { makeStyles, } from '@material-ui/core'
 
 export default function Header(props) {
   const navigate = useNavigate()
@@ -30,14 +29,5 @@ export default function Header(props) {
   //   return () => {}
   // }, [authResponse])
 
-  return (
-    <div className={styles.body}>
-    </div>
-  )
+  return null
 }
-
-const styles = makeStyles({
-  body: {
-
-  },
-})
