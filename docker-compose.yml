@@ -48,14 +48,6 @@ services:
             - sail
         healthcheck:
           test: ["CMD", "redis-cli", "ping"]
-    meilisearch:
-        image: 'getmeili/meilisearch:latest'
-        ports:
-            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
-        volumes:
-            - 'sailmeilisearch:/data.ms'
-        networks:
-            - sail
     mailhog:
         image: 'mailhog/mailhog:latest'
         ports:
