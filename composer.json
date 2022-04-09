@@ -13,7 +13,9 @@
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
         "mbezhanov/faker-provider-collection": "^2.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "symfony/http-client": "^6.0",
+        "symfony/mailgun-mailer": "^6.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
