@@ -4,12 +4,30 @@
 * [https://laravel.com/docs/master/installation](https://laravel.com/docs/master/installation)
 * [https://laravel.com/docs/master/mix](https://laravel.com/docs/master/mix)
 
-## Installing the app with docker?
-
 ```bash
 cp .env.example .env
+composer i
 make dev && make backend-migrate
 ```
+## Usage
+
+* [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
+* [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
+
+## Browser Testing
+
+```bash
+  alias sail='vendor/bin/sail'
+  sail dusk
+```
+
+## Mail Server
+
+![docker-mailhog3.png](https://raw.githubusercontent.com/kkamara/useful/main/docker-mailhog3.png)
+
+Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/laravel-react-boilerplate/develop/.env.example).
+
+The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://localhost:8025`.
 
 ## Misc
 
