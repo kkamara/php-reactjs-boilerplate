@@ -22,6 +22,7 @@ services:
             - mysql
             - redis
             - selenium
+            - mailhog
     mysql:
         image: 'mysql:8.0'
         ports:
