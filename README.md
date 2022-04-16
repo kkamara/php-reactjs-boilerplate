@@ -19,7 +19,7 @@ make dev && make backend-migrate
 php artisan route:list
 # output
 ...
-GET|HEAD   api/user ............................ login › Api\UserController@login
+POST       api/user ............................ login › Api\UserController@login
 GET|HEAD   api/user/authorize .................. Api\UserController@authorizeUser
 POST       api/user/register ................... Api\UserController@register
 ...
@@ -64,8 +64,6 @@ Mail environment credentials are at [.env](https://raw.githubusercontent.com/kka
 The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://localhost:8025`.
 
 ## Misc
-
-This project was made possible by  [jmkolawole](https://github.com/jmkolawole/laravel-react-fullstack-application-with-passport-redux-and-material-ui).
 
 The `Makefile` for this project contains useful commands for a Laravel application and can be found at [laravel-makefile](https://github.com/kkamara/laravel-makefile).
 
