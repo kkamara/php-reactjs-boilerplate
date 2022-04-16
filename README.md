@@ -39,6 +39,13 @@ sail artisan queue:listen redis --queue stuff
 [2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processed:  App\Jobs\TestJob
 ```
 
+## Unit Testing
+
+```bash
+alias sail='vendor/bin/sail'
+sail artisan test --filter api
+```
+
 ## Browser Testing
 
 ```bash

@@ -42,10 +42,10 @@ class UserController extends Controller
         $user->save();
         $token = $user->createToken('token')->plainTextToken;
      
-        return ['data' => [array_merge(
+        return response()->json(['data' => array_merge(
             $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
             compact('token')),
-        ]];
+        ], 201);
     }
 
     function login(Request $request) {
@@ -63,19 +63,19 @@ class UserController extends Controller
         }
         $user = User::where($request->only('email'))->firstOrFail();
         $token = $user->createToken('token')->plainTextToken;
-        return ['data' => [array_merge(
+        return ['data' => array_merge(
             $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
             compact('token')),
-        ]];
+        ];
     }
 
     function authorizeUser(Request $request) {
         $user = User::where('email', $request->user()->email)->firstOrFail();
         $token = $user->createToken('token')->plainTextToken;
 
-        return ['data' => [array_merge(
+        return ['data' => array_merge(
             $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
             compact('token')),
-        ]];
+        ];
     }
 }

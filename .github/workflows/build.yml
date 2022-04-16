@@ -79,6 +79,8 @@ jobs:
         run: php artisan serve --no-reload &
       - name: curl to localhost
         run: curl localhost:8000 &
+      - name: Run Unit Tests
+        run: php artisan test --filter api
       - name: Run Browser Tests
         run: php artisan dusk --debug
       - name: Upload Screenshots
