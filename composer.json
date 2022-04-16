@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "BSD",
     "require": {
-        "php": "^8.1",
+        "php": "^8.0",
         "doctrine/dbal": "^3.1",
         "fakerphp/faker": "^1.16",
         "fruitcake/laravel-cors": "^2.0",
