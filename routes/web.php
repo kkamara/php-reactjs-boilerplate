@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use App\Mail\Test as TestMail;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\TestJob;
+
+
+Route::get('/job', function() {
+    Log::debug('here');
+    TestJob::dispatch()
+        ->onConnection('redis')
+        ->onQueue('stuff');
+    return response('Success');
+});
 
 Route::get('/email', function () {
     Log::debug('test');

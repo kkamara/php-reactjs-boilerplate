@@ -14,14 +14,28 @@ make dev && make backend-migrate
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
 * [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
 
+## Redis Queue
+
+You can test the `/job` endpoint to invoke a job example you can then view at 
+
+```bash
+alias sail='vendor/bin/sail'
+sail artisan queue:listen redis --queue stuff
+# output
+[2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processing: App\Jobs\TestJob
+[2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processed:  App\Jobs\TestJob
+```
+
 ## Browser Testing
 
 ```bash
-  alias sail='vendor/bin/sail'
-  sail dusk
+alias sail='vendor/bin/sail'
+sail dusk
 ```
 
 ## Mail Server
+
+You can test the `/mail` endpoint to send a test mail you can then view at `:8025/`.
 
 ![docker-mailhog3.png](https://raw.githubusercontent.com/kkamara/useful/main/docker-mailhog3.png)
 
