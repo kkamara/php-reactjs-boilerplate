@@ -13,6 +13,19 @@ make dev && make backend-migrate
 
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
 * [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
+## Api Documentation
+
+```bash
+php artisan route:list
+# output
+...
+GET|HEAD   api/user ............................ login › Api\UserController@login
+GET|HEAD   api/user/authorize .................. Api\UserController@authorizeUser
+POST       api/user/register ................... Api\UserController@register
+...
+```
+
+View the api collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
 ## Redis Queue
 

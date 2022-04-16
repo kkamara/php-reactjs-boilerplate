@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Jobs\TestJob;
 
 
+Route::prefix('web')->group(function() {
+    // Add single page app api routes
+});
+
 Route::get('/job', function() {
     Log::debug('here');
     TestJob::dispatch()

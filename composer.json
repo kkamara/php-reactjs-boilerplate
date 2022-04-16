@@ -11,6 +11,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^9.0",
+        "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.5",
         "mbezhanov/faker-provider-collection": "^2.0",
         "predis/predis": "^1.1",
