@@ -46,6 +46,8 @@ alias sail='vendor/bin/sail'
 sail artisan test --filter api
 ```
 
+View the unit test code [here](https://raw.githubusercontent.com/kkamara/laravel-react-boilerplate/develop/tests/Unit/Api/UsersTest.php).
+
 ## Browser Testing
 
 ```bash
