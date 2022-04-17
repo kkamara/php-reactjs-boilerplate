@@ -15,7 +15,6 @@ class HomeTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
                 ->screenshot('homepage')
-                ->assertSee('Test')
                 ->assertsee('Test button');
         });
     }
