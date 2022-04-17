@@ -58,7 +58,7 @@ class UserController extends Controller
         }
         if (!Auth::attempt($request->only(['email', 'password']))) {
             return response()->json([
-                'Invalid email and password combination',
+                'error' => 'Invalid email and password combination',
             ], 400);
         }
         $user = User::where($request->only('email'))->firstOrFail();
