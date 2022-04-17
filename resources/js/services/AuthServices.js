@@ -1,37 +1,44 @@
+import axios from 'axios'
 import HttpService from './HttpService'
+
+axios.defaults.withCredentials = true
 
 export const RegisterUserService = (credentials) => {
     const http = new HttpService()
-    let signupUrl = "users/register"
-    return http.postData(credentials, signupUrl).then((data) => {
-        console.log(data)
-        return data
-    }).catch((error) => {
-        return error
-    })
+    return http.getData('sanctum/csrf-cookie').then(
+        () => http.postData('users/register', credentials)
+            .then((data) => {
+                return data
+            })
+            .catch(err => err)
+    ).catch(err => err)
 }
 
 export const LoginUserService = (credentials) => {
-
     const http = new HttpService()
-    let loginUrl = "users/login"
-    return http.postData(credentials, loginUrl).then((data) => {
-
-        console.log(data)
-        return data
-    }).catch((error) => {
-        return error
+    const tokenId = "user-token"
+    
+    return new Promise((resolve, reject) => {
+        http.getData(http.domain+'/sanctum/csrf-cookie').then( 
+            // 419 when without csrf wrapper
+            () => http.postData('user', credentials)
+                .then(data => {
+                    localStorage.setItem(tokenId, data.data.data.token)
+                    return resolve(data.data.data)
+                })
+                .catch(err => reject(err))
+        ).catch(err => reject(err))
     })
 }
 
 export const LogOutUserService = () => {
     const http = new HttpService()
-    let loginUrl = "users/logout"
     const tokenId = "user-token"
-    return http.getData(loginUrl, tokenId).then((data) => {
-        console.log(data)
-        return data
-    }).catch((error) => {
-        return error
-    })
+    return http.getData('sanctum/csrf-cookie').then(
+        () => http.getData('users/logout', tokenId)
+            .then((data) => {
+                return data
+            })
+            .catch(err => err)
+    ).catch(err => err)
 }

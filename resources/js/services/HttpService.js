@@ -1,29 +1,47 @@
+import axios from 'axios'
+
+axios.defaults.withCredentials = true
+
 export default class HttpService
 {
-    url = "https://lrb-app.herokuapp.com/api"
-    // url = "http://localhost:80/api"
+    // _domain = 'http://localhost:80'
+    _domain = "http://lrb-app.herokuapp.com"
+    _url = `${this._domain}/web`
 
-    postData = async (item, added_url, tokenId="") => {
+    get domain() {
+        return this._domain
+    }
+
+    get url() {
+        return this._url
+    }
+
+    postData = (path, item, tokenId="") => {
         let requestOptions = this.postRequestOptions({ item, })
-        if (!tokenId.length) {
-            const token = await localStorage.getItem(tokenId)
+        let token
+        if (tokenId.length) {
+            token = localStorage.getItem(tokenId)
             requestOptions = this.postRequestOptions({ token, item, })
         }
 
-        return fetch(this.url+"/"+added_url,requestOptions).then(
-            response=>response.json()
+        return axios.post(this.url+"/"+path, requestOptions.data, requestOptions.headers).then(
+            res => res
         )
     }
 
-    getData = async (added_url, tokenId="") => {
+    getData = (path, tokenId="") => {
         let requestOptions = this.getRequestOptions()
-        if (!tokenId.length) {
-            const token = await localStorage.getItem(tokenId)
+        let token
+        if (tokenId.length) {
+            token = localStorage.getItem(tokenId)
             requestOptions = this.getRequestOptions(token)
         }
-
-        return fetch(this.url+"/"+added_url,requestOptions).then(
-            response=>response.json()
+        let url = this.url+"/"+path
+        if (null !== path.match(/http/g)) {
+            url = path
+        }
+        return axios.get(url, { headers: requestOptions.headers, }).then(
+            res => res
         )
     }
 
@@ -32,7 +50,7 @@ export default class HttpService
             method: 'GET',
             headers: { 'Content-type' : 'application/json', }
         }
-        if (!token.length) {
+        if (token) {
             requestOptions.headers.Authorization = 'Bearer ' +token
         }
         return requestOptions
@@ -42,9 +60,9 @@ export default class HttpService
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-type' : 'application/json', },
-            body : JSON.stringify(item)
+            data : item,
         }
-        if (!token.length) {
+        if (token) {
             requestOptions.headers.Authorization = 'Bearer ' +token
         }
         return requestOptions
