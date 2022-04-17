@@ -5,7 +5,7 @@ object-assign
 */
 
 /*!
-  * Bootstrap v4.6.1 (https://getbootstrap.com/)
+  * Bootstrap v5.1.3 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -103,3 +103,7 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! moment.js
+
+//! moment.js locale configuration
