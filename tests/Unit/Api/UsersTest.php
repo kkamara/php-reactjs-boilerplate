@@ -18,15 +18,15 @@ class UsersTest extends TestCase
         $email = $this->faker->unique()->safeEmail;
         $response = $this->withHeaders($this->headers)
             ->postJson(
-            '/api/user/register', 
-            [
-                'first_name' => $this->faker->unique()->firstName,
-                'last_name' => $this->faker->unique()->lastName,
-                'email' => $email,
-                'password' => 'secret',
-                'password_confirmation' => 'secret',
-            ],
-        );
+                '/api/user/register', 
+                [
+                    'first_name' => $this->faker->unique()->firstName,
+                    'last_name' => $this->faker->unique()->lastName,
+                    'email' => $email,
+                    'password' => 'secret',
+                    'password_confirmation' => 'secret',
+                ],
+            );
 
         $response->assertStatus(201)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
@@ -39,9 +39,9 @@ class UsersTest extends TestCase
         $user = User::factory()->create(['email' => $email,]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-            '/api/user/', 
-            ['email' => $user->email, 'password' => 'secret',],
-        );
+                '/api/user/', 
+                ['email' => $user->email, 'password' => 'secret',],
+            );
 
         $response->assertStatus(200)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
@@ -54,13 +54,14 @@ class UsersTest extends TestCase
         $user = User::factory()->create(['email' => $email,]);
         $loginResponse = $this->withHeaders($this->headers)
             ->postJson(
-            '/api/user/', 
-            ['email' => $user->email, 'password' => 'secret',],
-        );
+                '/api/user/', 
+                ['email' => $user->email, 'password' => 'secret',],
+            );
         
-        $authResponse = $this->withHeaders(
-            array_merge($this->headers, ['Authorization' => 'Bearer '.$loginResponse->json()['data']['token']])
-        )->getJson('/api/user/authorize');
+        $authResponse = $this->withHeaders(array_merge(
+            $this->headers, 
+            ['Authorization' => 'Bearer '.$loginResponse->json()['data']['token']],
+        ))->getJson('/api/user/authorize');
 
         $authResponse->assertStatus(200)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
