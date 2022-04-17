@@ -4,6 +4,7 @@ namespace Tests\Unit\Api;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Response;
 use Tests\TestCase;
 use App\Models\User;
 
@@ -28,7 +29,7 @@ class UsersTest extends TestCase
                 ],
             );
 
-        $response->assertStatus(201)->assertJsonStructure([
+        $response->assertStatus(Response::HTTP_CREATED)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
         ]);
     }
@@ -38,7 +39,7 @@ class UsersTest extends TestCase
         $response = $this->withHeaders($this->headers)
             ->postJson('/api/user/register');
 
-        $response->assertStatus(400)->assertJsonStructure([
+        $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertJsonStructure([
             'first_name', 'last_name', 'email', 'password',
         ]);
     }
@@ -59,7 +60,7 @@ class UsersTest extends TestCase
                 ],
             );
 
-        $response->assertStatus(400)->assertJsonStructure([ 'email', ]);
+        $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertJsonStructure([ 'email', ]);
     }
 
     public function testLoginUser()
@@ -72,7 +73,7 @@ class UsersTest extends TestCase
                 ['email' => $user->email, 'password' => 'secret',],
             );
 
-        $response->assertStatus(200)->assertJsonStructure([
+        $response->assertStatus(Response::HTTP_OK)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
         ]);
     }
@@ -84,7 +85,7 @@ class UsersTest extends TestCase
         $response = $this->withHeaders($this->headers)
             ->postJson('/api/user/');
 
-        $response->assertStatus(400)->assertJsonStructure([ 'email', 'password', ]);
+        $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertJsonStructure([ 'email', 'password', ]);
     }
 
     public function testLoginUserInvalidCombination()
@@ -96,7 +97,7 @@ class UsersTest extends TestCase
                 ['email' => $user->email, 'password' => 'invalid_password',],
             );
 
-        $response->assertStatus(400)->assertJsonStructure([ 'error', ]);
+        $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertJsonStructure([ 'error', ]);
     }
 
     public function testAuthorizeUser()
@@ -114,7 +115,7 @@ class UsersTest extends TestCase
             ['Authorization' => 'Bearer '.$loginResponse->json()['data']['token']],
         ))->getJson('/api/user/authorize');
 
-        $authResponse->assertStatus(200)->assertJsonStructure([
+        $authResponse->assertStatus(Response::HTTP_OK)->assertJsonStructure([
             'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
         ]);
     }
@@ -126,6 +127,6 @@ class UsersTest extends TestCase
             ['Authorization' => 'Bearer 1'],
         ))->getJson('/api/user/authorize');
 
-        $response->assertStatus(401)->assertJson(['message' => 'Unauthenticated.'], true);
+        $response->assertStatus(Response::HTTP_UNAUTHORIZED)->assertJson(['message' => 'Unauthenticated.'], true);
     }
 }

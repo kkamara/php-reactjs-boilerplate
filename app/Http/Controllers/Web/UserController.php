@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Response;
 use App\Models\User;
 
 class UserController extends Controller
@@ -29,10 +30,10 @@ class UserController extends Controller
         );
     
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
         }
         if (null !== User::where($request->only('email'))->first()) {
-            return response()->json(['email' => 'User with that email already exists'], 400);
+            return response()->json(['email' => 'User with that email already exists'], Response::HTTP_BAD_REQUEST);
         }
 
         $user = new User(array_merge(
@@ -45,7 +46,7 @@ class UserController extends Controller
         return response()->json(['data' => array_merge(
             $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
             compact('token')),
-        ], 201);
+        ], Response::HTTP_CREATED);
     }
 
     function login(Request $request) {
@@ -54,12 +55,12 @@ class UserController extends Controller
             ['email' => 'required|email', 'password' => 'required',],
         );
         if($validation->fails()) {
-            return response()->json($validation->errors(), 400);
+            return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
         }
         if (!Auth::attempt($request->only(['email', 'password']))) {
             return response()->json([
                 'Invalid email and password combination',
-            ], 400);
+            ], Response::HTTP_BAD_REQUEST);
         }
         $user = User::where($request->only('email'))->firstOrFail();
         $token = $user->createToken('token')->plainTextToken;
