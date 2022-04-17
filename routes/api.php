@@ -18,5 +18,6 @@ use App\Http\Controllers\Api\UserController;
 Route::prefix('/user')->group(function () {
     Route::post('/register', [UserController::class,'register']);
     Route::post('/', [UserController::class,'login'])->name('login');
+    Route::delete('/logout', [UserController::class,'logout']);
     Route::get('/authorize', [UserController::class,'authorizeUser']);
 });

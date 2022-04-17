@@ -12,7 +12,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth:sanctum')->only('authorizeUser');
+        $this->middleware('auth:sanctum')->only(['authorizeUser', 'logout']);
     }
 
     public function register(Request $request) {
@@ -77,5 +77,10 @@ class UserController extends Controller
             $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
             compact('token')),
         ];
+    }
+
+    function logout(Request $request) {
+        $request->user()->currentAccessToken()->delete();
+        return ['message' => 'Success'];
     }
 }
