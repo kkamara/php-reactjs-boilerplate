@@ -1,8 +1,8 @@
 # Laravel React Boilerplate
 
 ## Installation
-* [https://laravel.com/docs/master/installation](https://laravel.com/docs/master/installation)
-* [https://laravel.com/docs/master/mix](https://laravel.com/docs/master/mix)
+* [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
+* [https://laravel.com/docs/9.x/mix#main-content](https://laravel.com/docs/9.x/mix#main-content)
 
 ```bash
 cp .env.example .env
