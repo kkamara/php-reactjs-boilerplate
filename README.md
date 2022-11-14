@@ -79,7 +79,7 @@ The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://l
 
 [See amazon scraper.](https://github.com/kkamara/amazon-scraper)
 
-[See python amazon scraper.](https://github.com/kkamara/selenium-py)
+[See python amazon scraper 2.](https://github.com/kkamara/selenium-py)
 
 [See wordpress with docker support.](https://github.com/kkamara/wordpress)
 
