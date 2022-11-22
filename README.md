@@ -93,6 +93,10 @@ The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://l
 
 [See ecommerce web.](https://github.com/kkamara/ecommerce-web)
 
+[See city maps mobile.](https://github.com/kkamara/city-maps-mobile)
+
+[See ecommerce mobile.](https://github.com/kkamara/ecommerce-mobile)
+
 [See crm.](https://github.com/kkamara/crm)
 
 [See birthday currency.](https://github.com/kkamara/birthday-currency)
