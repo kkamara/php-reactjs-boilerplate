@@ -10,9 +10,9 @@ Boilerplate with redux.
 
 * [Redis Queue](#redis-queue)
 
-* [Unit Testing](#unit-testing)
+* [Unit Tests](#unit-tests)
 
-* [Browser Testing](#browser-testing)
+* [Browser Tests](#browser-tests)
 
 * [Mail server](#mail-server)
 
@@ -61,16 +61,15 @@ sail artisan queue:listen redis --queue stuff
 [2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processed:  App\Jobs\TestJob
 ```
 
-## Unit Testing
+## Unit Tests
 
 ```bash
-alias sail='vendor/bin/sail'
-sail artisan test --filter api
+php artisan test --filter api
 ```
 
 View the unit test code [here](https://raw.githubusercontent.com/kkamara/laravel-react-boilerplate/develop/tests/Unit/Api/UsersTest.php).
 
-## Browser Testing
+## Browser Tests
 
 ```bash
 alias sail='vendor/bin/sail'
