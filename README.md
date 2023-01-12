@@ -35,6 +35,11 @@ make dev && make backend-migrate
 
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
 * [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
+
+```bash
+php artisan serve
+```
+
 ## Api Documentation
 
 ```bash
