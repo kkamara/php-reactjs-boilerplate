@@ -4,8 +4,7 @@ axios.defaults.withCredentials = true
 
 export default class HttpService
 {
-    // _domain = 'http://localhost:80'
-    _domain = "http://lrb-app.herokuapp.com"
+    _domain = 'http://localhost:8000'
     _url = `${this._domain}/web`
 
     get domain() {

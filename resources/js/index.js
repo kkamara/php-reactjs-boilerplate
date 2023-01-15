@@ -10,7 +10,7 @@ import './index.css'
 import favicon from './favicon.png'
 
 import $ from'jquery'
-import Popper from'popper.js'
+import Popper from'@popperjs/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 
