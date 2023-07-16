@@ -31,10 +31,29 @@ Boilerplate with redux.
 * [https://laravel.com/docs/9.x/mix#main-content](https://laravel.com/docs/9.x/mix#main-content)
 
 ```bash
+# Create our environment file.
 cp .env.example .env
-composer i
-make dev && make backend-migrate
 ```
+
+Add our Sqlite database location in `.env`.
+
+```
+# DB_DATABASE=/Users/kel/workspace/php-react-boilerplate/database/database.sqlite
+DB_DATABASE="$SQLITE_PATH"
+```
+
+```bash
+# Install our app dependencies.
+composer i
+# Using Docker?
+make dev && make backend-migrate
+# Not using Docker?
+php artisan key:generate
+php artisan migrate --seed
+npm install # And npm i
+npm run dev # And yarn dev
+```
+
 ## Usage
 
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
