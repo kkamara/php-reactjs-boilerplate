@@ -50,6 +50,8 @@ jobs:
           # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+      - name: Remove composer lock file
+        run: rm composer.lock
       - name: Install Composer dependencies
         run: composer install -q --no-progress --prefer-dist --optimize-autoloader
       - name: Setup Env Variables
