@@ -22,7 +22,7 @@ class Product extends Model
      *
      * @property Array
      */
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime',];
 
     /**
      * Query products using request params.

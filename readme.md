@@ -27,8 +27,8 @@ Boilerplate with redux.
 * [License](#license)
 
 ## Installation
-* [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
-* [https://laravel.com/docs/9.x/mix#main-content](https://laravel.com/docs/9.x/mix#main-content)
+* [https://laravel.com/docs/10.x/installation](https://laravel.com/docs/10.x/installation)
+* [https://laravel.com/docs/10.x/mix#main-content](https://laravel.com/docs/10.x/mix#main-content)
 
 ```bash
 # Create our environment file.
@@ -57,7 +57,7 @@ npm run dev # And yarn dev
 ## Usage
 
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
-* [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
+* [https://laravel.com/docs/10.x/sail#main-content](https://laravel.com/docs/10.x/sail#main-content)
 
 ```bash
 php artisan serve
