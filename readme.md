@@ -116,7 +116,7 @@ The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://l
 
 ## Misc
 
-[See todo app.](https://github.com/kkamara/todo-app)
+[See food nutrition facts search web app.](food-nutrition-facts-search-web-app)
 
 [See ecommerce web.](https://github.com/kkamara/ecommerce-web)
 
