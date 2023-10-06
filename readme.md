@@ -38,7 +38,7 @@ cp .env.example .env
 Add our Sqlite database location in `.env`.
 
 ```
-# DB_DATABASE=/Users/kel/workspace/php-react-boilerplate/database/database.sqlite
+# DB_DATABASE=/Users/kel/workspace/php-reactjs-boilerplate/database/database.sqlite
 DB_DATABASE="$SQLITE_PATH"
 ```
 
