@@ -1,7 +1,7 @@
 {
     "name": "kkamara/php-reactjs-boilerplate",
     "type": "project",
-    "description": "(2021) Boilerplate with redux.",
+    "description": "(2021) A GDPR compliant Laravel 9.x boilerplate with redux.",
     "keywords": [],
     "license": "BSD",
     "require": {

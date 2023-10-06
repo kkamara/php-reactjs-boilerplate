@@ -4,7 +4,7 @@
 
 # PhP Reactjs Boilerplate [![API](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml)
 
-(2021) Boilerplate with redux.
+(2021) A GDPR compliant Laravel 9.x boilerplate with redux.
 
 * [Installation](#installation)
 
