@@ -2,7 +2,7 @@
 
 ![lrb.png](https://github.com/kkamara/useful/raw/main/lrb.png)
 
-# PhP React Boilerplate [![API](https://github.com/kkamara/laravel-react-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/laravel-react-boilerplate/actions/workflows/build.yml)
+# PhP Reactjs Boilerplate [![API](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml)
 
 (2021) Boilerplate with redux.
 
@@ -95,7 +95,7 @@ sail artisan queue:listen redis --queue stuff
 php artisan test --filter api
 ```
 
-View the unit test code [here](https://raw.githubusercontent.com/kkamara/laravel-react-boilerplate/develop/tests/Unit/Api/UsersTest.php).
+View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/develop/tests/Unit/Api/UsersTest.php).
 
 ## Browser Tests
 
@@ -110,7 +110,7 @@ You can test the `/mail` endpoint to send a test mail you can then view at `:802
 
 ![docker-mailhog3.png](https://raw.githubusercontent.com/kkamara/useful/main/docker-mailhog3.png)
 
-Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/laravel-react-boilerplate/develop/.env.example).
+Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/develop/.env.example).
 
 The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://localhost:8025`.
 
