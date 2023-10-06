@@ -1,8 +1,8 @@
 {
-    "name": "kkamara/laravel-react-boilerplate",
+    "name": "kkamara/php-react-boilerplate",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "(2021) Boilerplate with redux.",
+    "keywords": [],
     "license": "BSD",
     "require": {
         "php": "^8.0",
