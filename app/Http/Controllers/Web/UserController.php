@@ -86,9 +86,9 @@ class UserController extends Controller
     }
 
     public function getUsers(Request $request) {
-        return [
-            'data' => User::paginate(7)
-                ->appends($request->query())
-        ];
+        $data = User::paginate(7)
+            ->appends($request->query());
+        
+        return compact("data");
     }
 }
