@@ -13,7 +13,8 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth:sanctum')->only(['authorizeUser', 'logout', 'getUsers',]);
+        $this->middleware('auth:sanctum')
+            ->only(['authorizeUser', 'logout', 'getUsers',]);
     }
 
     public function register(Request $request) {
