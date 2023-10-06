@@ -4,7 +4,7 @@
 
 # PhP React Boilerplate [![API](https://github.com/kkamara/laravel-react-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/laravel-react-boilerplate/actions/workflows/build.yml)
 
-Boilerplate with redux.
+(2021) Boilerplate with redux.
 
 * [Installation](#installation)
 
