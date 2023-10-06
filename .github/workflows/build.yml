@@ -1,9 +1,9 @@
-name: API
+name: Tests Pipeline
 on: [push, pull_request]
 jobs:
   laravel:
-    name: pipeline (PHP ${{ matrix.php-versions }})
-    runs-on: ubuntu-latest
+    name: Tests Pipeline (PHP ${{ matrix.php-versions }})
+    runs-on: macos-latest
     services:
       mysql:
         image: mysql:5.7
@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.0']
+        php-versions: ['8.2']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
