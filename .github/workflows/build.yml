@@ -55,7 +55,7 @@ jobs:
       - name: Setup Env Variables
         run: |
             cp .env.staging .env
-            sed -i "s/APP_URL=http:\/\/localhost/APP_URL=http:\/\/127.0.0.1:8000/g" .env
+            sed -i "s/APP_URL=http:\/\/localhost/APP_URL=http:\/\/127.0.0.1:3000/g" .env
             sed -i "s/3306/${{ job.services.mysql.ports['3306'] }}/g" .env
             sed -i "s/mysql\//127.0.0.1\//g" .env
             sed -i "s/@redis/@localhost/g" .env
@@ -70,7 +70,7 @@ jobs:
       - name: Storage Link
         run: php artisan storage:link
       - name: Run Laravel Server
-        run: php artisan serve --no-reload &
+        run: php artisan serve --port=3000 --no-reload &
       - name: curl to localhost
         run: curl localhost:3000 &
       - name: Run Unit Tests
