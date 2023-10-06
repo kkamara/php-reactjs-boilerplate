@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
 use App\Models\User;
+use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
@@ -42,11 +44,10 @@ class UserController extends Controller
             ['password' => Hash::make($request->input('password'))]
         ));
         $user->save();
-        $token = $user->createToken('token')->plainTextToken;
+        $user->token = $user->createToken('token')->plainTextToken;
      
-        return response()->json(['data' => array_merge(
-            $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
-            compact('token')),
+        return response()->json([
+            'data' => new UserResource($user),
         ], Response::HTTP_CREATED);
     }
 
@@ -64,21 +65,19 @@ class UserController extends Controller
             ], Response::HTTP_BAD_REQUEST);
         }
         $user = User::where($request->only('email'))->firstOrFail();
-        $token = $user->createToken('token')->plainTextToken;
-        return ['data' => array_merge(
-            $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
-            compact('token')),
-        ];
+        $user->token = $user->createToken('token')->plainTextToken;
+        return response()->json([
+            'data' => new UserResource($user),
+        ], Response::HTTP_OK);
     }
 
     function authorizeUser(Request $request) {
         $user = User::where('email', $request->user()->email)->firstOrFail();
-        $token = $user->createToken('token')->plainTextToken;
+        $user->token = $user->createToken('token')->plainTextToken;
 
-        return ['data' => array_merge(
-            $user->only(['first_name', 'last_name', 'email', 'created_at', 'updated_at',]), 
-            compact('token')),
-        ];
+        return response()->json([
+            'data' => new UserResource($user),
+        ], Response::HTTP_ACCEPTED);
     }
 
     function logout(Request $request) {
@@ -87,7 +86,9 @@ class UserController extends Controller
     }
 
     public function getUsers(Request $request) {
-        return ['data' => 
-            User::paginate(7)->appends($request->query())];
+        return [
+            'data' => User::paginate(7)
+                ->appends($request->query())
+        ];
     }
 }
