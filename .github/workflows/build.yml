@@ -72,6 +72,6 @@ jobs:
       - name: Run Laravel Server
         run: php artisan serve --no-reload &
       - name: curl to localhost
-        run: curl localhost:8000 &
+        run: curl localhost:3000 &
       - name: Run Unit Tests
         run: php artisan test

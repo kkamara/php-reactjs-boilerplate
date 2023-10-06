@@ -60,7 +60,7 @@ npm run dev # And yarn dev
 * [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
 
 ```bash
-php artisan serve
+php artisan serve --port=3000
 ```
 
 ## Api Documentation
