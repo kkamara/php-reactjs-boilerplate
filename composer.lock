@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e90f1612472e03915edb077cdb5a5808",
+    "content-hash": "6c9f1f0243175c67b97c2e42d65ad716",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3759,6 +3759,62 @@
                 }
             ],
             "time": "2023-04-15T23:01:58+00:00"
+        },
+        {
+            "name": "soved/laravel-gdpr",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sander3/laravel-gdpr.git",
+                "reference": "5ef0dfac62b9d5a1cacd7f1fc96028af66c38bf7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sander3/laravel-gdpr/zipball/5ef0dfac62b9d5a1cacd7f1fc96028af66c38bf7",
+                "reference": "5ef0dfac62b9d5a1cacd7f1fc96028af66c38bf7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5|~6.0|~7.0|~8.0|^9.0|^10.0",
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Soved\\Laravel\\Gdpr\\GdprServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Soved\\Laravel\\Gdpr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sander de Vos",
+                    "email": "sander@tutanota.de"
+                }
+            ],
+            "description": "GDPR compliance with ease",
+            "keywords": [
+                "data-portability",
+                "data-retention",
+                "encryption",
+                "gdpr",
+                "laravel",
+                "soved"
+            ],
+            "support": {
+                "issues": "https://github.com/sander3/laravel-gdpr/issues",
+                "source": "https://github.com/sander3/laravel-gdpr/tree/v1.7.0"
+            },
+            "time": "2023-02-03T09:45:27+00:00"
         },
         {
             "name": "symfony/console",
