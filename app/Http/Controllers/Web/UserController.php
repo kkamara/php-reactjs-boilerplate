@@ -86,7 +86,8 @@ class UserController extends Controller
         return ['message' => 'Success'];
     }
 
-    public function getUsers() {
-        return ['data' => User::paginate(7)];
+    public function getUsers(Request $request) {
+        return ['data' => 
+            User::paginate(7)->appends($request->query())];
     }
 }
