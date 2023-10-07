@@ -8,7 +8,7 @@ import { getUsers, } from '../../../redux/actions/usersActions'
 
 import "./LoginComponent.css";
 
-export default function HomeComponent() {
+export default function LoginComponent() {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("jane@doe.com");
