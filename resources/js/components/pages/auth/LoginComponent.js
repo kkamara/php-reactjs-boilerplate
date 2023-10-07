@@ -11,7 +11,7 @@ import "./LoginComponent.css";
 export default function HomeComponent() {
   const navigate = useNavigate()
 
-  const [email, setEmail] = useState("admin@example.com");
+  const [email, setEmail] = useState("jane@doe.com");
   const [password, setPassword] = useState("secret");
 
   const dispatch = useDispatch()
