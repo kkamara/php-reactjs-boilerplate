@@ -85,6 +85,12 @@ export default function HomeComponent() {
                             onChange={onPasswordChange}
                         />
                     </div>
+                    <a 
+                        href="/user/register" 
+                        className="btn btn-primary"
+                    >
+                        Register
+                    </a>
                     <input 
                         type="submit" 
                         className="btn btn-success" 
