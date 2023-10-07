@@ -10,24 +10,22 @@ export default function Header(props) {
 
   const logOut = () => {
     // dispatch(LogoutAction())
-    navigate("/login")
+    navigate("/user/login")
   }
 
   const login = () => {
-    navigate("/login")
+    navigate("/user/login")
   }
 
   const token = localStorage.getItem('user-token')
-  //console.log(token)
-
-  // useEffect(() => {
-  //   if(authResponse !== "" && authResponse.success === true){
-  //       alert(authResponse.message)
-  //       localStorage.removeItem('user-token')
-  //       //history.push("/user/login")    
-  //   } 
-  //   return () => {}
-  // }, [authResponse])
+  
+  useEffect(() => {
+    if(token === null){
+        localStorage.removeItem('user-token')
+        navigate("/user/login")    
+    } 
+    return () => {}
+  }, [authResponse])
 
   return null
 }

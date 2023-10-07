@@ -16,6 +16,7 @@ export default function authReducer (state = initState, action) {
         ...state,
         error: action.payload,
         loading: false,
+        data: null
       }
     
     case auth.AUTH_LOGIN_PENDING:

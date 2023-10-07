@@ -31,6 +31,23 @@ export const LoginUserService = (credentials) => {
     })
 }
 
+export const AuthorizeUserService = () => {
+    const http = new HttpService()
+    const tokenId = "user-token"
+    
+    return new Promise((resolve, reject) => {
+        http.getData(http.domain+'/sanctum/csrf-cookie').then( 
+            // 419 when without csrf wrapper
+            () => http.getData('user/authorize', tokenId)
+                .then(data => {
+                    localStorage.setItem(tokenId, data.data.data.token)
+                    return resolve(data.data.data)
+                })
+                .catch(err => reject(err))
+        ).catch(err => reject(err))
+    })
+}
+
 export const LogOutUserService = () => {
     const http = new HttpService()
     const tokenId = "user-token"
