@@ -32,7 +32,7 @@
 
 [Thunder client](https://www.thunderclient.com/) Visual Studio Code extension.
 
-[thunder-collection_Laravel 10 API 3.json](https://github.com/kkamara/laravel-10-api-3/blob/main/database/thunder-collection_Laravel%2010%20API%203.json)
+[thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/develop/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
 
 ## Installation
 * [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
