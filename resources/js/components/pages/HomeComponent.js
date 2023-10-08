@@ -6,6 +6,8 @@ import moment from 'moment'
 import { login, } from '../../redux/actions/authActions'
 import { getUsers, } from '../../redux/actions/usersActions'
 
+import "./HomeComponent.css"
+
 export default function HomeComponent() {
   const navigate = useNavigate()
 
@@ -41,7 +43,7 @@ export default function HomeComponent() {
       <>
         <ul className="list-group">
           {state.users.data.data.map((user, index) => (
-            <li key={index} className='list-group-item'>
+            <li key={index} className='list-group-item home-item'>
               <strong>name</strong> ({user.first_name} {user.last_name}), 
               <strong>email</strong> ({user.email}),
               <strong>created_at</strong> ({parseDate(user.created_at)}),
