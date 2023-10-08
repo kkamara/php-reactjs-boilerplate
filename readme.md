@@ -6,6 +6,8 @@
 
 (2021) A GDPR compliant Laravel 9.x boilerplate with redux.
 
+* [Using Thunder Client?](#using-thunder-client)
+
 * [Installation](#installation)
 
 * [Usage](#usage)
@@ -25,6 +27,12 @@
 * [Contributing](#contributing)
 
 * [License](#license)
+
+## Using Thunder Client?
+
+[Thunder client](https://www.thunderclient.com/) Visual Studio Code extension.
+
+[thunder-collection_Laravel 10 API 3.json](https://github.com/kkamara/laravel-10-api-3/blob/main/database/thunder-collection_Laravel%2010%20API%203.json)
 
 ## Installation
 * [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
