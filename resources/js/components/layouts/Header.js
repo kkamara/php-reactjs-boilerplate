@@ -46,12 +46,21 @@ export default function Header(props) {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a 
-                  className="dropdown-item" 
-                  href="#"
-                >
-                  Logout
-                </a>
+                {token ?
+                  <a 
+                    className="dropdown-item" 
+                    href="/user/logout"
+                  >
+                    Logout
+                  </a> : 
+                  <>
+                    <a 
+                      className="dropdown-item" 
+                      href="/user/login"
+                    >
+                      Login
+                    </a>
+                  </>}
               </li>              
             </ul>
           </li>
