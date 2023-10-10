@@ -17,12 +17,10 @@ export default function Header(props) {
     navigate("/user/login")
   }
 
-  const token = localStorage.getItem('user-token')
-  
   useEffect(() => {
-    if(token === null){
-        localStorage.removeItem('user-token')
-        navigate("/user/login")    
+    if(authResponse.data === null){
+      localStorage.removeItem('user-token')
+      navigate("/user/login")    
     } 
     return () => {}
   }, [authResponse])
