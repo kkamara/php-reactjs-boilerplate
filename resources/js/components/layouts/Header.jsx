@@ -18,7 +18,7 @@ export default function Header(props) {
   }
 
   useEffect(() => {
-    if(authResponse.data === null){
+    if(localStorage.getItem('user-token') === null){
       localStorage.removeItem('user-token')
       navigate("/user/login")    
     } 
