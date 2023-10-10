@@ -4,8 +4,6 @@ use Illuminate\Support\Str;
 
 return [
 
-    'serialization' => 'php',
-
     /*
     |--------------------------------------------------------------------------
     | Default Session Driver
@@ -74,7 +72,7 @@ return [
     |
     */
 
-    'connection' => env('SESSION_CONNECTION', null),
+    'connection' => env('SESSION_CONNECTION'),
 
     /*
     |--------------------------------------------------------------------------
@@ -102,7 +100,7 @@ return [
     |
     */
 
-    'store' => env('SESSION_STORE', null),
+    'store' => env('SESSION_STORE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -157,7 +155,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => env('SESSION_DOMAIN'),
 
     /*
     |--------------------------------------------------------------------------

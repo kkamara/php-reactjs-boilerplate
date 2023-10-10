@@ -1,42 +1,29 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
-use App\Mail\Test as TestMail;
-use Illuminate\Support\Facades\Mail;
-use App\Jobs\TestJob;
-use App\Http\Controllers\Web\UserController;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-Route::prefix('web')->group(function() {
-    // Add single page app api routes
-    Route::prefix('/user')->group(function () {
-        Route::post('/register', [UserController::class,'register']);
-        Route::post('/', [UserController::class,'login']);
-        Route::delete('/logout', [UserController::class,'logout']);
-        Route::get('/authorize', [UserController::class,'authorizeUser']);
-    });
-    Route::get('/users', [UserController::class,'getUsers']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/job', function() {
-    Log::debug('here');
-    TestJob::dispatch()
-        ->onConnection('redis')
-        ->onQueue('stuff');
-    return response('Success');
-});
-
-Route::get('/email', function () {
-    Log::debug('test');
-    
-    $email = new TestMail();
-    Mail::to('recipient@localhost')->send($email);
-    return $email;
-});
+require __DIR__.'/auth.php';
 
 Route::view('/{path?}', 'layouts.app')->where('path', '.*');
-
-Route::fallback(function() {
-    return abort(404);
-});

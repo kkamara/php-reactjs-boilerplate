@@ -2,64 +2,39 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Soved\Laravel\Gdpr\Portable;
 use Soved\Laravel\Gdpr\Contracts\Portable as PortableContract;
+use Soved\Laravel\Gdpr\EncryptsAttributes;
+use Soved\Laravel\Gdpr\Retentionable;
 
 class User extends Authenticatable implements PortableContract
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
-    use Portable;
+    use HasApiTokens, HasFactory, Notifiable, Portable; 
+    use EncryptsAttributes, Retentionable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @property Array
-     */
-    protected $fillable = [
-        'slug',
-        'first_name',
-        'last_name',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @property Array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @property Array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * The attributes that shouldn't be overwritten.
-     *
-     * @property Array
-     */
-    protected $guarded = [];
-
-    /**
-     * The attributes that should be hidden for the downloadable data.
+     * The attributes that should be visible in the downloadable data.
      *
      * @var array
      */
-    protected $gdprHidden = ['password'];
+    protected $gdprVisible = [
+        'first_name', 
+        'last_name', 
+        'email',
+        'created_at',
+    ];
+    
+    /**
+     * The attributes that should be encrypted and decrypted on the fly.
+     *
+     * @var array
+     */
+    protected $encrypted = [];
 
     /**
      * The relations to include in the downloadable data.
@@ -69,16 +44,34 @@ class User extends Authenticatable implements PortableContract
     protected $gdprWith = [];
 
     /**
-     * Get the GDPR compliant data portability array for the model.
+     * The attributes that are mass assignable.
      *
-     * @return array
+     * @var array<int, string>
      */
-    public function toPortableArray()
-    {
-        $array = $this->toArray();
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+    ];
 
-        // Customize array...
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
-        return $array;
-    }
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 }

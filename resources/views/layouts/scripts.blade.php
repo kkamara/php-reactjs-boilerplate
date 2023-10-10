@@ -1,3 +1,0 @@
-
-{{-- <script src="/js/jquery.min.js"></script> --}}
-<script src="/js/app.js" defer></script>
