@@ -56,9 +56,9 @@ jobs:
         run: composer install -q --no-progress --prefer-dist --optimize-autoloader
       - name: Prepare Environment
         run: |
-            sed -i "s/3306/${{ job.services.mysql.ports['3306'] }}/g" .env.testing
-            sed -i "s/DB_PASSWORD=/DB_PASSWORD=secret/g" .env.testing
             cp .env.staging .env
+            sed -i "s/3306/${{ job.services.mysql.ports['3306'] }}/g" .env
+            sed -i "s/DB_PASSWORD=/DB_PASSWORD=secret/g" .env
       - name: Clear config cache
         run: php artisan config:clear
       - name: Generate key
