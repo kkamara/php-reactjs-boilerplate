@@ -13,15 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $email = 'admin@example.com';
-        if (
-            null !== User::where(
-                'email', $email
-            )->first()
-        ) {
-            return;
-        }
-        User::factory()->count(1)
-            ->create(compact('email'));
+        User::factory()->create([ 
+            'first_name' => 'Jane',
+            'last_name' => 'Doe',
+            'email' => 'jane@doe.com',
+        ]);
+        User::factory()->count(30)->create();
     }
 }
