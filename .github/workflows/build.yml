@@ -58,7 +58,7 @@ jobs:
         run: |
             sed -i "s/3306/${{ job.services.mysql.ports['3306'] }}/g" .env.testing
             sed -i "s/DB_PASSWORD=/DB_PASSWORD=secret/g" .env.testing
-            cp .env.testing .env
+            cp .env.staging .env
       - name: Clear config cache
         run: php artisan config:clear
       - name: Generate key
