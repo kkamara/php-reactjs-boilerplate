@@ -1,10 +1,8 @@
 {
-    "name": "kkamara/users-api-laravel-10-php-app-5",
+    "name": "kkamara/php-reactjs-boilerplate",
     "type": "project",
-    "description": "(Test Driven Development) (05-Aug-2023) With Laravel 10 we build a GDPR compliant users API system. I have been working with Laravel since Laravel 5.4 - www.endoflife.date/laravel",
+    "description": "(2021) A GDPR compliant Laravel 10.x boilerplate with redux.",
     "keywords": [
-        "tdd",
-        "test-driven-development",
         "web",
         "web-app",
         "gdpr"
