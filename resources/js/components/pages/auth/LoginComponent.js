@@ -28,12 +28,6 @@ export default function LoginComponent() {
     }
   }, [state.auth,])
 
-  const parseDate = date => moment(date).format('YYYY-MM-DD hh:mm')
-
-  if (!state.auth.loading && typeof state.auth.data === 'object' && null !== state.auth.data) {
-    console.log('authenticated', state.auth.data)
-  }
-
   if (state.auth.loading || state.users.loading) {
     return <p>Loading...</p>
   }

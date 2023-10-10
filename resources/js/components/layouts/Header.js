@@ -46,7 +46,7 @@ export default function Header(props) {
             </a>
             <ul className="dropdown-menu">
               <li>
-                {token ?
+                {authResponse.data !== null ?
                   <a 
                     className="dropdown-item" 
                     href="/user/logout"

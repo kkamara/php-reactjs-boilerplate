@@ -1,5 +1,9 @@
 
-import { LoginUserService, AuthorizeUserService, } from '../../services/AuthServices'
+import { 
+    LoginUserService, 
+    AuthorizeUserService,
+    LogoutUserService,
+} from '../../services/AuthServices'
 import { auth, } from '../types'
 
 export const login = creds => {
@@ -40,6 +44,28 @@ export const authorize = () => {
             dispatch({ 
                 type : auth.AUTH_AUTHORIZE_ERROR, 
                 payload: error,
+            })
+        })
+    }
+}
+
+export const logout = () => {
+    return dispatch => {
+        dispatch({ type: auth.AUTH_LOGOUT_PENDING, })
+
+        LogoutUserService().then(res => {
+            dispatch({
+                type: auth.AUTH_LOGOUT_SUCCESS,
+                payload: res,
+            })
+            
+        }, error => {
+            const message = error.response.data[0] ||
+                error.response.data.email[0] ||
+                error.response.data.password[0];
+            dispatch({ 
+                type : auth.AUTH_LOGOUT_ERROR, 
+                payload: message,
             })
         })
     }
