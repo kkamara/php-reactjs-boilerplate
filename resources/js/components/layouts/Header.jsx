@@ -23,7 +23,10 @@ export default function Header(props) {
     if(token === null){
       localStorage.removeItem('user-token')
       navigate("/user/login")    
-    } 
+    } else {
+      // Re-authenticate.
+      // dispatch(authorize())
+    }
     return () => {}
   }, [authResponse])
 
