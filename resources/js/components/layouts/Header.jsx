@@ -63,6 +63,12 @@ export default function Header(props) {
                     >
                       Login
                     </a>
+                    <a 
+                      className="dropdown-item" 
+                      href="/user/register"
+                    >
+                      Register
+                    </a>
                   </>}
               </li>              
             </ul>

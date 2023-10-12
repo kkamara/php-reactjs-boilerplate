@@ -6,7 +6,7 @@ import moment from 'moment'
 import { login, } from '../../../redux/actions/authActions'
 import { getUsers, } from '../../../redux/actions/usersActions'
 
-import "./LoginComponent.css";
+import "./LoginComponent.scss";
 
 export default function LoginComponent() {
   const navigate = useNavigate()
