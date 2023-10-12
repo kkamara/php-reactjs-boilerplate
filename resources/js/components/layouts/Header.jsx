@@ -18,15 +18,18 @@ export default function Header(props) {
 
   useEffect(() => {
     token = localStorage.getItem('user-token')
-    if(!token){
-      setTokenIsSet(false)      
-      return navigate("/user/login")    
+    if (!token) {
+      setTokenIsSet(false)
     } else {
       setTokenIsSet(true)
       // Re-authenticate.
       // dispatch(authorize())
     }
-    return () => {}
+    if(
+      !tokenIsSet && window.location.pathname !== "/user/register"
+    ){
+      return navigate("/user/login")    
+    }
   }, [authResponse])
 
   const renderNavLinks = () => {
