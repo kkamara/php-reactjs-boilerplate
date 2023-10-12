@@ -1,7 +1,6 @@
-import React, { useEffect, useState, } from 'react'
+import React, { useEffect, } from 'react'
 import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-import moment from 'moment'
 import { logout, } from '../../../redux/actions/authActions'
 
 export default function LogoutComponent() {
@@ -17,9 +16,9 @@ export default function LogoutComponent() {
   useEffect(() => {
     token = localStorage.getItem("user-token")
     if (token === null) {
-        return navigate("/user/login")
+      return navigate("/user/login")
     } else {
-        dispatch(logout())
+      dispatch(logout())
     }
   }, [authState,])
 

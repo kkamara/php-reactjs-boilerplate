@@ -27,7 +27,7 @@ export default function LoginComponent() {
   useEffect(() => {
     token = localStorage.getItem("user-token")
     if (token !== null) {
-        return navigate("/")
+      return navigate("/")
     }
   }, [state.auth,])
 
@@ -35,66 +35,66 @@ export default function LoginComponent() {
     return <p>Loading...</p>
   }
 
-    const onFormSubmit = (e) => {
-        e.preventDefault();
+  const onFormSubmit = (e) => {
+    e.preventDefault();
 
-        dispatch(login({ email, password, }));
+    dispatch(login({ email, password, }));
 
-        setEmail("");
-        setPassword("");
-    };
+    setEmail("");
+    setPassword("");
+  };
 
-    const onEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
+  const onEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-    const onPasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+  const onPasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   return (
     <>
-        <div className='container login-container'>
-            <div className="col-md-4 offset-md-4">
-                <h3 className="lead">Login</h3>
-                <form method="post" onSubmit={onFormSubmit}>
-                    {state.auth.error ?
-                        <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                            {state.auth.error}
-                            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div> : null}
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input 
-                            name="email" 
-                            className="form-control"
-                            value={email}
-                            onChange={onEmailChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input 
-                            type="password"
-                            name="password" 
-                            className="form-control"
-                            value={password}
-                            onChange={onPasswordChange}
-                        />
-                    </div>
-                    <a 
-                        href="/user/register" 
-                        className="btn btn-primary"
-                    >
-                        Register
-                    </a>
-                    <input 
-                        type="submit" 
-                        className="btn btn-success" 
-                    />
-                </form>
+      <div className='container login-container'>
+        <div className="col-md-4 offset-md-4">
+          <h3 className="lead">Login</h3>
+          <form method="post" onSubmit={onFormSubmit}>
+            {state.auth.error ?
+              <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                {state.auth.error}
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> : null}
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input 
+                name="email" 
+                className="form-control"
+                value={email}
+                onChange={onEmailChange}
+              />
             </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input 
+                type="password"
+                name="password" 
+                className="form-control"
+                value={password}
+                onChange={onPasswordChange}
+              />
+            </div>
+            <a 
+              href="/user/register" 
+              className="btn btn-primary"
+            >
+              Register
+            </a>
+            <input 
+              type="submit" 
+              className="btn btn-success" 
+            />
+          </form>
         </div>
+      </div>
     </>       
   )
 }

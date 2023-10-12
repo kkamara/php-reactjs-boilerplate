@@ -4,11 +4,11 @@ import Routes from "./Routes"
 
 function App() {
   return (
-   <BrowserRouter>
+    <BrowserRouter>
       <div className="App">
         <Routes/>
       </div>
-   </BrowserRouter>
+    </BrowserRouter>
   )
 }
 

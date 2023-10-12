@@ -10,11 +10,11 @@ let store
 
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   store = createStore(
-      RootReducer,
-      compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
-      ),
+    RootReducer,
+    compose(
+      applyMiddleware(thunk),
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
+    ),
   )
 } else {
   store = createStore(

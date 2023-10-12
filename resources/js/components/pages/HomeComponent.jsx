@@ -18,10 +18,6 @@ export default function HomeComponent() {
   }))
 
   useEffect(() => {
-    // dispatch(login({email: 'jane@doe.com', password: 'secret',}))
-  }, [])
-
-  useEffect(() => {
     dispatch(getUsers())
   }, [state.auth,])
 
