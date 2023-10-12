@@ -6,13 +6,13 @@ import moment from 'moment'
 import { login, } from '../../../redux/actions/authActions'
 import { getUsers, } from '../../../redux/actions/usersActions'
 
-import "./LoginComponent.scss";
+import "./LoginComponent.scss"
 
 export default function LoginComponent() {
   const navigate = useNavigate()
 
-  const [email, setEmail] = useState("jane@doe.com");
-  const [password, setPassword] = useState("secret");
+  const [email, setEmail] = useState("jane@doe.com")
+  const [password, setPassword] = useState("secret")
 
   const dispatch = useDispatch()
   const state = useSelector(state => ({
@@ -36,21 +36,21 @@ export default function LoginComponent() {
   }
 
   const onFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    dispatch(login({ email, password, }));
+    dispatch(login({ email, password, }))
 
-    setEmail("");
-    setPassword("");
-  };
+    setEmail("")
+    setPassword("")
+  }
 
   const onEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+    setEmail(e.target.value)
+  }
 
   const onPasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   return (
     <>

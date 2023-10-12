@@ -3,7 +3,7 @@ import { useDispatch, useSelector, } from 'react-redux'
 import { useNavigate, } from 'react-router-dom' 
 
 export default function Header(props) {
-  const [tokenIsSet, setTokenIsSet] = useState(false);
+  const [tokenIsSet, setTokenIsSet] = useState(false)
 
   const navigate = useNavigate()
   

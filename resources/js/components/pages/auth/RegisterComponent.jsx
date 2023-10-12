@@ -3,23 +3,23 @@ import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
 import { register, } from '../../../redux/actions/authActions'
 
-import "./RegisterComponent.scss";
+import "./RegisterComponent.scss"
 
 export default function RegisterComponent() {
   const navigate = useNavigate()
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
   const dispatch = useDispatch()
   const authState = useSelector(state => (state.auth))
 
   useEffect(() => {
     if (localStorage.getItem("user-token")) {
-      return navigate("/");
+      return navigate("/")
     }
   }, [authState,])
 
@@ -28,7 +28,7 @@ export default function RegisterComponent() {
   }
 
   const onFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     dispatch(register({
       password_confirmation: passwordConfirmation,
@@ -36,34 +36,34 @@ export default function RegisterComponent() {
       last_name: lastName,
       email,
       password
-    }));
+    }))
 
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPassword("");
-    setPasswordConfirmation("");
-  };
+    setFirstName("")
+    setLastName("")
+    setEmail("")
+    setPassword("")
+    setPasswordConfirmation("")
+  }
 
   const onFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
+    setFirstName(e.target.value)
+  }
 
   const onLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
+    setLastName(e.target.value)
+  }
 
   const onEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+    setEmail(e.target.value)
+  }
 
   const onPasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   const onPasswordConfirmationChange = (e) => {
-    setPasswordConfirmation(e.target.value);
-  };
+    setPasswordConfirmation(e.target.value)
+  }
 
   return (
     <>
