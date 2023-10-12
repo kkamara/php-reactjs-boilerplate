@@ -37,6 +37,7 @@ export default function RegisterComponent() {
 
         setEmail("");
         setPassword("");
+        setPasswordConfirmation("");
     };
 
     const onEmailChange = (e) => {
