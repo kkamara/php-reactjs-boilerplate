@@ -1,17 +1,18 @@
-import axios from 'axios'
 import HttpService from './HttpService'
 
-axios.defaults.withCredentials = true
-
-export const RegisterUserService = (credentials) => {
+export const RegisterUserService = (data) => {
     const http = new HttpService()
-    return http.getData('sanctum/csrf-cookie').then(
-        () => http.postData('users/register', credentials)
-            .then((data) => {
-                return data
-            })
-            .catch(err => err)
-    ).catch(err => err)
+    const tokenId = "user-token"
+    return new Promise((resolve, reject) => {
+        http.getData('sanctum/csrf-cookie').then(
+            () => http.postData('user/register', data)
+                .then((response) => {
+                    localStorage.setItem(tokenId, response.data.data.token)
+                    return resolve(response.data.data)
+                })
+                .catch(err => reject(err))
+        ).catch(err => err)
+    })
 }
 
 export const LoginUserService = (credentials) => {
@@ -22,9 +23,9 @@ export const LoginUserService = (credentials) => {
         http.getData(http.domain+'/sanctum/csrf-cookie').then( 
             // 419 when without csrf wrapper
             () => http.postData('user', credentials)
-                .then(data => {
-                    localStorage.setItem(tokenId, data.data.data.token)
-                    return resolve(data.data.data)
+                .then(response => {
+                    localStorage.setItem(tokenId, response.data.data.token)
+                    return resolve(response.data.data)
                 })
                 .catch(err => reject(err))
         ).catch(err => reject(err))
@@ -39,9 +40,9 @@ export const AuthorizeUserService = () => {
         http.getData(http.domain+'/sanctum/csrf-cookie').then( 
             // 419 when without csrf wrapper
             () => http.getData('user/authorize', tokenId)
-                .then(data => {
-                    localStorage.setItem(tokenId, data.data.data.token)
-                    return resolve(data.data.data)
+                .then(response => {
+                    localStorage.setItem(tokenId, response.data.data.token)
+                    return resolve(response.data.data)
                 })
                 .catch(err => reject(err))
         ).catch(err => reject(err))

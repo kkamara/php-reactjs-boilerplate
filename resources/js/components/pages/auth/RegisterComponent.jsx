@@ -1,21 +1,21 @@
 import React, { useEffect, useState, } from 'react'
 import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-// import { register, } from '../../../redux/actions/authActions'
+import { register, } from '../../../redux/actions/authActions'
 
 import "./RegisterComponent.scss";
 
 export default function RegisterComponent() {
   const navigate = useNavigate()
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   const dispatch = useDispatch()
   const authState = useSelector(state => (state.auth))
-
-  useEffect(() => {}, [])
 
   useEffect(() => {
     if (localStorage.getItem("user-token")) {
@@ -30,14 +30,27 @@ export default function RegisterComponent() {
     const onFormSubmit = (e) => {
         e.preventDefault();
 
-        // dispatch(register({
-        //     email,
-        //     password,
-        // }));
+        dispatch(register({
+            password_confirmation: passwordConfirmation,
+            first_name: firstName,
+            last_name: lastName,
+            email,
+            password
+        }));
 
+        setFirstName("");
+        setLastName("");
         setEmail("");
         setPassword("");
         setPasswordConfirmation("");
+    };
+
+    const onFirstNameChange = (e) => {
+        setFirstName(e.target.value);
+    };
+
+    const onLastNameChange = (e) => {
+        setLastName(e.target.value);
     };
 
     const onEmailChange = (e) => {
@@ -63,6 +76,24 @@ export default function RegisterComponent() {
                             {authState.error}
                             <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div> : null}
+                    <div className="form-group">
+                        <label htmlFor="first_name">First Name</label>
+                        <input 
+                            name="first_name" 
+                            className="form-control"
+                            value={firstName}
+                            onChange={onFirstNameChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="last_name">Last Name</label>
+                        <input 
+                            name="last_name" 
+                            className="form-control"
+                            value={lastName}
+                            onChange={onLastNameChange}
+                        />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input 

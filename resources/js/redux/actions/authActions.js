@@ -3,6 +3,7 @@ import {
     LoginUserService, 
     AuthorizeUserService,
     LogoutUserService,
+    RegisterUserService,
 } from '../../services/AuthServices'
 import { auth, } from '../types'
 
@@ -65,6 +66,32 @@ export const logout = () => {
                 error.response.data.password[0];
             dispatch({ 
                 type : auth.AUTH_LOGOUT_ERROR, 
+                payload: message,
+            })
+        })
+    }
+}
+
+export const register = data => {
+    return dispatch => {
+        
+        dispatch({ type: auth.AUTH_REGISTER_PENDING, })
+
+        RegisterUserService(data).then(res => {
+            console.log(res)
+            dispatch({
+                type: auth.AUTH_REGISTER_SUCCESS,
+                payload: res,
+            })
+        }, error => {
+            const message = error.response.data[0] ||
+                error.response.data.first_name[0] ||
+                error.response.data.last_name[0] ||
+                error.response.data.email[0] ||
+                error.response.data.password[0] ||
+                error.response.data.password_confirmation[0];
+            dispatch({ 
+                type : auth.AUTH_REGISTER_ERROR, 
                 payload: message,
             })
         })
