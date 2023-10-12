@@ -51,13 +51,13 @@ export const AuthorizeUserService = () => {
 export const LogoutUserService = () => {
     const http = new HttpService()
     const tokenId = "user-token"
-    if (localStorage.getItem(tokenId) !== null) {
-        localStorage.removeItem(tokenId)
-    }
     return http.getData('sanctum/csrf-cookie').then(
         () => http.getData('users/logout', tokenId)
-            .then((data) => {
-                return data
+            .then((response) => {
+                if (localStorage.getItem(tokenId) !== null) {
+                    localStorage.removeItem(tokenId)
+                }
+                return response
             })
             .catch(err => err)
     ).catch(err => err)
