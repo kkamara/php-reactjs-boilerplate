@@ -22,9 +22,12 @@ export default function LoginComponent() {
 
   useEffect(() => {}, [])
 
+  let token
+
   useEffect(() => {
-    if (state.auth.data !== null) {
-        return navigate("/");
+    token = localStorage.getItem("user-token")
+    if (token !== null) {
+        return navigate("/")
     }
   }, [state.auth,])
 
