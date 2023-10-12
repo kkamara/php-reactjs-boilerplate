@@ -29,6 +29,32 @@ export default function Header(props) {
     return () => {}
   }, [authResponse])
 
+  const renderNavLinks = () => {
+    if(tokenIsSet) {
+      return <a 
+        className="dropdown-item" 
+        href="/user/logout"
+      >
+        Logout
+      </a>
+    } else {
+        return <>
+          <a 
+            className="dropdown-item" 
+            href="/user/login"
+          >
+            Login
+          </a>
+          <a 
+            className="dropdown-item" 
+            href="/user/register"
+          >
+            Register
+          </a>
+        </>
+    }
+  }
+
   return <nav className="container navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
       <a className="navbar-brand" href="/">PHP Reactjs Boilerplate</a>
@@ -47,29 +73,7 @@ export default function Header(props) {
               User
             </a>
             <ul className="dropdown-menu">
-              <li>
-                {tokenIsSet ?
-                  <a 
-                    className="dropdown-item" 
-                    href="/user/logout"
-                  >
-                    Logout
-                  </a> : 
-                  <>
-                    <a 
-                      className="dropdown-item" 
-                      href="/user/login"
-                    >
-                      Login
-                    </a>
-                    <a 
-                      className="dropdown-item" 
-                      href="/user/register"
-                    >
-                      Register
-                    </a>
-                  </>}
-              </li>              
+              <li>{renderNavLinks()}</li>              
             </ul>
           </li>
         </ul>
