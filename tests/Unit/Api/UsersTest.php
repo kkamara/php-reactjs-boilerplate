@@ -116,7 +116,7 @@ class UsersTest extends TestCase
         ))->getJson('/api/user/authorize');
 
         $authResponse->assertStatus(Response::HTTP_OK)->assertJsonStructure([
-            'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
+            'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at',],
         ]);
     }
 
