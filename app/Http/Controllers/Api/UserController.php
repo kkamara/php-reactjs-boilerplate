@@ -71,7 +71,6 @@ class UserController extends Controller
 
     function authorizeUser(Request $request) {
         $user = User::where('email', $request->user()->email)->firstOrFail();
-        $user->token = $user->createToken('token')->plainTextToken;
 
         return [
             'data' => new UserResource($user)
