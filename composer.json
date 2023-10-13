@@ -5,7 +5,11 @@
     "keywords": [
         "web",
         "web-app",
-        "gdpr"
+        "gdpr",
+        "api",
+        "reactjs",
+        "tests",
+        "testing"
     ],
     "license": "MIT",
     "require": {
