@@ -41,7 +41,6 @@ export const AuthorizeUserService = () => {
       // 419 when without csrf wrapper
       () => http.getData('user/authorize', tokenId)
         .then(response => {
-          localStorage.setItem(tokenId, response.data.data.token)
           return resolve(response.data.data)
         })
         .catch(err => reject(err))

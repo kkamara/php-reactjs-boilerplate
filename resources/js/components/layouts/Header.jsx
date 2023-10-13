@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, } from 'react-redux'
 import { useNavigate, } from 'react-router-dom' 
+import { authorize, } from '../../redux/actions/authActions'
 
 export default function Header(props) {
   const [tokenIsSet, setTokenIsSet] = useState(false)
@@ -18,12 +19,18 @@ export default function Header(props) {
 
   useEffect(() => {
     token = localStorage.getItem('user-token')
+    if (token) {
+      // Re-authenticate.
+      dispatch(authorize())
+    }
+  }, [])
+
+  useEffect(() => {
+    token = localStorage.getItem('user-token')
     if (!token) {
       setTokenIsSet(false)
     } else {
       setTokenIsSet(true)
-      // Re-authenticate.
-      // dispatch(authorize())
     }
     if(
       !tokenIsSet && window.location.pathname !== "/user/register"
