@@ -18,6 +18,10 @@ export default function HomeComponent() {
   }))
 
   useEffect(() => {
+    if (state.auth.error) {
+      localStorage.removeItem('user-token')
+      window.location.href = '/user/login'
+    }
     dispatch(getUsers())
   }, [state.auth,])
 

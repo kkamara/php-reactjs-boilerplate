@@ -33,7 +33,10 @@ export default function Header(props) {
       setTokenIsSet(true)
     }
     if(
-      !tokenIsSet && window.location.pathname !== "/user/register"
+      (
+        !tokenIsSet && 
+        window.location.pathname !== "/user/register"
+      )
     ){
       return navigate("/user/login")    
     }
