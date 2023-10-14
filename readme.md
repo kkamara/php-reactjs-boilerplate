@@ -32,7 +32,7 @@
 
 [Thunder client](https://www.thunderclient.com/) Visual Studio Code extension.
 
-[thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/develop/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
+[thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
 
 ## Installation
 * [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
@@ -96,7 +96,7 @@ sail artisan queue:listen redis --queue stuff
 php artisan test --filter api
 ```
 
-View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/develop/tests/Unit/Api/UsersTest.php).
+View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Unit/Api/UsersTest.php).
 
 ## Browser Tests
 
@@ -111,7 +111,7 @@ You can test the `/mail` endpoint to send a test mail you can then view at `:802
 
 ![docker-mailhog3.png](https://raw.githubusercontent.com/kkamara/useful/main/docker-mailhog3.png)
 
-Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/develop/.env.example).
+Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/.env.example).
 
 The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://localhost:8025`.
 
