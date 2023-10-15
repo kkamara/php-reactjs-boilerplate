@@ -14,8 +14,8 @@ use Soved\Laravel\Gdpr\Retentionable;
 
 class User extends Authenticatable implements PortableContract
 {
-    use HasApiTokens, HasFactory, Notifiable, Portable; 
-    use EncryptsAttributes, Retentionable;
+    use HasApiTokens, HasFactory, Notifiable; 
+    use Portable, EncryptsAttributes, Retentionable;
 
     /**
      * The attributes that should be visible in the downloadable data.
