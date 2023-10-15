@@ -11,11 +11,13 @@ use Soved\Laravel\Gdpr\Portable;
 use Soved\Laravel\Gdpr\Contracts\Portable as PortableContract;
 use Soved\Laravel\Gdpr\EncryptsAttributes;
 use Soved\Laravel\Gdpr\Retentionable;
+use Illuminate\Support\Traits\Tappable;
 
 class User extends Authenticatable implements PortableContract
 {
     use HasApiTokens, HasFactory, Notifiable; 
     use Portable, EncryptsAttributes, Retentionable;
+    use Tappable;
 
     /**
      * The attributes that should be visible in the downloadable data.

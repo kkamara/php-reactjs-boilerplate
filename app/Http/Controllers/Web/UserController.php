@@ -38,12 +38,14 @@ class UserController extends Controller
             return response()->json(['email' => 'User with that email already exists'], Response::HTTP_BAD_REQUEST);
         }
 
-        $user = new User(array_merge(
-            $request->only(['first_name', 'last_name', 'email',],),
-            ['password' => Hash::make($request->input('password'))]
-        ));
-        $user->save();
-        $user->token = $user->createToken('token')->plainTextToken;
+        $user = (new User())->tap(function(User $user) use ($request) {
+            $user->first_name = $request->input('first_name');
+            $user->last_name = $request->input('last_name');
+            $user->email = $request->input('email');
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+            $user->token = $user->createToken('token')->plainTextToken;
+        });
      
         return response()->json([
             'data' => new UserResource($user),
@@ -64,7 +66,9 @@ class UserController extends Controller
             ], Response::HTTP_BAD_REQUEST);
         }
         $user = User::where($request->only('email'))->firstOrFail();
-        $user->token = $user->createToken('token')->plainTextToken;
+        $user->tap(function(User $user) {
+            $user->token = $user->createToken('token')->plainTextToken;
+        });
         return response()->json([
             'data' => new UserResource($user),
         ], Response::HTTP_OK);
