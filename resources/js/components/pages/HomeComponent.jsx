@@ -3,7 +3,6 @@ import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
 import ReactPaginate from 'react-paginate'
 import moment from 'moment'
-import { login, } from '../../redux/actions/authActions'
 import { getUsers, } from '../../redux/actions/usersActions'
 
 import "./HomeComponent.scss"
