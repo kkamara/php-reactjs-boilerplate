@@ -51,8 +51,8 @@ make dev && make backend-migrate
 # Not using Docker?
 php artisan key:generate
 php artisan migrate --seed
-npm install # And npm i
-npm run dev # And yarn dev
+npm install
+npm run build
 ```
 
 ## Usage
