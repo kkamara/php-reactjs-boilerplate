@@ -35,8 +35,8 @@
 [thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
 
 ## Installation
-* [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation)
-* [https://laravel.com/docs/9.x/mix#main-content](https://laravel.com/docs/9.x/mix#main-content)
+* [https://laravel.com/docs/10.x/installation](https://laravel.com/docs/10.x/installation)
+* [https://laravel.com/docs/10.x/mix#main-content](https://laravel.com/docs/10.x/mix#main-content)
 
 ```bash
 # Create our environment file.
@@ -58,7 +58,7 @@ npm run build
 ## Usage
 
 * [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
-* [https://laravel.com/docs/9.x/sail#main-content](https://laravel.com/docs/9.x/sail#main-content)
+* [https://laravel.com/docs/10.x/sail#main-content](https://laravel.com/docs/10.x/sail#main-content)
 
 ```bash
 php artisan serve --port=3000
