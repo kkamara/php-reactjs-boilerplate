@@ -23,9 +23,11 @@ export default class HttpService
       requestOptions = this.postRequestOptions({ token, item, })
     }
 
-    return axios.post(this.url+"/"+path, requestOptions.data, requestOptions.headers).then(
-      res => res
-    )
+    return axios.post(
+      this.url+"/"+path, 
+      requestOptions.data, 
+      { headers: requestOptions.headers}
+    ).then(res => res)
   }
 
   getData = (path, tokenId="") => {
@@ -39,9 +41,10 @@ export default class HttpService
     if (null !== path.match(/http/g)) {
       url = path
     }
-    return axios.get(url, { headers: requestOptions.headers, }).then(
-      res => res
-    )
+    return axios.get(
+      url, 
+      { headers: requestOptions.headers, }
+    ).then(res => res)
   }
 
   getRequestOptions = (token) => {
