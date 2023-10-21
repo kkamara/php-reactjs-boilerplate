@@ -34,6 +34,15 @@ export const authorize = () => {
   return dispatch => {
         
     dispatch({ type: auth.AUTH_AUTHORIZE_PENDING, })
+    const tokenId = "user-token"
+    if (localStorage.getItem(tokenId) === null) {
+      return dispatch({ 
+        type : auth.AUTH_AUTHORIZE_ERROR, 
+        payload: (new Error(
+          "Token not set."
+        )).message,
+      })
+    }    
 
     AuthorizeUserService().then(res => {
       dispatch({

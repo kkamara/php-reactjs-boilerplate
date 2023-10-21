@@ -4,7 +4,6 @@ import { useNavigate, } from 'react-router-dom'
 import { authorize, } from '../../redux/actions/authActions'
 
 export default function Header(props) {
-  const [tokenIsSet, setTokenIsSet] = useState(false)
 
   const navigate = useNavigate()
   
@@ -15,35 +14,18 @@ export default function Header(props) {
     navigate("/user/login")
   }
 
-  let token
-
   useEffect(() => {
-    token = localStorage.getItem('user-token')
-    if (token) {
-      // Re-authenticate.
-      dispatch(authorize())
-    }
+    dispatch(authorize())
   }, [])
 
-  useEffect(() => {
-    token = localStorage.getItem('user-token')
-    if (!token) {
-      setTokenIsSet(false)
-    } else {
-      setTokenIsSet(true)
-    }
-    if(
-      (
-        !tokenIsSet && 
-        window.location.pathname !== "/user/register"
-      )
-    ){
+  useEffect(() => {    
+    if(authResponse.error){
       return navigate("/user/login")    
     }
   }, [authResponse])
 
   const renderNavLinks = () => {
-    if(tokenIsSet) {
+    if(authResponse.data) {
       return <a 
         className="dropdown-item" 
         href="/user/logout"
