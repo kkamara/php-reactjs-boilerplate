@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true
 export default class HttpService
 {
   _domain = 'http://localhost:3000'
-  _url = `${this._domain}/web`
+  _url = `${this._domain}/api/web`
 
   get domain() {
     return this._domain

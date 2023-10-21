@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Log;
 use App\Mail\Test as TestMail;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\TestJob;
-use App\Http\Controllers\Web\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +16,6 @@ use App\Http\Controllers\Web\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::prefix('web')
-    ->middleware("api")
-    ->group(function() {
-        // Add single page app api routes
-        Route::prefix('/user')->group(function () {
-            Route::post('/register', [UserController::class,'register']);
-            Route::post('/', [UserController::class,'login']);
-            Route::delete('/logout', [UserController::class,'logout']);
-            Route::get('/authorize', [UserController::class,'authorizeUser']);
-        });
-        Route::get('/users', [UserController::class,'getUsers']);
-    });
 
 Route::get('/job', function() {
     Log::debug('here');
