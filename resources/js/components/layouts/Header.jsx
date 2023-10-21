@@ -15,7 +15,7 @@ export default function Header(props) {
   }
 
   useEffect(() => {
-    dispatch(authorize())
+    // dispatch(authorize())
   }, [])
 
   useEffect(() => {    
