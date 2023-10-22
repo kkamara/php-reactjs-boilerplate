@@ -4,6 +4,7 @@ import { useDispatch, useSelector, } from 'react-redux'
 import ReactPaginate from 'react-paginate'
 import moment from 'moment'
 import { getUsers, } from '../../redux/actions/usersActions'
+import { authorize } from '../../redux/actions/authActions'
 
 import "./HomeComponent.scss"
 
@@ -15,6 +16,10 @@ export default function HomeComponent() {
     auth: state.auth,
     users: state.users,
   }))
+
+  useEffect(() => {
+    dispatch(authorize())
+  }, [])
 
   useEffect(() => {
     if (state.auth.error) {
