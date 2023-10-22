@@ -20,16 +20,11 @@ export default function LoginComponent() {
     users: state.users,
   }))
 
-  useEffect(() => {}, [])
-
-  let token
-
   useEffect(() => {
-    token = localStorage.getItem("user-token")
-    if (token !== null) {
-      return navigate("/")
+    if (state.auth.data) {
+      window.location.href = "/"
     }
-  }, [state.auth,])
+  }, [state.auth])
 
   if (state.auth.loading || state.users.loading) {
     return <p>Loading...</p>
