@@ -1,10 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-import ReactPaginate from 'react-paginate'
-import moment from 'moment'
 import { login, } from '../../../redux/actions/authActions'
-import { getUsers, } from '../../../redux/actions/usersActions'
 
 import "./LoginComponent.scss"
 
@@ -17,7 +14,6 @@ export default function LoginComponent() {
   const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
-    users: state.users,
   }))
 
   useEffect(() => {
@@ -25,10 +21,6 @@ export default function LoginComponent() {
       window.location.href = "/"
     }
   }, [state.auth])
-
-  if (state.auth.loading || state.users.loading) {
-    return <p>Loading...</p>
-  }
 
   const onFormSubmit = (e) => {
     e.preventDefault()
@@ -45,6 +37,10 @@ export default function LoginComponent() {
 
   const onPasswordChange = (e) => {
     setPassword(e.target.value)
+  }
+
+  if (state.auth.loading) {
+    return <p>Loading...</p>
   }
 
   return (
