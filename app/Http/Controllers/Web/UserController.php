@@ -83,7 +83,9 @@ class UserController extends Controller
     }
 
     function logout(Request $request) {
-        $request->user()->currentAccessToken()->delete();
+        $request->user()
+            ->currentAccessToken()
+            ->delete();
         return ['message' => 'Success'];
     }
 
