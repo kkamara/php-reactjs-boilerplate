@@ -1,0 +1,47 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "PHP Reactjs Boilerplate",
+    "dateExported": "2023-10-25T18:39:03.173Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fdf3ac39-6565-4e23-9e4f-dee3617a5573",
+            "colId": "0579639d-a273-474f-b860-ef4c1c3e67b1",
+            "containerId": "",
+            "name": "Register User",
+            "url": "http://localhost:3000/api/user/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-10-07T19:00:13.711Z",
+            "modified": "2023-10-10T06:51:48.062Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "851f5183-6516-474d-85c1-64d4d6158803",
+            "colId": "0579639d-a273-474f-b860-ef4c1c3e67b1",
+            "containerId": "",
+            "name": "Get Users",
+            "url": "http://localhost:3000/web/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-08T15:41:40.362Z",
+            "modified": "2023-10-08T16:53:28.667Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
