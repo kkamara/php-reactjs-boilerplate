@@ -62,7 +62,7 @@ export default function Header(props) {
             <a className="nav-link active" aria-current="page" href="/">Home</a>
           </li>
         </ul>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul className="navbar-nav">
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               User
