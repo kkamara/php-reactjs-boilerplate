@@ -19,6 +19,7 @@ export default function HomeComponent() {
 
   useEffect(() => {
     dispatch(authorize())
+    dispatch(getUsers())
   }, [])
 
   useEffect(() => {
@@ -26,7 +27,6 @@ export default function HomeComponent() {
       localStorage.removeItem('user-token')
       window.location.href = '/user/login'
     }
-    dispatch(getUsers())
   }, [state.auth,])
 
   const handlePageChange = ({ selected, }) => {
