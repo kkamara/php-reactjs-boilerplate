@@ -1,28 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector, } from 'react-redux'
-import { useNavigate, } from 'react-router-dom' 
-import { authorize, } from '../../redux/actions/authActions'
+import React from 'react'
+import { useSelector, } from 'react-redux'
 
-export default function Header(props) {
-
-  const navigate = useNavigate()
-  
-  const dispatch = useDispatch()
+export default function Header(props) {  
   const authResponse = useSelector(state=>state.auth)
-
-  const login = () => {
-    navigate("/user/login")
-  }
-
-  useEffect(() => {
-    // dispatch(authorize())
-  }, [])
-
-  useEffect(() => {    
-    if(authResponse.error){
-      return navigate("/user/login")    
-    }
-  }, [authResponse])
 
   const renderNavLinks = () => {
     if(authResponse.data) {
