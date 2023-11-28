@@ -29,7 +29,8 @@ export default function Header(props) {
         </>
     }
   }
-
+  // VITE_TEST
+  console.log(import.meta.env)
   return <nav className="container navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
       <a className="navbar-brand" href="/">PHP Reactjs Boilerplate</a>
