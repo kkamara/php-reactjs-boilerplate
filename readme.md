@@ -6,7 +6,7 @@
 
 (2021) A GDPR compliant Laravel 10.x boilerplate with Redux.
 
-* [Using Thunder Client?](#using-thunder-client)
+* [Using Thunder Client?](#thunder-client)
 
 * [Installation](#installation)
 
@@ -28,6 +28,7 @@
 
 * [License](#license)
 
+<a name="thunder-client"></a>
 ## Using Thunder Client?
 
 [Thunder client](https://www.thunderclient.com/) Visual Studio Code extension.
