@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct() {
         $this->middleware('auth:sanctum')
-            ->only(['authorizeUser', 'logout', 'getUsers',]);
+            ->only(['authorizeUser', 'logout'/*, 'getUsers' */,]);
     }
 
     public function register(Request $request) {
@@ -30,7 +30,7 @@ class UserController extends Controller
                 'password' => 'required|confirmed',
             ]
         );
-    
+
         if ($validator->fails()) {
             return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
         }
@@ -46,7 +46,7 @@ class UserController extends Controller
             $user->save();
             $user->token = $user->createToken('token')->plainTextToken;
         });
-     
+
         return response()->json([
             'data' => new UserResource($user),
         ], Response::HTTP_CREATED);
@@ -90,9 +90,10 @@ class UserController extends Controller
     }
 
     public function getUsers(Request $request) {
-        $data = User::paginate(7)
+        $data = User::orderBy("id", "DESC")
+            ->paginate(7)
             ->appends($request->query());
-        
+
         return compact("data");
     }
 }
