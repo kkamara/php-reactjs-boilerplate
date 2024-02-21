@@ -4,7 +4,7 @@
 
 # PHP Reactjs Boilerplate [![API](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml)
 
-(2021) A GDPR compliant Laravel 10.x boilerplate with Redux.
+(2021) A GDPR compliant Laravel 10.x boilerplate with Reactjs Redux.
 
 * [Using Thunder Client?](#thunder-client)
 
