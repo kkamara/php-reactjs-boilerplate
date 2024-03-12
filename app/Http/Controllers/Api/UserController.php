@@ -13,10 +13,6 @@ use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth:sanctum')->only(['authorizeUser', 'logout']);
-    }
-
     public function register(Request $request) {
         $validator = Validator::make(
             $request->only([

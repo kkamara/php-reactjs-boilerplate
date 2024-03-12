@@ -56,7 +56,7 @@ jobs:
         run: composer install -q --no-progress --prefer-dist --optimize-autoloader
       - name: Prepare Environment
         run: |
-            cp .env.staging .env
+            cp .env.example .env
             sed -i "s/3306/${{ job.services.mysql.ports['3306'] }}/g" .env
             sed -i "s/DB_PASSWORD=/DB_PASSWORD=secret/g" .env
       - name: Clear config cache
@@ -75,5 +75,5 @@ jobs:
         run: php artisan serve --port=3000 --no-reload &
       - name: curl to localhost
         run: curl localhost:3000 &
-      - name: Run Feature Tests
+      - name: Run Tests
         run: php artisan test ${{ env.PHPUNIT_FLAGS }}

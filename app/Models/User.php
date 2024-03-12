@@ -6,44 +6,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Soved\Laravel\Gdpr\Portable;
-use Soved\Laravel\Gdpr\Contracts\Portable as PortableContract;
-use Soved\Laravel\Gdpr\EncryptsAttributes;
-use Soved\Laravel\Gdpr\Retentionable;
 use Illuminate\Support\Traits\Tappable;
+use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements PortableContract
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable; 
-    use Portable, EncryptsAttributes, Retentionable;
+    use HasFactory, Notifiable;
     use Tappable;
-
-    /**
-     * The attributes that should be visible in the downloadable data.
-     *
-     * @var array
-     */
-    protected $gdprVisible = [
-        'first_name', 
-        'last_name', 
-        'email',
-        'created_at',
-    ];
-    
-    /**
-     * The attributes that should be encrypted and decrypted on the fly.
-     *
-     * @var array
-     */
-    protected $encrypted = [];
-
-    /**
-     * The relations to include in the downloadable data.
-     *
-     * @var array
-     */
-    protected $gdprWith = [];
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -68,12 +38,15 @@ class User extends Authenticatable implements PortableContract
     ];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
 }

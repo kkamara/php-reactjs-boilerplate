@@ -13,11 +13,6 @@ use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth:sanctum')
-            ->only(['authorizeUser', 'logout'/*, 'getUsers' */,]);
-    }
-
     public function register(Request $request) {
         $validator = Validator::make(
             $request->only([
@@ -60,7 +55,12 @@ class UserController extends Controller
         if($validation->fails()) {
             return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
         }
-        if (!Auth::attempt($request->only(['email', 'password']))) {
+        if (
+            !Auth::attempt([
+                'email' => $request->input('email'),
+                'password' => $request->input('password'),
+            ])
+        ) {
             return response()->json([
                 'Invalid email and password combination',
             ], Response::HTTP_BAD_REQUEST);

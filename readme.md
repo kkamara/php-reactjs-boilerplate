@@ -4,7 +4,7 @@
 
 # PHP Reactjs Boilerplate [![API](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml)
 
-(2021) A GDPR compliant Laravel 10.x boilerplate with Reactjs Redux.
+(2021) A Laravel 11.x boilerplate with Reactjs Redux.
 
 * [Using Thunder Client?](#thunder-client)
 
@@ -14,13 +14,9 @@
 
 * [Api Documentation](#api-documentation)
 
-* [Redis Queue](#redis-queue)
-
 * [Unit Tests](#unit-tests)
 
 * [Browser Tests](#browser-tests)
-
-* [Mail server](#mail-server)
 
 * [Misc](#misc)
 
@@ -36,30 +32,27 @@
 [thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
 
 ## Installation
-* [https://laravel.com/docs/10.x/installation](https://laravel.com/docs/10.x/installation)
-* [https://laravel.com/docs/10.x/mix#main-content](https://laravel.com/docs/10.x/mix#main-content)
+* [https://laravel.com/docs/11.x/installation](https://laravel.com/docs/11.x/installation)
+* [https://laravel.com/docs/11.x/vite#main-content](https://laravel.com/docs/11.x/vite#main-content)
 
 ```bash
 # Create our environment file.
 cp .env.example .env
-```
-
-```bash
 # Install our app dependencies.
 composer i
 # Using Docker?
-make dev && make backend-migrate
+# Refer to Laravel Sail documentation: 
+# https://laravel.com/docs/11.x/sail#main-content
 # Not using Docker?
 php artisan key:generate
+# Before running the next command:
+# Update your database details in .env
 php artisan migrate --seed
 npm install
 npm run build
 ```
 
 ## Usage
-
-* [https://github.com/kkamara/laravel-makefile](https://github.com/kkamara/laravel-makefile)
-* [https://laravel.com/docs/10.x/sail#main-content](https://laravel.com/docs/10.x/sail#main-content)
 
 ```bash
 php artisan serve --port=3000
@@ -79,22 +72,10 @@ POST       api/user/register ................... Api\UserController@register
 
 View the api collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
-## Redis Queue
-
-You can test the `/job` endpoint to invoke a job example you can then view at 
-
-```bash
-alias sail='vendor/bin/sail'
-sail artisan queue:listen redis --queue stuff
-# output
-[2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processing: App\Jobs\TestJob
-[2022-04-16 13:30:17][KttOLxAyP6mnsNGScDLbKAgvxpJ7M0AA] Processed:  App\Jobs\TestJob
-```
-
 ## Unit Tests
 
 ```bash
-php artisan test --filter api
+php artisan test --filter=Api
 ```
 
 View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Unit/Api/UsersTest.php).
@@ -106,17 +87,11 @@ alias sail='vendor/bin/sail'
 sail dusk
 ```
 
-## Mail Server
-
-You can test the `/mail` endpoint to send a test mail you can then view at `:8025/`.
-
-![docker-mailhog3.png](https://raw.githubusercontent.com/kkamara/useful/main/docker-mailhog3.png)
-
-Mail environment credentials are at [.env](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/.env.example).
-
-The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://localhost:8025`.
-
 ## Misc
+
+[See MRVL Desktop.](https://github.com/kkamara/mrvl-desktop)
+
+[See MRVL Web.](https://github.com/kkamara/mrvl-web)
 
 [See Github to Bitbucket Backup Repo Updater.](https://github.com/kkamara/ghbbupdater)
 
@@ -138,15 +113,7 @@ The [mailhog](https://github.com/mailhog/MailHog) docker image runs at `http://l
 
 [See birthday currency.](https://github.com/kkamara/birthday-currency)
 
-[See php scraper.](https://github.com/kkamara/php-scraper)
-
-[See amazon scraper.](https://github.com/kkamara/amazon-scraper)
-
-[See python amazon scraper 2.](https://github.com/kkamara/selenium-py)
-
-[See wordpress with docker support.](https://github.com/kkamara/wordpress)
-
-The `Makefile` for this project contains useful commands for a Laravel application and can be found at [laravel-makefile](https://github.com/kkamara/laravel-makefile).
+[See PHP scraper.](https://github.com/kkamara/php-scraper)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
