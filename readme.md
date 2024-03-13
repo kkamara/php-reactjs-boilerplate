@@ -32,6 +32,7 @@
 [thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
 
 ## Installation
+
 * [https://laravel.com/docs/11.x/installation](https://laravel.com/docs/11.x/installation)
 * [https://laravel.com/docs/11.x/vite#main-content](https://laravel.com/docs/11.x/vite#main-content)
 
