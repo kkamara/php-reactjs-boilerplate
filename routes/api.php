@@ -19,7 +19,10 @@ Route::prefix('web')
                 [WebUserController::class,'authorizeUser'],
             )->middleware("auth:sanctum");
         });
-        Route::get('/users', [WebUserController::class,'getUsers']);
+        Route::get(
+            '/users',
+            [WebUserController::class,'getUsers'],
+        )->middleware("auth:sanctum");
     });
 
 Route::prefix('/user')->group(function () {
