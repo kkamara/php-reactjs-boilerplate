@@ -2,7 +2,7 @@
     "name": "kkamara/php-reactjs-boilerplate",
     "version": "1.0.0",
     "type": "project",    
-    "description": "(2021) A Laravel 10.x boilerplate with Reactjs Redux.",
+    "description": "(2021) A Laravel 11.x boilerplate with Reactjs Redux.",
     "keywords": [
         "web",
         "web-app",
