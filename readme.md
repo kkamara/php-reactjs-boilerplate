@@ -16,8 +16,6 @@
 
 * [Unit Tests](#unit-tests)
 
-* [Browser Tests](#browser-tests)
-
 * [Misc](#misc)
 
 * [Contributing](#contributing)
@@ -41,10 +39,6 @@
 cp .env.example .env
 # Install our app dependencies.
 composer i
-# Using Docker?
-# Refer to Laravel Sail documentation: 
-# https://laravel.com/docs/11.x/sail#main-content
-# Not using Docker?
 php artisan key:generate
 # Before running the next command:
 # Update your database details in .env
@@ -80,13 +74,6 @@ php artisan test --filter=Api
 ```
 
 View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Unit/Api/UsersTest.php).
-
-## Browser Tests
-
-```bash
-alias sail='vendor/bin/sail'
-sail dusk
-```
 
 ## Misc
 
