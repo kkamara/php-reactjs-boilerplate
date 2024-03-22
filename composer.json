@@ -1,5 +1,12 @@
 {
     "name": "kkamara/php-reactjs-boilerplate",
+    "authors": [
+        {
+            "name": "Kelvin Kamara",
+            "email": "kamaracomputers@gmail.com",
+            "homepage": "https://kelvinkamara.com"
+        }
+    ],
     "version": "1.0.0",
     "type": "project",    
     "description": "(2021) A Laravel 11.x boilerplate with Reactjs Redux.",
