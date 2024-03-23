@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->group('api', [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
