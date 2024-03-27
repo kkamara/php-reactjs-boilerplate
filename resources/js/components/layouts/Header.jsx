@@ -6,26 +6,41 @@ export default function Header(props) {
 
   const renderNavLinks = () => {
     if(authResponse.data) {
-      return <a 
-        className="dropdown-item" 
-        href="/user/logout"
-      >
-        Logout
-      </a>
+      return <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          User
+        </a>
+        <ul className="dropdown-menu">
+          <li>
+            <a 
+              className="dropdown-item" 
+              href="/user/logout"
+            >
+              Logout
+            </a>
+          </li>              
+        </ul>
+      </li>
     } else {
         return <>
-          <a 
-            className="dropdown-item" 
-            href="/user/login"
-          >
-            Login
-          </a>
-          <a 
-            className="dropdown-item" 
-            href="/user/register"
-          >
-            Register
-          </a>
+          <li className="nav-item">
+            <a 
+              className="nav-link active" 
+              aria-current="page" 
+              href="/user/login"
+            >
+              Login
+            </a>
+          </li>
+          <li className="nav-item">
+            <a 
+              className="nav-link active" 
+              aria-current="page" 
+              href="/user/register"
+            >
+              Register
+            </a>
+          </li>
         </>
     }
   }
@@ -44,14 +59,7 @@ export default function Header(props) {
           </li>
         </ul>
         <ul className="navbar-nav">
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              User
-            </a>
-            <ul className="dropdown-menu">
-              <li>{renderNavLinks()}</li>              
-            </ul>
-          </li>
+          {renderNavLinks()}
         </ul>
       </div>
     </div>
