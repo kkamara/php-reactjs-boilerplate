@@ -22,26 +22,26 @@ export default function Header(props) {
         </ul>
       </li>
     } else {
-        return <>
-          <li className="nav-item">
-            <a 
-              className="nav-link active" 
-              aria-current="page" 
-              href="/user/login"
-            >
-              Login
-            </a>
-          </li>
-          <li className="nav-item">
-            <a 
-              className="nav-link active" 
-              aria-current="page" 
-              href="/user/register"
-            >
-              Register
-            </a>
-          </li>
-        </>
+      return <>
+        <li className="nav-item">
+          <a 
+            className="nav-link active" 
+            aria-current="page" 
+            href="/user/login"
+          >
+            Login
+          </a>
+        </li>
+        <li className="nav-item">
+          <a 
+            className="nav-link active" 
+            aria-current="page" 
+            href="/user/register"
+          >
+            Register
+          </a>
+        </li>
+      </>
     }
   }
   // VITE_TEST
