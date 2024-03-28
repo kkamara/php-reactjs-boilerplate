@@ -89,19 +89,19 @@ View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-rea
 
 [See movies app.](https://github.com/kkamara/movies)
 
-[See food nutrition facts search web app.](https://github.com/kkamara/food-nutrition-facts-search-web-app)
+[See Food Nutrition Facts Search web app.](https://github.com/kkamara/food-nutrition-facts-search-web-app)
 
-[See ecommerce web.](https://github.com/kkamara/ecommerce-web)
+[See Ecommerce Web.](https://github.com/kkamara/ecommerce-web)
 
-[See city maps mobile.](https://github.com/kkamara/city-maps-mobile)
+[See City Maps Mobile.](https://github.com/kkamara/city-maps-mobile)
 
-[See ecommerce mobile.](https://github.com/kkamara/ecommerce-mobile)
+[See Ecommerce Mobile.](https://github.com/kkamara/ecommerce-mobile)
 
-[See crm.](https://github.com/kkamara/crm)
+[See CRM.](https://github.com/kkamara/crm)
 
-[See birthday currency.](https://github.com/kkamara/birthday-currency)
+[See Birthday Currency.](https://github.com/kkamara/birthday-currency)
 
-[See PHP scraper.](https://github.com/kkamara/php-scraper)
+[See PHP Scraper.](https://github.com/kkamara/php-scraper)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
