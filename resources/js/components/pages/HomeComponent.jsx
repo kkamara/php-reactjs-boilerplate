@@ -104,12 +104,14 @@ export default function HomeComponent() {
     console.log('users', state.users.data)
   }
   if (state.auth.loading || state.users.loading) {
-    return <p>Loading...</p>
+    return <div className="container home-container text-center">
+      <p>Loading...</p>
+    </div>
   }
 
   return (
     <>
-      <div className='container'>
+      <div className='container home-container'>
         <br />
         <br />
         <button className='btn btn-primary'>

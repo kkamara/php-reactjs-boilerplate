@@ -40,7 +40,9 @@ export default function LoginComponent() {
   }
 
   if (state.auth.loading) {
-    return <p>Loading...</p>
+    return <div className='container login-container text-center'>
+      <p>Loading...</p>
+    </div>
   }
 
   return (

@@ -23,10 +23,6 @@ export default function RegisterComponent() {
     }
   }, [authState,])
 
-  if (authState.loading) {
-    return <p>Loading...</p>
-  }
-
   const onFormSubmit = (e) => {
     e.preventDefault()
 
@@ -63,6 +59,12 @@ export default function RegisterComponent() {
 
   const onPasswordConfirmationChange = (e) => {
     setPasswordConfirmation(e.target.value)
+  }
+
+  if (authState.loading) {
+    return <div className='container login-container text-center'>
+      <p>Loading...</p>
+    </div>
   }
 
   return (

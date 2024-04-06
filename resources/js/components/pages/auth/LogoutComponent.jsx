@@ -23,7 +23,9 @@ export default function LogoutComponent() {
   }, [authState,])
 
   if (authState.loading) {
-    return <p>Loading...</p>
+    return <div className="container logout-container text-center">
+      <p>Loading...</p>
+    </div>
   }
 
   return null
