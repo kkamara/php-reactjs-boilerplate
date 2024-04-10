@@ -97,10 +97,18 @@ export default function HomeComponent() {
     )
   }
 
-  if (!state.auth.loading && typeof state.auth.data === 'object' && null !== state.auth.data) {
+  if (
+    !state.auth.loading &&
+    typeof state.auth.data === 'object' &&
+    null !== state.auth.data
+  ) {
     console.log('authenticated', state.auth.data)
   }
-  if (!state.users.loading && typeof state.users.data === 'object' && null !== state.users.data) {
+  if (
+    !state.users.loading &&
+    typeof state.users.data === 'object' &&
+    null !== state.users.data
+  ) {
     console.log('users', state.users.data)
   }
   if (state.auth.loading || state.users.loading) {
