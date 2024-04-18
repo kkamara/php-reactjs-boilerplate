@@ -4,7 +4,7 @@ import {
   AuthorizeUserService,
   LogoutUserService,
   RegisterUserService,
-} from '../../services/AuthServices'
+} from '../../services/AuthService'
 import { auth, } from '../types'
 
 export const login = creds => {
