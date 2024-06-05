@@ -19,9 +19,9 @@ export const login = creds => {
       })
         
     }, error => {
-      const message = error.response.data[0] ||
-        error.response.data.email[0] ||
-        error.response.data.password[0]
+      const message = (error.response.data && error.response.data[0]) ||
+        (error.response.data.email && error.response.data.email[0]) ||
+        (error.response.data.password && error.response.data.password[0])
       dispatch({ 
         type : auth.AUTH_LOGIN_ERROR, 
         payload: message,
@@ -70,9 +70,9 @@ export const logout = () => {
       })
         
     }, error => {
-      const message = error.response.data[0] ||
-        error.response.data.email[0] ||
-        error.response.data.password[0]
+      const message = (error.response.data && error.response.data[0]) ||
+        (error.response.data.email && error.response.data.email[0]) ||
+        (error.response.data.password && error.response.data.password[0])
       dispatch({ 
         type : auth.AUTH_LOGOUT_ERROR, 
         payload: message,
@@ -92,12 +92,12 @@ export const register = data => {
         payload: res,
       })
     }, error => {
-      const message = error.response.data[0] ||
-        error.response.data.first_name[0] ||
-        error.response.data.last_name[0] ||
-        error.response.data.email[0] ||
-        error.response.data.password[0] ||
-        error.response.data.password_confirmation[0]
+      const message = (error.response.data && error.response.data[0]) ||
+        (error.response.data.first_name && error.response.data.first_name[0]) ||
+        (error.response.data.last_name && error.response.data.last_name[0]) ||
+        (error.response.data.email && error.response.data.email[0]) ||
+        (error.response.data.password && error.response.data.password[0]) ||
+        (error.response.data.password_confirmation && error.response.data.password_confirmation[0])
       dispatch({ 
         type : auth.AUTH_REGISTER_ERROR, 
         payload: message,
