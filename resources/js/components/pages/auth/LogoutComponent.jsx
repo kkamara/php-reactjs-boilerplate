@@ -15,10 +15,15 @@ export default function LogoutComponent() {
 
   useEffect(() => {
     token = localStorage.getItem("user-token")
+    if (token !== null) {
+      dispatch(logout())
+    }
+  })
+
+  useEffect(() => {
+    token = localStorage.getItem("user-token")
     if (token === null) {
       return navigate("/user/login")
-    } else {
-      dispatch(logout())
     }
   }, [authState,])
 
