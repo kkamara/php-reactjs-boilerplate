@@ -49,8 +49,12 @@ export const authorize = () => {
         type: auth.AUTH_AUTHORIZE_SUCCESS,
         payload: res,
       })
-        
+      
     }, error => {
+        if (error.response.status === 401) {
+          localStorage.removeItem(tokenId)
+          window.location = "/"
+        }
         dispatch({ 
           type : auth.AUTH_AUTHORIZE_ERROR, 
           payload: error,
