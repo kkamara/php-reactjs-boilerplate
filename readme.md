@@ -77,9 +77,9 @@ View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-rea
 
 ## Misc
 
-[See Python ReactJS Boilerplate app.](https://github.com/kkamara/python-reactjs-boilerplate)
-
 [See PHP ReactJS Boilerplate app.](https://github.com/kkamara/php-reactjs-boilerplate)
+
+[See Python ReactJS Boilerplate app.](https://github.com/kkamara/python-reactjs-boilerplate)
 
 [See MRVL Desktop.](https://github.com/kkamara/mrvl-desktop)
 
