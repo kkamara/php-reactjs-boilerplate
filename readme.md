@@ -77,6 +77,10 @@ View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-rea
 
 ## Misc
 
+[See Python ReactJS Boilerplate app.](https://github.com/kkamara/python-reactjs-boilerplate)
+
+[See PHP ReactJS Boilerplate app.](https://github.com/kkamara/php-reactjs-boilerplate)
+
 [See MRVL Desktop.](https://github.com/kkamara/mrvl-desktop)
 
 [See MRVL Web.](https://github.com/kkamara/mrvl-web)
@@ -84,6 +88,8 @@ View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-rea
 [See Github to Bitbucket Backup Repo Updater.](https://github.com/kkamara/ghbbupdater)
 
 [See PHP Docker Skeleton.](https://github.com/kkamara/php-docker-skeleton)
+
+[See Python Docker Skeleton.](https://github.com/kkamara/python-docker-skeleton)
 
 [See Laravel 10 API 3.](https://github.com/kkamara/laravel-10-api-3)
 
