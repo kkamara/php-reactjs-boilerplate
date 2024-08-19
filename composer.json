@@ -18,7 +18,7 @@
         "tests",
         "testing"
     ],
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0",
