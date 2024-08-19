@@ -9,7 +9,7 @@
     ],
     "version": "2.0.4",
     "type": "project",    
-    "description": "(2021) A Laravel 11.x boilerplate with Reactjs Redux.",
+    "description": "(2021) A Laravel 11.x boilerplate with ReactJS Redux.",
     "keywords": [
         "web",
         "web-app",
