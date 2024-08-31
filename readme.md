@@ -12,7 +12,7 @@
 
 * [Usage](#usage)
 
-* [Api Documentation](#api-documentation)
+* [API Documentation](#api-documentation)
 
 * [Unit Tests](#unit-tests)
 
@@ -53,7 +53,7 @@ npm run build
 php artisan serve --port=3000
 ```
 
-## Api Documentation
+## API Documentation
 
 ```bash
 php artisan route:list
