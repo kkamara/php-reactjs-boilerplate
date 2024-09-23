@@ -39,7 +39,7 @@
 ```bash
 # Create our environment file.
 cp .env.example .env
-# Update database values in .env
+# Update database values in .env file.
 # Install our app dependencies.
 composer i
 php artisan key:generate
