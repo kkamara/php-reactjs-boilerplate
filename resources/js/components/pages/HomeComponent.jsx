@@ -57,21 +57,21 @@ export default function HomeComponent() {
         breakLabel="..."
         breakClassName="page-item"
         breakLinkClassName="page-link"
-        pageCount={state.users.data.last_page}
+        pageCount={state.users.data.meta.last_page}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         containerClassName="pagination"
         activeClassName="active"
-        forcePage={state.users.data.current_page - 1}
+        forcePage={state.users.data.meta.current_page - 1}
     />
   }
 
   const paginationDetail = () => {
         return <>
-            <strong>page</strong> ({state.users.data.current_page}),
-            <strong>page_count</strong> ({state.users.data.last_page}),
+            <strong>page</strong> ({state.users.data.meta.current_page}),
+            <strong>page_count</strong> ({state.users.data.meta.last_page}),
             <strong>displayed_items</strong> ({state.users.data.data.length}),
-            <strong>items</strong> ({state.users.data.total})
+            <strong>items</strong> ({state.users.data.meta.total})
         </>
   }
 

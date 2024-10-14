@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
 use App\Models\User;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\UserCollection;
 
 class UserController extends Controller
 {
@@ -94,6 +95,6 @@ class UserController extends Controller
             ->paginate(7)
             ->appends($request->query());
 
-        return compact("data");
+        return new UserCollection($data);
     }
 }

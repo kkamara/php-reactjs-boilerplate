@@ -15,7 +15,7 @@ export const getUsers = page => {
         http.getData(path, tokenId).then(res => {
           resolve(dispatch({
             type: users.GET_USERS_SUCCESS,
-            payload: res.data.data,
+            payload: res.data,
           }))                
         }, error => {
           reject(dispatch({ 
