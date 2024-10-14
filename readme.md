@@ -6,7 +6,7 @@
 
 (2021) A Laravel 11.x boilerplate with ReactJS Redux SPA.
 
-* [Using Thunder Client?](#thunder-client)
+* [Using Postman?](#postman)
 
 * [Installation](#installation)
 
@@ -22,12 +22,12 @@
 
 * [License](#license)
 
-<a name="thunder-client"></a>
-## Using Thunder Client?
+<a name="postman"></a>
+## Using Postman?
 
-[Thunder client](https://www.thunderclient.com/) Visual Studio Code extension.
+[Postman client](https://www.postman.com/).
 
-[thunder-collection_PHP Reactjs Boilerplate.json](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/thunder-collection_PHP%20Reactjs%20Boilerplate.json)
+[Published Postman API Collection](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
 ## Installation
 
