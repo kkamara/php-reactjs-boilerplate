@@ -17,7 +17,8 @@
         "react",
         "reactjs",
         "tests",
-        "testing"
+        "testing",
+        "laravel"
     ],
     "license": "BSD-3-Clause",
     "require": {
