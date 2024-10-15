@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\UserController as WebUserController;
-use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\API\UserController;
 
 Route::prefix('web')
     ->group(function() {

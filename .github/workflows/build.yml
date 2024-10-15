@@ -1,7 +1,7 @@
 name: Tests Pipeline
 on: [push, pull_request]
 env:
-    PHPUNIT_FLAGS: "--filter=Api --stop-on-failure"
+    PHPUNIT_FLAGS: "--filter=API --stop-on-failure"
 jobs:
   laravel:
     name: Tests Pipeline (PHP ${{ matrix.php-versions }})

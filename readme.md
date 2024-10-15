@@ -63,9 +63,9 @@ herd link boilerplate
 php artisan route:list
 # output
 ...
-POST       api/user ............................ login › Api\UserController@login
-GET|HEAD   api/user/authorize .................. Api\UserController@authorizeUser
-POST       api/user/register ................... Api\UserController@register
+POST       api/user ............................ login › API\UserController@login
+GET|HEAD   api/user/authorize .................. API\UserController@authorizeUser
+POST       api/user/register ................... API\UserController@register
 ...
 ```
 
@@ -74,7 +74,7 @@ View the api collection [here](https://documenter.getpostman.com/view/17125932/T
 ## Unit Tests
 
 ```bash
-php artisan test --filter=Api
+php artisan test --filter=API
 ```
 
 View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Unit/Api/UsersTest.php).
