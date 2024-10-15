@@ -8,8 +8,7 @@ import "./RegisterComponent.scss"
 export default function RegisterComponent() {
   const navigate = useNavigate()
 
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -28,25 +27,19 @@ export default function RegisterComponent() {
 
     dispatch(register({
       password_confirmation: passwordConfirmation,
-      first_name: firstName,
-      last_name: lastName,
+      name,
       email,
       password
     }))
 
-    setFirstName("")
-    setLastName("")
+    setName("")
     setEmail("")
     setPassword("")
     setPasswordConfirmation("")
   }
 
-  const onFirstNameChange = (e) => {
-    setFirstName(e.target.value)
-  }
-
-  const onLastNameChange = (e) => {
-    setLastName(e.target.value)
+  const onNameChange = (e) => {
+    setName(e.target.value)
   }
 
   const onEmailChange = (e) => {
@@ -79,21 +72,12 @@ export default function RegisterComponent() {
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div> : null}
             <div className="form-group">
-              <label htmlFor="first_name">First Name</label>
+              <label htmlFor="name">Name</label>
               <input 
-                name="first_name" 
+                name="name" 
                 className="form-control"
-                value={firstName}
-                onChange={onFirstNameChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="last_name">Last Name</label>
-              <input 
-                name="last_name" 
-                className="form-control"
-                value={lastName}
-                onChange={onLastNameChange}
+                value={name}
+                onChange={onNameChange}
               />
             </div>
             <div className="form-group">

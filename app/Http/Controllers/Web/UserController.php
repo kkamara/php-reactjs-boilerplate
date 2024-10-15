@@ -17,11 +17,10 @@ class UserController extends Controller
     public function register(Request $request) {
         $validator = Validator::make(
             $request->only([
-                'first_name', 'last_name', 'email', 'password', 'password_confirmation',
+                'name', 'email', 'password', 'password_confirmation',
             ]),
             [
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'name' => 'required',
                 'email' => 'required',
                 'password' => 'required|confirmed',
             ]
@@ -35,8 +34,7 @@ class UserController extends Controller
         }
 
         $user = (new User())->tap(function(User $user) use ($request) {
-            $user->first_name = $request->input('first_name');
-            $user->last_name = $request->input('last_name');
+            $user->name = $request->input('name');
             $user->email = $request->input('email');
             $user->password = Hash::make($request->input('password'));
             $user->save();

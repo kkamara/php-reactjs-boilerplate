@@ -85,7 +85,7 @@ export default function HomeComponent() {
         <ul className="list-group">
           {state.users.data.data.map((user, index) => (
             <li key={index} className='list-group-item home-item'>
-              <strong>name</strong> ({user.first_name} {user.last_name}),
+              <strong>name</strong> ({user.name}),
               <strong>email</strong> ({user.email}),
               <strong>created_at</strong> ({parseDate(user.created_at)}),
               <strong>updated_at</strong> ({parseDate(user.updated_at)})

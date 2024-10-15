@@ -21,8 +21,7 @@ class UsersTest extends TestCase
             ->postJson(
                 '/api/user/register', 
                 [
-                    'first_name' => $this->faker->unique()->firstName,
-                    'last_name' => $this->faker->unique()->lastName,
+                    'name' => $this->faker->unique()->name,
                     'email' => $email,
                     'password' => 'secret',
                     'password_confirmation' => 'secret',
@@ -30,7 +29,7 @@ class UsersTest extends TestCase
             );
 
         $response->assertStatus(Response::HTTP_CREATED)->assertJsonStructure([
-            'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
+            'data' => ['name', 'email', 'created_at', 'updated_at', 'token',],
         ]);
     }
 
@@ -40,7 +39,7 @@ class UsersTest extends TestCase
             ->postJson('/api/user/register');
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertJsonStructure([
-            'first_name', 'last_name', 'email', 'password',
+            'name', 'email', 'password',
         ]);
     }
 
@@ -52,8 +51,7 @@ class UsersTest extends TestCase
             ->postJson(
                 '/api/user/register', 
                 [
-                    'first_name' => $this->faker->unique()->firstName,
-                    'last_name' => $this->faker->unique()->lastName,
+                    'name' => $this->faker->unique()->name,
                     'email' => $email,
                     'password' => 'secret',
                     'password_confirmation' => 'secret',
@@ -74,7 +72,7 @@ class UsersTest extends TestCase
             );
 
         $response->assertStatus(Response::HTTP_OK)->assertJsonStructure([
-            'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at', 'token',],
+            'data' => ['name', 'email', 'created_at', 'updated_at', 'token',],
         ]);
     }
 
@@ -116,7 +114,7 @@ class UsersTest extends TestCase
         ))->getJson('/api/user/authorize');
 
         $authResponse->assertStatus(Response::HTTP_OK)->assertJsonStructure([
-            'data' => ['first_name', 'last_name', 'email', 'created_at', 'updated_at',],
+            'data' => ['name', 'email', 'created_at', 'updated_at',],
         ]);
     }
 
