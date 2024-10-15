@@ -7,7 +7,7 @@
             "homepage": "https://kelvinkamara.com"
         }
     ],
-    "version": "2.2.1",
+    "version": "2.3.0",
     "type": "project",
     "description": "(2021) A Laravel 11.x boilerplate with ReactJS Redux SPA.",
     "keywords": [
