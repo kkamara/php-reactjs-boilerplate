@@ -120,8 +120,6 @@ export default function HomeComponent() {
   return (
     <>
       <div className='container home-container'>
-        <br />
-        <br />
         <button className='btn btn-primary'>
           Test button
         </button>
