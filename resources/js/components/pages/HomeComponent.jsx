@@ -45,34 +45,34 @@ export default function HomeComponent() {
     }
 
     return <ReactPaginate
-        onPageChange={handlePageChange}
-        previousLabel="Previous"
-        nextLabel="Next"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        pageCount={state.users.data.meta.last_page}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        containerClassName="pagination"
-        activeClassName="active"
-        forcePage={state.users.data.meta.current_page - 1}
+      onPageChange={handlePageChange}
+      previousLabel="Previous"
+      nextLabel="Next"
+      pageClassName="page-item"
+      pageLinkClassName="page-link"
+      previousClassName="page-item"
+      previousLinkClassName="page-link"
+      nextClassName="page-item"
+      nextLinkClassName="page-link"
+      breakLabel="..."
+      breakClassName="page-item"
+      breakLinkClassName="page-link"
+      pageCount={state.users.data.meta.last_page}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={5}
+      containerClassName="pagination"
+      activeClassName="active"
+      forcePage={state.users.data.meta.current_page - 1}
     />
   }
 
   const paginationDetail = () => {
-        return <>
-            <strong>page</strong> ({state.users.data.meta.current_page}),
-            <strong>page_count</strong> ({state.users.data.meta.last_page}),
-            <strong>displayed_items</strong> ({state.users.data.data.length}),
-            <strong>items</strong> ({state.users.data.meta.total})
-        </>
+    return <>
+      <strong>page</strong> ({state.users.data.meta.current_page}),
+      <strong>page_count</strong> ({state.users.data.meta.last_page}),
+      <strong>displayed_items</strong> ({state.users.data.data.length}),
+      <strong>items</strong> ({state.users.data.meta.total})
+    </>
   }
 
   const renderList = () => {
