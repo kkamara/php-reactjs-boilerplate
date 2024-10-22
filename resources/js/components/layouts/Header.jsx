@@ -21,7 +21,7 @@ export default function Header(props) {
             >
               Logout
             </Link>
-          </li>              
+          </li>
         </ul>
       </li>
     } else {
