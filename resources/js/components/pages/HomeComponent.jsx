@@ -37,8 +37,6 @@ export default function HomeComponent() {
     dispatch(getUsers(newPage))
   }
 
-  const parseDate = date => moment(date).format('YYYY-MM-DD hh:mm')
-
   const pagination = () => {
     if (!state.users.data) {
         return null
@@ -74,6 +72,8 @@ export default function HomeComponent() {
       <strong>items</strong> ({state.users.data.meta.total})
     </>
   }
+
+  const parseDate = date => moment(date).format('YYYY-MM-DD hh:mm')
 
   const renderList = () => {
     if (!state.users.data) {
