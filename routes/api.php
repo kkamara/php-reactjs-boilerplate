@@ -8,32 +8,32 @@ Route::prefix('web')
     ->group(function() {
         // Add single page app api routes
         Route::prefix('/user')->group(function () {
-            Route::post('/register', [WebUserController::class,'register']);
-            Route::post('/', [WebUserController::class,'login']);
+            Route::post('/register', [WebUserController::class, 'register']);
+            Route::post('/', [WebUserController::class, 'login']);
             Route::delete(
                 '/logout', 
-                [WebUserController::class,'logout'],
+                [WebUserController::class, 'logout'],
             )->middleware("auth:sanctum");
             Route::get(
                 '/authorize', 
-                [WebUserController::class,'authorizeUser'],
+                [WebUserController::class, 'authorizeUser'],
             )->middleware("auth:sanctum");
         });
         Route::get(
             '/users',
-            [WebUserController::class,'getUsers'],
+            [WebUserController::class, 'getUsers'],
         );//->middleware("auth:sanctum");
     });
 
 Route::prefix('/user')->group(function () {
-    Route::post('/register', [UserController::class,'register']);
-    Route::post('/', [UserController::class,'login'])->name('login');
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/', [UserController::class, 'login'])->name('login');
     Route::delete(
         '/logout', 
-        [UserController::class,'logout'],
+        [UserController::class, 'logout'],
     )->middleware("auth:sanctum");
     Route::get(
         '/authorize', 
-        [UserController::class,'authorizeUser'],
+        [UserController::class, 'authorizeUser'],
     )->middleware("auth:sanctum");
 });
