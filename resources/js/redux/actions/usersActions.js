@@ -5,7 +5,7 @@ import { users, } from '../types'
 export const getUsers = page => {
   return async dispatch => {
     const http = new HttpService()
-        
+
     dispatch({ type: users.GET_USERS_PENDING, })
 
     const tokenId = "user-token"
