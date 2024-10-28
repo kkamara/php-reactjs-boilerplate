@@ -3,7 +3,7 @@ import { auth, } from '../types'
 const initState = {
   data: null,
   error: null,
-  loading: false,
+  loading: true,
 }
 
 export default function authReducer (state = initState, action) {
