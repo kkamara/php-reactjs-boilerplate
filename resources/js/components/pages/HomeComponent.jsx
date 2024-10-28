@@ -31,7 +31,7 @@ export default function HomeComponent() {
 
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1
-    if (newPage > state.users.data.meta.last_page) {
+    if (newPage > state.users.data.meta.lastPage) {
       return
     }
     dispatch(getUsers(newPage))
@@ -55,19 +55,19 @@ export default function HomeComponent() {
       breakLabel="..."
       breakClassName="page-item"
       breakLinkClassName="page-link"
-      pageCount={state.users.data.meta.last_page}
+      pageCount={state.users.data.meta.lastPage}
       marginPagesDisplayed={2}
       pageRangeDisplayed={5}
       containerClassName="pagination"
       activeClassName="active"
-      forcePage={state.users.data.meta.current_page - 1}
+      forcePage={state.users.data.meta.currentPage - 1}
     />
   }
 
   const paginationDetail = () => {
     return <>
-      <strong>page</strong> ({state.users.data.meta.current_page}),
-      <strong>page_count</strong> ({state.users.data.meta.last_page}),
+      <strong>page</strong> ({state.users.data.meta.currentPage}),
+      <strong>page_count</strong> ({state.users.data.meta.lastPage}),
       <strong>displayed_items</strong> ({state.users.data.data.length}),
       <strong>items</strong> ({state.users.data.meta.total})
     </>
