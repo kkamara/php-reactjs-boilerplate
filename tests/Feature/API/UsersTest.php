@@ -29,7 +29,7 @@ class UsersTest extends TestCase
             );
 
         $response->assertStatus(Response::HTTP_CREATED)->assertJsonStructure([
-            'data' => ['name', 'email', 'created_at', 'updated_at', 'token',],
+            'data' => ['name', 'email', 'createdAt', 'updatedAt', 'token',],
         ]);
     }
 
@@ -72,7 +72,7 @@ class UsersTest extends TestCase
             );
 
         $response->assertStatus(Response::HTTP_OK)->assertJsonStructure([
-            'data' => ['name', 'email', 'created_at', 'updated_at', 'token',],
+            'data' => ['name', 'email', 'createdAt', 'updatedAt', 'token',],
         ]);
     }
 
@@ -114,7 +114,7 @@ class UsersTest extends TestCase
         ))->getJson('/api/user/authorize');
 
         $authResponse->assertStatus(Response::HTTP_OK)->assertJsonStructure([
-            'data' => ['name', 'email', 'created_at', 'updated_at',],
+            'data' => ['name', 'email', 'createdAt', 'updatedAt',],
         ]);
     }
 
