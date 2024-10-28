@@ -31,7 +31,7 @@ export default function HomeComponent() {
 
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1
-    if (selected > state.users.data.last_page) {
+    if (selected > state.users.data.meta.last_page) {
       return
     }
     dispatch(getUsers(newPage))
