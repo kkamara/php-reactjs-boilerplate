@@ -1,7 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-import { register, } from '../../../redux/actions/authActions'
+import { register, authorize, } from '../../../redux/actions/authActions'
 
 import "./RegisterComponent.scss"
 
@@ -19,6 +19,8 @@ export default function RegisterComponent() {
   useEffect(() => {
     if (localStorage.getItem("user-token")) {
       return navigate("/")
+    } else if (authState.loading) {
+      dispatch(authorize())
     }
   }, [authState,])
 
