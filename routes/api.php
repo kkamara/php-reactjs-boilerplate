@@ -22,7 +22,7 @@ Route::prefix('web')
         Route::get(
             '/users',
             [WebUserController::class, 'getUsers'],
-        );//->middleware("auth:sanctum");
+        )->middleware("auth:sanctum");
     });
 
 Route::prefix('/user')->group(function () {
