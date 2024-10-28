@@ -5,17 +5,17 @@ use App\Http\Controllers\Web\UserController as WebUserController;
 use App\Http\Controllers\API\UserController;
 
 Route::prefix('web')
-    ->group(function() {
+    ->group(function () {
         // Add single page app api routes
         Route::prefix('/user')->group(function () {
             Route::post('/register', [WebUserController::class, 'register']);
             Route::post('/', [WebUserController::class, 'login']);
             Route::delete(
-                '/logout', 
+                '/logout',
                 [WebUserController::class, 'logout'],
             )->middleware("auth:sanctum");
             Route::get(
-                '/authorize', 
+                '/authorize',
                 [WebUserController::class, 'authorizeUser'],
             )->middleware("auth:sanctum");
         });
@@ -29,11 +29,11 @@ Route::prefix('/user')->group(function () {
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/', [UserController::class, 'login'])->name('login');
     Route::delete(
-        '/logout', 
+        '/logout',
         [UserController::class, 'logout'],
     )->middleware("auth:sanctum");
     Route::get(
-        '/authorize', 
+        '/authorize',
         [UserController::class, 'authorizeUser'],
     )->middleware("auth:sanctum");
 });
