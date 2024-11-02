@@ -57,14 +57,14 @@ export default function RegisterComponent() {
   }
 
   if (authState.loading) {
-    return <div className='container login-container text-center'>
+    return <div className='container register-container text-center'>
       <p>Loading...</p>
     </div>
   }
 
   return (
     <>
-      <div className='container login-container'>
+      <div className='container register-container'>
         <div className="col-md-4 offset-md-4">
           <h3 className="lead">Register</h3>
           <form method="post" onSubmit={onFormSubmit}>
