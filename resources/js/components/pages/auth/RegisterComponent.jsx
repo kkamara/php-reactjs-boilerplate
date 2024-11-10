@@ -121,7 +121,7 @@ export default function RegisterComponent() {
             href="/user/login" 
             className="btn btn-primary"
           >
-            Login
+            Sign In
           </a>
           <input 
             type="submit" 
