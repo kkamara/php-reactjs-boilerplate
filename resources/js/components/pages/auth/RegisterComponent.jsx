@@ -111,16 +111,18 @@ export default function RegisterComponent() {
                 onChange={onPasswordConfirmationChange}
               />
             </div>
-            <a 
-              href="/user/login" 
-              className="btn btn-primary"
-            >
-              Login
-            </a>
-            <input 
-              type="submit" 
-              className="btn btn-success" 
-            />
+            <div className="register-buttons-container">
+              <a 
+                href="/user/login" 
+                className="btn btn-primary"
+              >
+                Login
+              </a>
+              <input 
+                type="submit" 
+                className="btn btn-success register-submit-button" 
+              />
+            </div>
           </form>
         </div>
       </div>

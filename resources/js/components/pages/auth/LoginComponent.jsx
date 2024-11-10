@@ -77,16 +77,18 @@ export default function LoginComponent() {
                 onChange={onPasswordChange}
               />
             </div>
-            <a 
-              href="/user/register" 
-              className="btn btn-primary"
-            >
-              Register
-            </a>
-            <input 
-              type="submit" 
-              className="btn btn-success" 
-            />
+            <div className="login-buttons-container">
+              <a 
+                href="/user/register" 
+                className="btn btn-primary"
+              >
+                Register
+              </a>
+              <input 
+                type="submit" 
+                className="btn btn-success login-submit-button" 
+              />
+            </div>
           </form>
         </div>
       </div>
