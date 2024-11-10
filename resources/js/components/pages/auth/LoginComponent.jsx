@@ -45,7 +45,7 @@ export default function LoginComponent() {
   if (state.auth.loading) {
     return <div className='container login-container text-center'>
       <Helmet>
-        <title>Log In - {import.meta.env.VITE_APP_NAME}</title>
+        <title>Sign In - {import.meta.env.VITE_APP_NAME}</title>
       </Helmet>
       <p>Loading...</p>
     </div>
@@ -53,10 +53,10 @@ export default function LoginComponent() {
 
   return <div className='container login-container'>
     <Helmet>
-      <title>Log In - {import.meta.env.VITE_APP_NAME}</title>
+      <title>Sign In - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>
     <div className="col-md-4 offset-md-4">
-      <h1 className="login-lead">Login</h1>
+      <h1 className="login-lead">Sign In</h1>
       <form method="post" onSubmit={onFormSubmit}>
         {state.auth.error ?
           <div className="alert alert-warning alert-dismissible fade show" role="alert">
