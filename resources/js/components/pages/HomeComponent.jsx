@@ -67,10 +67,10 @@ export default function HomeComponent() {
 
   const paginationDetail = () => {
     return <>
-      <strong>page</strong> ({state.users.data.meta.currentPage}),
-      <strong>page_count</strong> ({state.users.data.meta.lastPage}),
-      <strong>displayed_items</strong> ({state.users.data.data.length}),
-      <strong>items</strong> ({state.users.data.meta.total})
+      <strong>Page</strong> ({state.users.data.meta.currentPage}),&nbsp;
+      <strong>Page Count</strong> ({state.users.data.meta.lastPage}),&nbsp;
+      <strong>Displayed Items</strong> ({state.users.data.data.length}),&nbsp;
+      <strong>Items</strong> ({state.users.data.meta.total})
     </>
   }
 
@@ -86,9 +86,9 @@ export default function HomeComponent() {
         <ul className="list-group">
           {state.users.data.data.map((user, index) => (
             <li key={index} className='list-group-item home-item'>
-              <strong>name</strong> ({user.name}),
-              <strong>email</strong> ({user.email}),
-              <strong>created_at</strong> ({parseDate(user.created_at)}),
+              <strong>name</strong> ({user.name}),&nbsp;
+              <strong>email</strong> ({user.email}),&nbsp;
+              <strong>created_at</strong> ({parseDate(user.created_at)}),&nbsp;
               <strong>updated_at</strong> ({parseDate(user.updated_at)})
             </li>
           ))}
