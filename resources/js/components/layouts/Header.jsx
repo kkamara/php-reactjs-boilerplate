@@ -19,7 +19,7 @@ export default function Header(props) {
               className="dropdown-item" 
               to="/user/logout"
             >
-              Logout
+              Sign Out
             </Link>
           </li>
         </ul>
@@ -32,7 +32,7 @@ export default function Header(props) {
             aria-current="page" 
             to="/user/login"
           >
-            Login
+            Sign In
           </Link>
         </li>
         <li className="nav-item">
@@ -51,7 +51,9 @@ export default function Header(props) {
   console.log(import.meta.env)
   return <nav className="container navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
-      <Link className="navbar-brand" to="/">PHP Reactjs Boilerplate</Link>
+      <Link className="navbar-brand" to="/">
+        {import.meta.env.VITE_APP_NAME}
+      </Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
