@@ -56,7 +56,7 @@ export default function LoginComponent() {
       <title>Sign In - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>
     <div className="col-md-4 offset-md-4">
-      <h1 className="login-lead">Sign In</h1>
+      <h1 className="login-lead fw-bold">Sign In</h1>
       <form method="post" onSubmit={onFormSubmit}>
         {state.auth.error ?
           <div className="alert alert-warning alert-dismissible fade show" role="alert">
@@ -82,7 +82,7 @@ export default function LoginComponent() {
             onChange={onPasswordChange}
           />
         </div>
-        <div className="login-buttons-container mt-3">
+        <div className="login-buttons-container mt-3 text-end">
           <a 
             href="/user/register" 
             className="btn btn-primary"

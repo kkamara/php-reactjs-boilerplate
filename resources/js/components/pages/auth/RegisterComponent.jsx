@@ -71,7 +71,7 @@ export default function RegisterComponent() {
       <title>Register - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>
     <div className="col-md-4 offset-md-4">
-      <h1 className="register-lead">Register</h1>
+      <h1 className="register-lead fw-bold">Register</h1>
       <form method="post" onSubmit={onFormSubmit}>
         {authState.error ?
           <div className="alert alert-warning alert-dismissible fade show" role="alert">
@@ -116,7 +116,7 @@ export default function RegisterComponent() {
             onChange={onPasswordConfirmationChange}
           />
         </div>
-        <div className="register-buttons-container mt-4">
+        <div className="register-buttons-container mt-4 text-end">
           <a 
             href="/user/login" 
             className="btn btn-primary"
