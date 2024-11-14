@@ -66,7 +66,7 @@ export default function RegisterComponent() {
     </div>
   }
 
-  return <div className='container register-container'>
+  return <div className='container register-container text-start'>
     <Helmet>
       <title>Register - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>

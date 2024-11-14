@@ -66,12 +66,12 @@ export default function HomeComponent() {
   }
 
   const paginationDetail = () => {
-    return <>
+    return <div className="text-center">
       <strong>Page</strong> ({state.users.data.meta.currentPage}),&nbsp;
       <strong>Page Count</strong> ({state.users.data.meta.lastPage}),&nbsp;
       <strong>Displayed Items</strong> ({state.users.data.data.length}),&nbsp;
       <strong>Items</strong> ({state.users.data.meta.total})
-    </>
+    </div>
   }
 
   const parseDate = date => moment(date).format('YYYY-MM-DD hh:mm')
@@ -127,9 +127,11 @@ export default function HomeComponent() {
         <Helmet>
           <title>Home - {import.meta.env.VITE_APP_NAME}</title>
         </Helmet>
-        <button className='btn btn-primary'>
-          Test Button
-        </button>
+        <div className="text-center">
+          <button className='btn btn-primary home-button'>
+            Test Button
+          </button>
+        </div>
         <br />
         <br />
         {pagination()}
