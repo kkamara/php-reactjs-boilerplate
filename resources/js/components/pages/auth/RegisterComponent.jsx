@@ -116,7 +116,7 @@ export default function RegisterComponent() {
             onChange={onPasswordConfirmationChange}
           />
         </div>
-        <div className="register-buttons-container">
+        <div className="register-buttons-container mt-4">
           <a 
             href="/user/login" 
             className="btn btn-primary"
@@ -125,7 +125,7 @@ export default function RegisterComponent() {
           </a>
           <input 
             type="submit" 
-            className="btn btn-success register-submit-button" 
+            className="btn btn-success register-submit-button ms-4" 
           />
         </div>
       </form>

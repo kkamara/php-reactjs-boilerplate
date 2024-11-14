@@ -82,7 +82,7 @@ export default function LoginComponent() {
             onChange={onPasswordChange}
           />
         </div>
-        <div className="login-buttons-container">
+        <div className="login-buttons-container mt-3">
           <a 
             href="/user/register" 
             className="btn btn-primary"
@@ -91,7 +91,7 @@ export default function LoginComponent() {
           </a>
           <input 
             type="submit" 
-            className="btn btn-success login-submit-button" 
+            className="btn btn-success login-submit-button ms-4" 
           />
         </div>
       </form>
