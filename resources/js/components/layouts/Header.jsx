@@ -49,7 +49,7 @@ export default function Header(props) {
   }
   // VITE_TEST
   console.log(import.meta.env)
-  return <nav className="container navbar navbar-expand-lg bg-body-tertiary">
+  return <nav className="container navbar navbar-expand-lg bg-body-tertiary mb-4">
     <div className="container-fluid">
       <Link className="navbar-brand" to="/">
         {import.meta.env.VITE_APP_NAME}
