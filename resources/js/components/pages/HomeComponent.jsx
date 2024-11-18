@@ -1,17 +1,13 @@
 import React, { useEffect, } from 'react'
-import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
 import ReactPaginate from 'react-paginate'
 import moment from 'moment'
 import { Helmet, } from "react-helmet"
 import { getUsers, } from '../../redux/actions/usersActions'
-import { authorize } from '../../redux/actions/authActions'
 
 import "./HomeComponent.scss"
 
 export default function HomeComponent() {
-  const navigate = useNavigate()
-
   const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
@@ -19,7 +15,6 @@ export default function HomeComponent() {
   }))
 
   useEffect(() => {
-    dispatch(authorize())
     dispatch(getUsers())
   }, [])
 

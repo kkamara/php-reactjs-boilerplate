@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect, } from 'react'
+import { useDispatch, } from "react-redux"
 import { useSelector, } from 'react-redux'
 import { Link, } from 'react-router-dom'
+import { authorize, } from "../../redux/actions/authActions"
 
 import "./Header.scss"
 
-export default function Header(props) {  
+export default function Header(props) {
+  const dispatch = useDispatch()
   const authResponse = useSelector(state=>state.auth)
+
+  useEffect(() => {
+    dispatch(authorize())
+  }, [])
 
   const renderNavLinks = () => {
     if(authResponse.data) {
