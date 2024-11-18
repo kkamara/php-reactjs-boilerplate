@@ -10,7 +10,7 @@ export default function Header(props) {
   const renderNavLinks = () => {
     if(authResponse.data) {
       return <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           User
         </a>
         <ul className="dropdown-menu">
