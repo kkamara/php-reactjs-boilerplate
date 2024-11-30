@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import App from './App'
 import store from './redux/store'
 
-import './index.css'
+import './index.scss'
 import favicon from './favicon.png'
 
 import $ from'jquery/dist/jquery.min.js'
