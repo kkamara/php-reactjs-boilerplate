@@ -117,22 +117,20 @@ export default function HomeComponent() {
   }
 
   return (
-    <>
-      <div className='container home-container'>
-        <Helmet>
-          <title>Home - {import.meta.env.VITE_APP_NAME}</title>
-        </Helmet>
-        <div className="text-center">
-          <button className='btn btn-primary home-button'>
-            Test Button
-          </button>
-        </div>
-        <br />
-        <br />
-        {pagination()}
-        {renderList()}
-        {pagination()}
+    <div className='container home-container'>
+      <Helmet>
+        <title>Home - {import.meta.env.VITE_APP_NAME}</title>
+      </Helmet>
+      <div className="text-center">
+        <button className='btn btn-primary home-button'>
+          Test Button
+        </button>
       </div>
-    </>
+      <br />
+      <br />
+      {pagination()}
+      {renderList()}
+      {pagination()}
+    </div>
   )
 }
