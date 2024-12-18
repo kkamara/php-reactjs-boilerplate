@@ -27,6 +27,7 @@ export default function usersReducer (state = initState, action) {
         ...state,
         data: action.payload,
         loading: false,
+        error: null,
       }
 
     default:
