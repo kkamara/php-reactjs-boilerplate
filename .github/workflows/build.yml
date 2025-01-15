@@ -49,9 +49,9 @@ jobs:
       - name: Change directory permissions
         run: chmod -R 777 storage bootstrap/cache
       - name: Install JavaScript packages
-        run: npm install --quiet --no-progress 
+        run: yarn install --silent --no-progress
       - name: Build JavaScript packages
-        run: npm run build
+        run: yarn build
       - name: Run Laravel server
         run: php artisan serve --port=3000 --no-reload &
       - name: Curl to localhost
