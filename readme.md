@@ -46,8 +46,8 @@ php artisan key:generate
 # Before running the next command:
 # Update your database details in .env
 php artisan migrate --seed
-npm install
-npm run build
+yarn install
+yarn build
 ```
 
 ## Usage
