@@ -9,7 +9,7 @@ import { auth, } from '../types'
 
 export const login = creds => {
   return dispatch => {
-        
+    
     dispatch({ type: auth.AUTH_LOGIN_PENDING, })
 
     LoginUserService(creds).then(res => {
@@ -17,7 +17,7 @@ export const login = creds => {
         type: auth.AUTH_LOGIN_SUCCESS,
         payload: res,
       })
-        
+      
     }, error => {
       const message = (error.response.data && error.response.data[0]) ||
         (error.response.data.email && error.response.data.email[0]) ||
@@ -32,7 +32,7 @@ export const login = creds => {
 
 export const authorize = () => {
   return dispatch => {
-        
+    
     dispatch({ type: auth.AUTH_AUTHORIZE_PENDING, })
     const tokenId = "user-token"
     if (localStorage.getItem(tokenId) === null) {
@@ -72,7 +72,7 @@ export const logout = () => {
         type: auth.AUTH_LOGOUT_SUCCESS,
         payload: null,
       })
-        
+      
     }, error => {
       const message = (error.response.data && error.response.data[0]) ||
         (error.response.data.email && error.response.data.email[0]) ||
@@ -87,7 +87,7 @@ export const logout = () => {
 
 export const register = data => {
   return dispatch => {
-        
+    
     dispatch({ type: auth.AUTH_REGISTER_PENDING, })
 
     RegisterUserService(data).then(res => {
