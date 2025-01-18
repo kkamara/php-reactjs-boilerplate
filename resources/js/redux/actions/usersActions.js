@@ -16,7 +16,7 @@ export const getUsers = page => {
           resolve(dispatch({
             type: users.GET_USERS_SUCCESS,
             payload: res.data,
-          }))                
+          }))
         }, error => {
           reject(dispatch({ 
             type : users.GET_USERS_ERROR, 
