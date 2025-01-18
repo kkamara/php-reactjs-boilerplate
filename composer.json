@@ -7,7 +7,7 @@
             "homepage": "https://www.github.com/kkamara"
         }
     ],
-    "version": "2.11.1",
+    "version": "2.11.2",
     "type": "project",
     "description": "(2021) A Laravel 11.x boilerplate with ReactJS 18 Redux SPA.",
     "keywords": [
