@@ -7,7 +7,7 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
-        "@vitejs/plugin-react": "^4.2.1",
+        "@vitejs/plugin-react": "^4.3.4",
         "axios": "^1.6.4",
         "bootstrap": "^5.3",
         "jquery": "^3.6.3",
