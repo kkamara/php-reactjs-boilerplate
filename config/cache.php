@@ -41,8 +41,9 @@ return [
         'database' => [
             'driver' => 'database',
             'table' => env('DB_CACHE_TABLE', 'cache'),
-            'connection' => env('DB_CACHE_CONNECTION', null),
-            'lock_connection' => env('DB_CACHE_LOCK_CONNECTION', null),
+            'connection' => env('DB_CACHE_CONNECTION'),
+            'lock_connection' => env('DB_CACHE_LOCK_CONNECTION'),
+            'lock_table' => env('DB_CACHE_LOCK_TABLE'),
         ],
 
         'file' => [
@@ -80,7 +81,7 @@ return [
             'driver' => 'dynamodb',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'region' => env('AWS_DEFAULT_REGION', 'eu-west-1'),
             'table' => env('DYNAMODB_CACHE_TABLE', 'cache'),
             'endpoint' => env('DYNAMODB_ENDPOINT'),
         ],
