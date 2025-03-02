@@ -71,13 +71,13 @@ POST       api/user/register ................... API\UserController@register
 
 View the api collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
-## Unit Tests
+## Feature Tests
 
 ```bash
 php artisan test --filter=API
 ```
 
-View the unit test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Unit/Api/UsersTest.php).
+View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Feature/Api/UsersTest.php).
 
 ## Misc.
 
