@@ -14,7 +14,7 @@
 
 * [API Documentation](#api-documentation)
 
-* [Unit Tests](#unit-tests)
+* [Feature Tests](#feature-tests)
 
 * [Misc.](#misc)
 
