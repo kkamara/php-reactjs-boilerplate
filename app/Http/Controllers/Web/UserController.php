@@ -34,9 +34,9 @@ class UserController extends Controller
         }
 
         $user = (new User())->tap(function(User $user) use ($request) {
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->password = Hash::make($request->input('password'));
+            $user->name = htmlspecialchars(trim($request->input('name')));
+            $user->email = filter_var(trim($request->input('email')), FILTER_SANITIZE_EMAIL);
+            $user->password = Hash::make(htmlspecialchars(trim($request->input('password'))));
             $user->save();
             $user->token = $user->createToken('token')->plainTextToken;
         });
@@ -56,8 +56,8 @@ class UserController extends Controller
         }
         if (
             !Auth::attempt([
-                'email' => $request->input('email'),
-                'password' => $request->input('password'),
+                'email' => filter_var(trim($request->input('email')), FILTER_SANITIZE_EMAIL),
+                'password' => htmlspecialchars(trim($request->input('password'))),
             ])
         ) {
             return response()->json([
