@@ -87,11 +87,11 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 ## Misc.
 
+[See PHP Scraper](https://github.com/kkamara/php-scraper).
+
 [See Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system).
 
 [See Book Store Management System](https://github.com/kkamara/book-store-management-system).
-
-[See PHP Scraper](https://github.com/kkamara/php-scraper).
 
 [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
 
