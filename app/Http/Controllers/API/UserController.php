@@ -104,9 +104,13 @@ class UserController extends Controller
     }
 
     public function authorizeUser(Request $request) {
+        $cleanEmailInput = filter_var(
+            trim($request->user()->email),
+            FILTER_SANITIZE_EMAIL,
+        );
         $user = User::where(
             "email",
-            $request->user()->email,
+            $cleanEmailInput,
         )->firstOrFail();
 
         return [

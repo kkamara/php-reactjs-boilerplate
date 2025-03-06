@@ -72,8 +72,8 @@ class UserController extends Controller
                 Response::HTTP_BAD_REQUEST,
             );
         }
-        $cleanEmailInput = filter_var(trim(
-            $request->input("email")),
+        $cleanEmailInput = filter_var(
+            trim($request->input("email")),
             FILTER_SANITIZE_EMAIL,
         );
         if (
@@ -94,7 +94,7 @@ class UserController extends Controller
                 ),
             ], Response::HTTP_BAD_REQUEST);
         }
-        $user = User::where($request->only("email"))
+        $user = User::where(["email" => $cleanEmailInput])
             ->firstOrFail();
         $user->tap(function(User $user) {
             $user->token = $user->createToken("token")->plainTextToken;
@@ -105,9 +105,13 @@ class UserController extends Controller
     }
 
     public function authorizeUser(Request $request) {
+        $cleanEmailInput = filter_var(
+            trim($request->user()->email),
+            FILTER_SANITIZE_EMAIL,
+        );
         $user = User::where(
             "email",
-            $request->user()->email,
+            $cleanEmailInput,
         )->firstOrFail();
 
         return response()->json([
