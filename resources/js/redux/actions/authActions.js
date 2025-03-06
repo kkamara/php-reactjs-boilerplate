@@ -4,8 +4,8 @@ import {
   AuthorizeUserService,
   LogoutUserService,
   RegisterUserService,
-} from '../../services/AuthService'
-import { auth, } from '../types'
+} from "../../services/AuthService"
+import { auth, } from "../types"
 
 export const login = creds => {
   return dispatch => {

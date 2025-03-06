@@ -16,21 +16,21 @@ class UserController extends Controller
     public function register(Request $request) {
         $validator = Validator::make(
             $request->only([
-                'name', 'email', 'password', 'password_confirmation',
+                "name", "email", "password", "password_confirmation",
             ]),
             [
-                'name' => 'required|min:3|max:30',
-                'email' => 'required|email|max:255|unique:users',
-                'password' => 'required|confirmed|min:6|max:30',
+                "name" => "required|min:3|max:30",
+                "email" => "required|email|max:255|unique:users",
+                "password" => "required|confirmed|min:6|max:30",
             ]
         );
     
         if ($validator->fails()) {
             return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
         }
-        if (null !== User::where($request->only('email'))->first()) {
+        if (null !== User::where($request->only("email"))->first()) {
             return response()->json([
-                'email' => __(
+                "email" => __(
                     "validation.exists",
                     ["attribute" => "email"],
                 ),
@@ -38,29 +38,29 @@ class UserController extends Controller
         }
         
         $user = (new User())->tap(function(User $user) use ($request) {
-            $user->name = htmlspecialchars(trim($request->input('name')));
-            $user->email = filter_var(trim($request->input('email')), FILTER_SANITIZE_EMAIL);
-            $user->password = Hash::make(htmlspecialchars(trim($request->input('password'))));
+            $user->name = htmlspecialchars(trim($request->input("name")));
+            $user->email = filter_var(trim($request->input("email")), FILTER_SANITIZE_EMAIL);
+            $user->password = Hash::make(htmlspecialchars(trim($request->input("password"))));
             $user->save();
-            $user->token = $user->createToken('token')->plainTextToken;
+            $user->token = $user->createToken("token")->plainTextToken;
         });
      
         return response()->json([
-            'data' => new UserResource($user)
+            "data" => new UserResource($user)
         ], Response::HTTP_CREATED);
     }
 
     function login(Request $request) {
         $validation = Validator::make(
-            $request->only(['email', 'password',]),
-            ['email' => 'required|email|max:255', 'password' => 'required|min:6|max:30',],
+            $request->only(["email", "password",]),
+            ["email" => "required|email|max:255", "password" => "required|min:6|max:30",],
         );
         if($validation->fails()) {
             return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
         }
-        if (!Auth::attempt($request->only(['email', 'password']))) {
+        if (!Auth::attempt($request->only(["email", "password"]))) {
             return response()->json([
-                'error' => __(
+                "error" => __(
                     "validation.invalid_duo_combination",
                     [
                         "attribute" => "name",
@@ -69,25 +69,25 @@ class UserController extends Controller
                 ),
             ], Response::HTTP_BAD_REQUEST);
         }
-        $user = User::where($request->only('email'))->firstOrFail();
+        $user = User::where($request->only("email"))->firstOrFail();
         $user->tap(function(User $user) {
-            $user->token = $user->createToken('token')->plainTextToken;
+            $user->token = $user->createToken("token")->plainTextToken;
         });
         return [
-            'data' => new UserResource($user)
+            "data" => new UserResource($user)
         ];
     }
 
     function authorizeUser(Request $request) {
-        $user = User::where('email', $request->user()->email)->firstOrFail();
+        $user = User::where("email", $request->user()->email)->firstOrFail();
 
         return [
-            'data' => new UserResource($user)
+            "data" => new UserResource($user)
         ];
     }
 
     function logout(Request $request) {
         $request->user()->currentAccessToken()->delete();
-        return ['message' => 'Success'];
+        return ["message" => "Success"];
     }
 }

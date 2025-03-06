@@ -1,4 +1,4 @@
-import { auth, } from '../types'
+import { auth, } from "../types"
 
 const initState = {
   data: null,

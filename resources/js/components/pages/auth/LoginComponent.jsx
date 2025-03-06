@@ -1,8 +1,8 @@
-import React, { useEffect, useState, } from 'react'
-import { useNavigate, } from 'react-router-dom'
-import { useDispatch, useSelector, } from 'react-redux'
+import React, { useEffect, useState, } from "react"
+import { useNavigate, } from "react-router-dom"
+import { useDispatch, useSelector, } from "react-redux"
 import { Helmet, } from "react-helmet"
-import { login, authorize, } from '../../../redux/actions/authActions'
+import { login, authorize, } from "../../../redux/actions/authActions"
 
 import "./LoginComponent.scss"
 
@@ -43,7 +43,7 @@ export default function LoginComponent() {
   }
 
   if (state.auth.loading) {
-    return <div className='container login-container text-center'>
+    return <div className="container login-container text-center">
       <Helmet>
         <title>Sign In - {import.meta.env.VITE_APP_NAME}</title>
       </Helmet>
@@ -51,7 +51,7 @@ export default function LoginComponent() {
     </div>
   }
 
-  return <div className='container login-container'>
+  return <div className="container login-container">
     <Helmet>
       <title>Sign In - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>

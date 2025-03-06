@@ -1,8 +1,8 @@
-import React, { useEffect, useState, } from 'react'
-import { useNavigate, } from 'react-router-dom'
-import { useDispatch, useSelector, } from 'react-redux'
+import React, { useEffect, useState, } from "react"
+import { useNavigate, } from "react-router-dom"
+import { useDispatch, useSelector, } from "react-redux"
 import { Helmet, } from "react-helmet"
-import { register, authorize, } from '../../../redux/actions/authActions'
+import { register, authorize, } from "../../../redux/actions/authActions"
 
 import "./RegisterComponent.scss"
 
@@ -58,7 +58,7 @@ export default function RegisterComponent() {
   }
 
   if (authState.loading) {
-    return <div className='container register-container text-center'>
+    return <div className="container register-container text-center">
       <Helmet>
         <title>Register - {import.meta.env.VITE_APP_NAME}</title>
       </Helmet>
@@ -66,7 +66,7 @@ export default function RegisterComponent() {
     </div>
   }
 
-  return <div className='container register-container text-start'>
+  return <div className="container register-container text-start">
     <Helmet>
       <title>Register - {import.meta.env.VITE_APP_NAME}</title>
     </Helmet>
