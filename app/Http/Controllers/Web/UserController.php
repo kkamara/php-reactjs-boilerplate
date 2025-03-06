@@ -66,7 +66,13 @@ class UserController extends Controller
             ])
         ) {
             return response()->json([
-                'Invalid email and password combination',
+                "error" => __(
+                    "validation.invalid_duo_combination",
+                    [
+                        "attribute" => "name",
+                        "attribute2" => "password",
+                    ]
+                ),
             ], Response::HTTP_BAD_REQUEST);
         }
         $user = User::where($request->only('email'))->firstOrFail();
