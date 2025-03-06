@@ -19,9 +19,9 @@ class UserController extends Controller
                 'name', 'email', 'password', 'password_confirmation',
             ]),
             [
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required|confirmed',
+                'name' => 'required|min:3|max:30',
+                'email' => 'required|email|max:255|unique:users',
+                'password' => 'required|confirmed|min:6|max:30',
             ]
         );
     
@@ -33,9 +33,9 @@ class UserController extends Controller
         }
         
         $user = (new User())->tap(function(User $user) use ($request) {
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->password = Hash::make($request->input('password'));
+            $user->name = htmlspecialchars(trim($request->input('name')));
+            $user->email = filter_var(trim($request->input('email')), FILTER_SANITIZE_EMAIL);
+            $user->password = Hash::make(htmlspecialchars(trim($request->input('password'))));
             $user->save();
             $user->token = $user->createToken('token')->plainTextToken;
         });
@@ -48,7 +48,7 @@ class UserController extends Controller
     function login(Request $request) {
         $validation = Validator::make(
             $request->only(['email', 'password',]),
-            ['email' => 'required|email', 'password' => 'required',],
+            ['email' => 'required|email|max:255', 'password' => 'required|min:6|max:30',],
         );
         if($validation->fails()) {
             return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
