@@ -97,15 +97,15 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 [See Book Store Management System](https://github.com/kkamara/book-store-management-system).
 
-[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
-
-[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
-
 [See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
 
 [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
 
 [See MRVL Web](https://github.com/kkamara/mrvl-web).
+
+[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
+
+[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
