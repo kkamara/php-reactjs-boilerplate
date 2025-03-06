@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function register(Request $request) {
+    public function register(Request $request): JsonResponse {
         $validator = Validator::make(
             $request->only([
                 "name", "email", "password", "password_confirmation",
@@ -57,7 +58,7 @@ class UserController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request): JsonResponse|UserResource {
         $validation = Validator::make(
             $request->only(["email", "password"]),
             [
@@ -98,12 +99,10 @@ class UserController extends Controller
         $user->tap(function(User $user) {
             $user->token = $user->createToken("token")->plainTextToken;
         });
-        return [
-            "data" => new UserResource($user)
-        ];
+        return new UserResource($user);
     }
 
-    public function authorizeUser(Request $request) {
+    public function authorizeUser(Request $request): JsonResponse|UserResource {
         $cleanEmailInput = filter_var(
             trim($request->user()->email),
             FILTER_SANITIZE_EMAIL,
@@ -113,13 +112,11 @@ class UserController extends Controller
             $cleanEmailInput,
         )->firstOrFail();
 
-        return [
-            "data" => new UserResource($user)
-        ];
+        return new UserResource($user);
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request): JsonResponse {
         $request->user()->currentAccessToken()->delete();
-        return ["message" => "Success"];
+        return response()->json(["message" => "Success"]);
     }
 }
