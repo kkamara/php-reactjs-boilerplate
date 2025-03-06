@@ -89,6 +89,8 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 [See PHP Scraper](https://github.com/kkamara/php-scraper).
 
+[See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
+
 [See Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system).
 
 [See Book Store Management System](https://github.com/kkamara/book-store-management-system).
@@ -96,8 +98,6 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
 
 [See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
-
-[See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
 
 [See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
 
