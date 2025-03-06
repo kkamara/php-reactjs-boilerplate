@@ -103,7 +103,7 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 [See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
 
-[See movies app](https://github.com/kkamara/movies).
+[See Movies app](https://github.com/kkamara/movies).
 
 [See Food Nutrition Facts Search web app](https://github.com/kkamara/food-nutrition-facts-search-web-app).
 
