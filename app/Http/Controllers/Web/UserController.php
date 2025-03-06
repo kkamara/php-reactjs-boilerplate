@@ -58,7 +58,7 @@ class UserController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    function login(Request $request) {
+    public function login(Request $request) {
         $validation = Validator::make(
             $request->only(["email", "password"]),
             [
@@ -104,7 +104,7 @@ class UserController extends Controller
         ], Response::HTTP_OK);
     }
 
-    function authorizeUser(Request $request) {
+    public function authorizeUser(Request $request) {
         $user = User::where(
             "email",
             $request->user()->email,
@@ -115,7 +115,7 @@ class UserController extends Controller
         ], Response::HTTP_ACCEPTED);
     }
 
-    function logout(Request $request) {
+    public function logout(Request $request) {
         $request->user()->currentAccessToken()->delete();
         return ["message" => "Success"];
     }
