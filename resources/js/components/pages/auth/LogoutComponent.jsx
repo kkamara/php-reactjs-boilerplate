@@ -26,7 +26,7 @@ export default function LogoutComponent() {
     if (token === null) {
       return navigate("/user/login")
     }
-  }, [authState,])
+  }, [authState])
 
   if (authState.loading) {
     return <div className="container logout-container text-center">
