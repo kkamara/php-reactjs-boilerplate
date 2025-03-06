@@ -26,9 +26,16 @@ class UserController extends Controller
         );
     
         if ($validator->fails()) {
-            return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
+            return response()->json(
+                $validator->errors(),
+                Response::HTTP_BAD_REQUEST,
+            );
         }
-        if (null !== User::where($request->only("email"))->first()) {
+        if (
+            null !== User::where(
+            $request->only("email"),
+            )->first()
+        ) {
             return response()->json([
                 "email" => __(
                     "validation.exists",
@@ -46,19 +53,36 @@ class UserController extends Controller
         });
      
         return response()->json([
-            "data" => new UserResource($user)
+            "data" => new UserResource($user),
         ], Response::HTTP_CREATED);
     }
 
     function login(Request $request) {
         $validation = Validator::make(
-            $request->only(["email", "password",]),
-            ["email" => "required|email|max:255", "password" => "required|min:6|max:30",],
+            $request->only(["email", "password"]),
+            [
+                "email" => "required|email|max:255",
+                "password" => "required|min:6|max:30",
+            ],
         );
         if($validation->fails()) {
-            return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
+            return response()->json(
+                $validation->errors(),
+                Response::HTTP_BAD_REQUEST,
+            );
         }
-        if (!Auth::attempt($request->only(["email", "password"]))) {
+        $cleanEmailInput = filter_var(
+            trim($request->input("email")),
+            FILTER_SANITIZE_EMAIL,
+        );
+        if (
+            !Auth::attempt([
+                "email" => $cleanEmailInput,
+                "password" => htmlspecialchars(trim(
+                    $request->input("password"),
+                )),
+            ])
+        ) {
             return response()->json([
                 "error" => __(
                     "validation.invalid_duo_combination",
@@ -69,7 +93,8 @@ class UserController extends Controller
                 ),
             ], Response::HTTP_BAD_REQUEST);
         }
-        $user = User::where($request->only("email"))->firstOrFail();
+        $user = User::where(["email" => $cleanEmailInput])
+            ->firstOrFail();
         $user->tap(function(User $user) {
             $user->token = $user->createToken("token")->plainTextToken;
         });
@@ -79,7 +104,10 @@ class UserController extends Controller
     }
 
     function authorizeUser(Request $request) {
-        $user = User::where("email", $request->user()->email)->firstOrFail();
+        $user = User::where(
+            "email",
+            $request->user()->email,
+        )->firstOrFail();
 
         return [
             "data" => new UserResource($user)
