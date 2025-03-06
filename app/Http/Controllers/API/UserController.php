@@ -32,9 +32,13 @@ class UserController extends Controller
                 Response::HTTP_BAD_REQUEST,
             );
         }
+        $cleanEmailInput = filter_var(
+            trim($request->input("email")),
+            FILTER_SANITIZE_EMAIL,
+        );
         if (
             null !== User::where(
-            $request->only("email"),
+            ["email" => $cleanEmailInput],
             )->first()
         ) {
             return response()->json([
