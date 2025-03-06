@@ -31,7 +31,7 @@
 
 ## Installation
 
-* [XAMPP: Apache, MariaDB (MySQL alternative), & PHP](https://www.apachefriends.org/)
+* [XAMPP: Apache, MariaDB (MySQL alternative), and PHP](https://www.apachefriends.org/)
 * If you find that the MariaDB XAMPP service fails to start (I get this on Windows) then install MySQL manually [here](https://dev.mysql.com/downloads/mysql/)
 * [https://laravel.com/docs/12.x/installation](https://laravel.com/docs/12.x/installation)
 * [https://laravel.com/docs/12.x/vite](https://laravel.com/docs/12.x/vite)
