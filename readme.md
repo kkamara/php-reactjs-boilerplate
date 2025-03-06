@@ -97,11 +97,11 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 [See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
 
+[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
+
 [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
 
 [See MRVL Web](https://github.com/kkamara/mrvl-web).
-
-[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
 
 [See Movies app](https://github.com/kkamara/movies).
 
