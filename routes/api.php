@@ -30,7 +30,7 @@ Route::prefix("web")
 // Add third-party API routes
 Route::prefix("/user")->group(function () {
     Route::post("/register", [UserController::class, "register"]);
-    Route::post("/", [UserController::class, "login"])->name("login");
+    Route::post("/", [UserController::class, "login"]);
     Route::delete(
             "/logout",
             [UserController::class, "logout"],
