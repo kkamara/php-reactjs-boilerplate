@@ -51,7 +51,7 @@ php artisan migrate --seed
 #### Frontend Installation
 
 ```bash
-npm install -g yarn
+npm install --global yarn
 yarn install
 yarn build
 ```
