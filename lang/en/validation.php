@@ -166,7 +166,7 @@ return [
     /**
      * Custom validation messages
      */
-    "invalid_duo_combination" => 'Invalid :attribute and :attribute2 combination',
+    'invalid_duo_combination' => 'Invalid :attribute and :attribute2 combination',
 
     /*
     |--------------------------------------------------------------------------
