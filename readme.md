@@ -105,18 +105,6 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 [See MRVL Web](https://github.com/kkamara/mrvl-web).
 
-[See Movies app](https://github.com/kkamara/movies).
-
-[See Food Nutrition Facts Search web app](https://github.com/kkamara/food-nutrition-facts-search-web-app).
-
-[See Ecommerce Web](https://github.com/kkamara/ecommerce-web).
-
-[See City Maps Mobile](https://github.com/kkamara/city-maps-mobile).
-
-[See Ecommerce Mobile](https://github.com/kkamara/ecommerce-mobile).
-
-[See CRM](https://github.com/kkamara/crm).
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
