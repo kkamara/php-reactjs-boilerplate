@@ -23,7 +23,7 @@ export default function HomeComponent() {
       localStorage.removeItem("user-token")
       window.location.href = "/user/login"
     }
-  }, [state.auth,])
+  }, [state.auth])
 
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1

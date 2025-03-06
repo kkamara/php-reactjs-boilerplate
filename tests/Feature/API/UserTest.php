@@ -55,7 +55,7 @@ class UserTest extends TestCase
     public function testRegisterUserEmailAlreadyExists(): void
     {
         $email = $this->faker->unique()->safeEmail;
-        User::factory()->create(["email" => $email,]);
+        User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
                 "/api/user/register", 
@@ -74,7 +74,7 @@ class UserTest extends TestCase
     public function testLoginUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
-        $user = User::factory()->create(["email" => $email,]);
+        $user = User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
                 "/api/user", 
@@ -96,7 +96,7 @@ class UserTest extends TestCase
     public function testLoginUserInvalidData(): void
     {
         $email = $this->faker->unique()->safeEmail;
-        User::factory()->create(["email" => $email,]);
+        User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
             ->postJson("/api/user");
 
@@ -122,7 +122,7 @@ class UserTest extends TestCase
     public function testAuthorizeUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
-        $user = User::factory()->create(["email" => $email,]);
+        $user = User::factory()->create(["email" => $email]);
 
         Sanctum::actingAs($user);
         
@@ -155,7 +155,7 @@ class UserTest extends TestCase
     public function testLogoutUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
-        $user = User::factory()->create(["email" => $email,]);
+        $user = User::factory()->create(["email" => $email]);
 
         Sanctum::actingAs($user);
         

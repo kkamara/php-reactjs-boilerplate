@@ -23,7 +23,7 @@ export default function RegisterComponent() {
     } else if (authState.loading) {
       dispatch(authorize())
     }
-  }, [authState,])
+  }, [authState])
 
   const onFormSubmit = (e) => {
     e.preventDefault()
