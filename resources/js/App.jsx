@@ -1,5 +1,5 @@
-import './App.scss'
-import { BrowserRouter } from 'react-router-dom'
+import "./App.scss"
+import { BrowserRouter } from "react-router-dom"
 import Routes from "./Routes"
 
 function App() {

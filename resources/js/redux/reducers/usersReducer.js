@@ -1,4 +1,4 @@
-import { users, } from '../types'
+import { users, } from "../types"
 
 const initState = {
   data: null,

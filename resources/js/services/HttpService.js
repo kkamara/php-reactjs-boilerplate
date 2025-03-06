@@ -1,11 +1,11 @@
-import axios from 'axios'
+import axios from "axios"
 
 axios.defaults.withCredentials = true
 axios.defaults.withXSRFToken = true
 
 export default class HttpService
 {
-  _domain = 'http://localhost:3000'
+  _domain = "http://localhost:3000"
   _url = `${this._domain}/api/web`
 
   get domain() {
@@ -50,23 +50,23 @@ export default class HttpService
 
   getRequestOptions = (token) => {
     const requestOptions = {
-      method: 'GET',
-      headers: { 'Content-type' : 'application/json', }
+      method: "GET",
+      headers: { "Content-type" : "application/json", }
     }
     if (token) {
-      requestOptions.headers.Authorization = 'Bearer ' +token
+      requestOptions.headers.Authorization = "Bearer " +token
     }
     return requestOptions
   }
 
   postRequestOptions = ({ token, item, }) => {
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-type' : 'application/json', },
+      method: "POST",
+      headers: { "Content-type" : "application/json", },
       data : item,
     }
     if (token) {
-      requestOptions.headers.Authorization = 'Bearer ' +token
+      requestOptions.headers.Authorization = "Bearer " +token
     }
     return requestOptions
   }

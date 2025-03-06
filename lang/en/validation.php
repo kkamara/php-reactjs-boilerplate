@@ -163,6 +163,11 @@ return [
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
 
+    /**
+     * Custom validation messages
+     */
+    'invalid_duo_combination' => 'Invalid :attribute and :attribute2 combination',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

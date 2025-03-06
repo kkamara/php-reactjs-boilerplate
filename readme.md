@@ -25,13 +25,13 @@
 <a name="postman"></a>
 ## Using Postman?
 
-[Postman client](https://www.postman.com/).
+[Get Postman HTTP client](https://www.postman.com/).
 
-[Published Postman API Collection](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
+[Online Postman API Collection for PHP ReactJS Boilerplate](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
 ## Installation
 
-* [XAMPP: Apache, MariaDB (MySQL alternative), & PHP](https://www.apachefriends.org/)
+* [XAMPP: Apache, MariaDB (MySQL alternative), and PHP](https://www.apachefriends.org/)
 * If you find that the MariaDB XAMPP service fails to start (I get this on Windows) then install MySQL manually [here](https://dev.mysql.com/downloads/mysql/)
 * [https://laravel.com/docs/12.x/installation](https://laravel.com/docs/12.x/installation)
 * [https://laravel.com/docs/12.x/vite](https://laravel.com/docs/12.x/vite)
@@ -46,6 +46,12 @@ php artisan key:generate
 # Before running the next command:
 # Update your database details in .env
 php artisan migrate --seed
+```
+
+#### Frontend Installation
+
+```bash
+npm install --global yarn
 yarn install
 yarn build
 ```
@@ -69,7 +75,7 @@ POST       api/user/register ................... API\UserController@register
 ...
 ```
 
-View the api collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
+View the API collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
 ## Feature Tests
 
@@ -77,39 +83,31 @@ View the api collection [here](https://documenter.getpostman.com/view/17125932/T
 php artisan test --filter=API
 ```
 
-View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Feature/Api/UsersTest.php).
+View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Feature/API/UserTest.php).
 
 ## Misc.
 
-[See PHP ReactJS Boilerplate app](https://github.com/kkamara/php-reactjs-boilerplate)
+[See ReactJS Native Mobile Boilerplate](https://github.com/kkamara/ReactJSNativeMobileBoilerplate).
 
-[See Python ReactJS Boilerplate app](https://github.com/kkamara/python-reactjs-boilerplate)
-
-[See MRVL Desktop](https://github.com/kkamara/mrvl-desktop)
-
-[See MRVL Web](https://github.com/kkamara/mrvl-web)
-
-[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton)
-
-[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton)
-
-[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3)
-
-[See movies app](https://github.com/kkamara/movies)
-
-[See Food Nutrition Facts Search web app](https://github.com/kkamara/food-nutrition-facts-search-web-app)
-
-[See Ecommerce Web](https://github.com/kkamara/ecommerce-web)
-
-[See City Maps Mobile](https://github.com/kkamara/city-maps-mobile)
-
-[See Ecommerce Mobile](https://github.com/kkamara/ecommerce-mobile)
-
-[See CRM](https://github.com/kkamara/crm)
-
-[See Birthday Currency](https://github.com/kkamara/birthday-currency)
+[See Multi-Window Desktop App](https://github.com/kkamara/multi-window-desktop-app).
 
 [See PHP Scraper](https://github.com/kkamara/php-scraper).
+
+[See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
+
+[See Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system).
+
+[See Book Store Management System](https://github.com/kkamara/book-store-management-system).
+
+[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
+
+[See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
+
+[See MRVL Web](https://github.com/kkamara/mrvl-web).
+
+[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
+
+[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
