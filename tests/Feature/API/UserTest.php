@@ -5,6 +5,7 @@ namespace Tests\Feature\API;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 use App\Models\User;
 
@@ -76,7 +77,7 @@ class UserTest extends TestCase
         $user = User::factory()->create(["email" => $email,]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user/", 
+                "/api/user", 
                 ["email" => $user->email, "password" => "secret"],
             );
 
@@ -97,7 +98,7 @@ class UserTest extends TestCase
         $email = $this->faker->unique()->safeEmail;
         User::factory()->create(["email" => $email,]);
         $response = $this->withHeaders($this->headers)
-            ->postJson("/api/user/");
+            ->postJson("/api/user");
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonStructure(["email", "password"]);
@@ -110,7 +111,7 @@ class UserTest extends TestCase
         ]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user/", 
+                "/api/user", 
                 ["email" => $user->email, "password" => "invalid_password"],
             );
 
@@ -122,16 +123,10 @@ class UserTest extends TestCase
     {
         $email = $this->faker->unique()->safeEmail;
         $user = User::factory()->create(["email" => $email,]);
-        $loginResponse = $this->withHeaders($this->headers)
-            ->postJson(
-                "/api/user/", 
-                ["email" => $user->email, "password" => "secret",],
-            );
+
+        Sanctum::actingAs($user);
         
-        $authResponse = $this->withHeaders(array_merge(
-                $this->headers, 
-                ["Authorization" => "Bearer ".$loginResponse->json()["data"]["token"]],
-            ))
+        $authResponse = $this->withHeaders($this->headers)
             ->getJson("/api/user/authorize");
 
         $authResponse->assertStatus(Response::HTTP_OK)
@@ -147,10 +142,7 @@ class UserTest extends TestCase
 
     public function testAuthorizeUserAuthenticationError()
     {        
-        $response = $this->withHeaders(array_merge(
-                $this->headers, 
-                ["Authorization" => "Bearer 1"],
-            ))
+        $response = $this->withHeaders($this->headers)
             ->getJson("/api/user/authorize");
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
