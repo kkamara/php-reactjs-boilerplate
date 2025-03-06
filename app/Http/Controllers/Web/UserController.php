@@ -20,9 +20,9 @@ class UserController extends Controller
                 'name', 'email', 'password', 'password_confirmation',
             ]),
             [
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required|confirmed',
+                'name' => 'required|min:3|max:30',
+                'email' => 'required|email|max:255|unique:users',
+                'password' => 'required|confirmed|min:6|max:30',
             ]
         );
 
@@ -49,7 +49,7 @@ class UserController extends Controller
     function login(Request $request) {
         $validation = Validator::make(
             $request->only(['email', 'password',]),
-            ['email' => 'required|email', 'password' => 'required',],
+            ['email' => 'required|email|max:255', 'password' => 'required|min:6|max:30',],
         );
         if($validation->fails()) {
             return response()->json($validation->errors(), Response::HTTP_BAD_REQUEST);
