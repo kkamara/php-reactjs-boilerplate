@@ -29,7 +29,12 @@ class UserController extends Controller
             return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
         }
         if (null !== User::where($request->only('email'))->first()) {
-            return response()->json(['email' => 'User with that email already exists'], Response::HTTP_BAD_REQUEST);
+            return response()->json([
+                'email' => __(
+                    "validation.exists",
+                    ["attribute" => "email"],
+                ),
+            ], Response::HTTP_BAD_REQUEST);
         }
         
         $user = (new User())->tap(function(User $user) use ($request) {
