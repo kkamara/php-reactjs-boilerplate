@@ -69,7 +69,7 @@ POST       api/user/register ................... API\UserController@register
 ...
 ```
 
-View the api collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
+View the API collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
 
 ## Feature Tests
 
