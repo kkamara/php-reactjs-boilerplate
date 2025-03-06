@@ -87,9 +87,9 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 ## Misc.
 
-[See Multi-Window Desktop App](https://github.com/kkamara/multi-window-desktop-app).
-
 [See ReactJS Native Mobile Boilerplate](https://github.com/kkamara/ReactJSNativeMobileBoilerplate).
+
+[See Multi-Window Desktop App](https://github.com/kkamara/multi-window-desktop-app).
 
 [See PHP Scraper](https://github.com/kkamara/php-scraper).
 
