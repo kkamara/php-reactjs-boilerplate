@@ -87,8 +87,6 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 ## Misc.
 
-[See PHP ReactJS Boilerplate app](https://github.com/kkamara/php-reactjs-boilerplate).
-
 [See PHP Scraper](https://github.com/kkamara/php-scraper).
 
 [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
