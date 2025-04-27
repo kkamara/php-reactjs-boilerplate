@@ -27,7 +27,9 @@
 
 [Get Postman HTTP client](https://www.postman.com/).
 
-[Online Postman API Collection for PHP ReactJS Boilerplate](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
+[Postman API Collection for PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/php-reactjs-boilerplate.postman_collection.json).
+
+[Postman API Environment for PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate/blob/main/database/php-reactjs-boilerplate.postman_environment.json).
 
 ## Installation
 
