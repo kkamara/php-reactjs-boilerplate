@@ -63,7 +63,7 @@ export default class HttpService
     const requestOptions = {
       method: "POST",
       headers: { "Content-type" : "application/json", },
-      data : item,
+      data : item || undefined,
     }
     if (token) {
       requestOptions.headers.Authorization = "Bearer " +token
