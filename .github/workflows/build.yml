@@ -53,8 +53,8 @@ jobs:
       - name: Build JavaScript packages
         run: yarn build
       - name: Run Laravel server
-        run: php artisan serve --port=3000 --no-reload &
+        run: php artisan serve --port=8000 --no-reload &
       - name: Curl to localhost
-        run: curl localhost:3000 &
+        run: curl localhost:8000 &
       - name: Run tests
         run: php artisan test ${{ env.PHPUNIT_FLAGS }}

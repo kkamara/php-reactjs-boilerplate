@@ -61,8 +61,8 @@ yarn build
 ## Usage
 
 ```bash
-php artisan serve --port=3000
-# Website accessible at http://localhost:3000
+php artisan serve --port=8000
+# Website accessible at http://localhost:8000
 ```
 
 ## API Documentation
