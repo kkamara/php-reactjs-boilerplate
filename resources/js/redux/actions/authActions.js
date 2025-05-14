@@ -38,7 +38,7 @@ export const authorize = () => {
     if (localStorage.getItem(tokenId) === null) {
       return dispatch({ 
         type : auth.AUTH_AUTHORIZE_ERROR, 
-        payload: null,
+        payload: "Token not set.",
       })
     }    
 
