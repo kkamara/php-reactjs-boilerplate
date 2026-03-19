@@ -18,10 +18,11 @@ class UserController extends Controller
     public function register(Request $request): JsonResponse {
         $validator = Validator::make(
             $request->only([
-                "name", "email", "password", "password_confirmation",
+                "firstName", "lastName", "email", "password", "password_confirmation",
             ]),
             [
-                "name" => "required|min:3|max:30",
+                "firstName" => "required|min:3|max:30",
+                "lastName" => "required|min:3|max:30",
                 "email" => "required|email|max:255|unique:users",
                 "password" => "required|confirmed|min:6|max:30",
             ]
@@ -51,7 +52,8 @@ class UserController extends Controller
         }
 
         $user = (new User())->tap(function(User $user) use ($request) {
-            $user->name = htmlspecialchars(trim($request->input("name")));
+            $user->first_name = htmlspecialchars(trim($request->input("firstName")));
+            $user->last_name = htmlspecialchars(trim($request->input("lastName")));
             $user->email = filter_var(trim($request->input("email")), FILTER_SANITIZE_EMAIL);
             $user->password = Hash::make(htmlspecialchars(trim($request->input("password"))));
             $user->save();

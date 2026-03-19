@@ -22,7 +22,8 @@ class UserTest extends TestCase
             ->postJson(
                 "/api/user/register", 
                 [
-                    "name" => $this->faker->unique()->name,
+                    "firstName" => $this->faker->unique()->firstName,
+                    "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
                     "password_confirmation" => "secret",
@@ -32,7 +33,8 @@ class UserTest extends TestCase
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
@@ -48,7 +50,7 @@ class UserTest extends TestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonStructure([
-                "name", "email", "password",
+                "firstName", "lastName", "email", "password",
             ]);
     }
 
@@ -60,7 +62,8 @@ class UserTest extends TestCase
             ->postJson(
                 "/api/user/register", 
                 [
-                    "name" => $this->faker->unique()->name,
+                    "firstName" => $this->faker->unique()->firstName,
+                    "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
                     "password_confirmation" => "secret",
@@ -84,7 +87,8 @@ class UserTest extends TestCase
         $response->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
@@ -132,7 +136,8 @@ class UserTest extends TestCase
         $authResponse->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
