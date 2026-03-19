@@ -23,7 +23,7 @@ class UserController extends Controller
                 "firstName" => "required|min:3|max:30",
                 "lastName" => "required|min:3|max:30",
                 "email" => "required|email|max:255|unique:users",
-                "password" => "required|confirmed|min:6|max:30",
+                "password" => "required|confirmed:passwordConfirmation|min:6|max:30",
             ]
         );
     
