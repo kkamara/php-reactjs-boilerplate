@@ -11,7 +11,6 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Models\V1\User;
 use App\Http\Resources\V1\UserResource;
-use App\Http\Resources\V1\UserCollection;
 
 class UserController extends Controller
 {
@@ -127,13 +126,5 @@ class UserController extends Controller
         return response()->json([
             "message" => "Success",
         ]);
-    }
-
-    public function getUsers(Request $request): UserCollection {
-        $data = User::orderBy("id", "DESC")
-            ->paginate(7)
-            ->appends($request->query());
-
-        return new UserCollection($data);
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Mobile\V1\MobileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\V1\Web\UserController as WebUserController;
+use App\Http\Controllers\API\V1\Web\UsersController as WebUsersController;
 use App\Http\Controllers\API\V1\UserController;
 use \App\Http\Controllers\API\HealthController;
 
@@ -23,7 +24,7 @@ Route::prefix("v1/web")
         });
         Route::get(
             "/users",
-            [WebUserController::class, "getUsers"],
+            [WebUsersController::class, "getUsers"],
         )->middleware("auth:sanctum");
     });
 // Add mobile app API routes
