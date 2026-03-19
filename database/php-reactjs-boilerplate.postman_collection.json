@@ -56,11 +56,6 @@
                     "method": "GET",
                     "header": [
                       {
-                        "key": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
                         "key": "Accept",
                         "value": "application/json",
                         "type": "text"
@@ -178,25 +173,11 @@
                     "method": "DELETE",
                     "header": [
                       {
-                        "key": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
                         "key": "Accept",
                         "value": "application/json",
                         "type": "text"
                       }
                     ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
                     "url": {
                       "raw": "{{API}}/user/logout",
                       "host": [
@@ -605,12 +586,6 @@
                 "value": "application/json",
                 "type": "text",
                 "disabled": true
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "disabled": true
               }
             ],
             "url": {
@@ -655,11 +630,6 @@
                     "method": "GET",
                     "header": [
                       {
-                        "key": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
                         "key": "Accept",
                         "value": "application/json",
                         "type": "text"
@@ -702,11 +672,6 @@
                     },
                     "method": "DELETE",
                     "header": [
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
                       {
                         "key": "Accept",
                         "value": "application/json",
@@ -838,11 +803,6 @@
             },
             "method": "GET",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              },
               {
                 "key": "Accept",
                 "value": "application/json",
