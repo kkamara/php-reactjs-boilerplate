@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Mobile\V1\MobileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\UserController as WebUserController;
 use App\Http\Controllers\API\UserController;
@@ -27,9 +28,10 @@ Route::prefix("v1/web")
     });
 // Add mobile app API routes
 Route::prefix("/mobile/v1")->group(function () {
-    Route::get("/hello", fn () => response()
-        ->json(["message" => "Hello from the PHP server."])
-    );
+    Route::get("/hello", [
+        MobileController::class,
+        "hello",
+    ]);
 });
 // Add third-party API routes
 Route::prefix("/v1")->group(function () {
