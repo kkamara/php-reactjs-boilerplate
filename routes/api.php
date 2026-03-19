@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\UserController as WebUserController;
 use App\Http\Controllers\API\UserController;
+use \App\Http\Controllers\API\HealthController;
 
 // Add single page app API routes
 Route::prefix("v1/web")
@@ -25,15 +26,22 @@ Route::prefix("v1/web")
         )->middleware("auth:sanctum");
     });
 // Add third-party API routes
-Route::prefix("/v1/user")->group(function () {
-    Route::post("/register", [UserController::class, "register"]);
-    Route::post("/", [UserController::class, "login"]);
-    Route::delete(
-        "/logout",
-        [UserController::class, "logout"],
-    )->middleware("auth:sanctum");
-    Route::get(
-        "/authorize",
-        [UserController::class, "authorizeUser"],
-    )->middleware("auth:sanctum");
+Route::prefix("/v1")->group(function () {
+    Route::prefix("/user")->group(function () {
+        Route::post("/register", [UserController::class, "register"]);
+        Route::post("/", [UserController::class, "login"]);
+        Route::delete(
+            "/logout",
+            [UserController::class, "logout"],
+        )->middleware("auth:sanctum");
+        Route::get(
+            "/authorize",
+            [UserController::class, "authorizeUser"],
+        )->middleware("auth:sanctum");
+    });
+
+    Route::get("/health", [
+        HealthController::class,
+        "health",
+    ]);
 });
