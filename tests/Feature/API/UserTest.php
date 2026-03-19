@@ -122,7 +122,7 @@ class UserTest extends TestCase
             ->assertJsonStructure(["error"]);
     }
 
-    public function testAuthorizeUser(): void
+    public function testAuthoriseUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
         $user = User::factory()->create(["email" => $email]);
@@ -130,7 +130,7 @@ class UserTest extends TestCase
         Sanctum::actingAs($user);
         
         $authResponse = $this->withHeaders($this->headers)
-            ->getJson("/api/v1/user/authorize");
+            ->getJson("/api/v1/user/authorise");
 
         $authResponse->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
@@ -144,10 +144,10 @@ class UserTest extends TestCase
             ]);
     }
 
-    public function testAuthorizeUserAuthenticationError(): void
+    public function testAuthoriseUserAuthenticationError(): void
     {        
         $response = $this->withHeaders($this->headers)
-            ->getJson("/api/v1/user/authorize");
+            ->getJson("/api/v1/user/authorise");
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
             ->assertJson(

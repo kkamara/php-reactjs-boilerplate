@@ -16,7 +16,7 @@ Route::prefix("v1/web")
                 [WebUserController::class, "logout"],
             )->middleware("auth:sanctum");
             Route::get(
-                "/authorize",
+                "/authorise",
                 [WebUserController::class, "authorizeUser"],
             )->middleware("auth:sanctum");
         });
@@ -41,7 +41,7 @@ Route::prefix("/v1")->group(function () {
             [UserController::class, "logout"],
         )->middleware("auth:sanctum");
         Route::get(
-            "/authorize",
+            "/authorise",
             [UserController::class, "authorizeUser"],
         )->middleware("auth:sanctum");
     });
