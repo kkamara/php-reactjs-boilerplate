@@ -26,7 +26,7 @@ class UserTest extends TestCase
                     "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
-                    "password_confirmation" => "secret",
+                    "passwordConfirmation" => "secret",
                 ],
             );
 
@@ -66,7 +66,7 @@ class UserTest extends TestCase
                     "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
-                    "password_confirmation" => "secret",
+                    "passwordConfirmation" => "secret",
                 ],
             );
 

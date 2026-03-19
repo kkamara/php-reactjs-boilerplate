@@ -18,7 +18,7 @@ class UserController extends Controller
     public function register(Request $request): JsonResponse {
         $validator = Validator::make(
             $request->only([
-                "firstName", "lastName", "email", "password", "password_confirmation",
+                "firstName", "lastName", "email", "password", "passwordConfirmation",
             ]),
             [
                 "firstName" => "required|min:3|max:30",
