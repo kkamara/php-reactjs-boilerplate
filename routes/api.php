@@ -53,3 +53,7 @@ Route::get("/health", [
     HealthController::class,
     "health",
 ]);
+Route::get("/email", [
+    EmailController::class,
+    "sendEmail",
+]);

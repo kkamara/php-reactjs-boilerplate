@@ -1,0 +1,1 @@
+This is a test email.\n\n{{ config('app.name') }} 2026.
