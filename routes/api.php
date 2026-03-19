@@ -25,6 +25,12 @@ Route::prefix("v1/web")
             [WebUserController::class, "getUsers"],
         )->middleware("auth:sanctum");
     });
+// Add mobile app API routes
+Route::prefix("/mobile/v1")->group(function () {
+    Route::get("/hello", fn () => response()
+        ->json(["message" => "Hello from the PHP server."])
+    );
+});
 // Add third-party API routes
 Route::prefix("/v1")->group(function () {
     Route::prefix("/user")->group(function () {
