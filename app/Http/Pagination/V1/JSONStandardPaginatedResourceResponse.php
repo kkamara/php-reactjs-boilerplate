@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Pagination;
+namespace App\Http\Pagination\V1;
 
 use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
 

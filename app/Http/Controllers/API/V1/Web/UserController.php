@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\V1\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Models\User;
-use App\Http\Resources\UserResource;
+use App\Models\V1\User;
+use App\Http\Resources\V1\UserResource;
+use App\Http\Resources\V1\UserCollection;
 
 class UserController extends Controller
 {
@@ -26,7 +27,7 @@ class UserController extends Controller
                 "password" => "required|confirmed:passwordConfirmation|min:6|max:30",
             ]
         );
-    
+
         if ($validator->fails()) {
             return response()->json(
                 $validator->errors(),
@@ -39,17 +40,17 @@ class UserController extends Controller
         );
         if (
             null !== User::where(
-            ["email" => $cleanEmailInput],
+                ["email" => $cleanEmailInput],
             )->first()
         ) {
             return response()->json([
                 "email" => __(
-                    "validation.exists",
+                    "V1.validation.exists",
                     ["attribute" => "email"],
                 ),
             ], Response::HTTP_BAD_REQUEST);
         }
-        
+
         $user = (new User())->tap(function(User $user) use ($request) {
             $user->first_name = htmlspecialchars(trim($request->input("firstName")));
             $user->last_name = htmlspecialchars(trim($request->input("lastName")));
@@ -58,7 +59,7 @@ class UserController extends Controller
             $user->save();
             $user->token = $user->createToken("token")->plainTextToken;
         });
-     
+
         return response()->json([
             "data" => new UserResource($user),
         ], Response::HTTP_CREATED);
@@ -92,7 +93,7 @@ class UserController extends Controller
         ) {
             return response()->json([
                 "error" => __(
-                    "validation.invalid_duo_combination",
+                    "V1.validation.invalid_duo_combination",
                     [
                         "attribute" => "name",
                         "attribute2" => "password",
@@ -123,6 +124,16 @@ class UserController extends Controller
 
     public function logout(Request $request): JsonResponse {
         $request->user()->currentAccessToken()->delete();
-        return response()->json(["message" => "Success"]);
+        return response()->json([
+            "message" => "Success",
+        ]);
+    }
+
+    public function getUsers(Request $request): UserCollection {
+        $data = User::orderBy("id", "DESC")
+            ->paginate(7)
+            ->appends($request->query());
+
+        return new UserCollection($data);
     }
 }

@@ -47,7 +47,8 @@ composer i
 php artisan key:generate
 # Before running the next command:
 # Update your database details in .env
-php artisan migrate --seed
+php artisan migrate:status --path=database/migrations/V1
+php artisan migrate --path=database/migrations/V1 --seed
 ```
 
 #### Frontend Installation
@@ -69,12 +70,6 @@ php artisan serve --port=8000
 
 ```bash
 php artisan route:list
-# output
-...
-POST       api/user ............................ login › API\UserController@login
-GET|HEAD   api/user/authorize .................. API\UserController@authorizeUser
-POST       api/user/register ................... API\UserController@register
-...
 ```
 
 View the API collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
@@ -89,27 +84,17 @@ View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-
 
 ## Misc.
 
-[See ReactJS Native Mobile Boilerplate](https://github.com/kkamara/ReactJSNativeMobileBoilerplate).
+* [See PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate)
 
-[See Multi-Window Desktop App](https://github.com/kkamara/multi-window-desktop-app).
+* [See ReactJS Native Mobile App Boilerplate](https://github.com/kkamara/ReactJSNativeMobileAppBoilerplate)
 
-[See PHP Scraper](https://github.com/kkamara/php-scraper).
+* [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop)
 
-[See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
+* [See MRVL Web](https://github.com/kkamara/mrvl-web)
 
-[See Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system).
+* [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton)
 
-[See Book Store Management System](https://github.com/kkamara/book-store-management-system).
-
-[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
-
-[See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
-
-[See MRVL Web](https://github.com/kkamara/mrvl-web).
-
-[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
-
-[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
+* [See PHP Scraper](https://github.com/kkamara/php-scraper).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

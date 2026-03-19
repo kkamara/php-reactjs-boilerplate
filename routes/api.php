@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Mobile\V1\MobileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\UserController as WebUserController;
-use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\V1\Web\UserController as WebUserController;
+use App\Http\Controllers\API\V1\UserController;
 use \App\Http\Controllers\API\HealthController;
 
 // Add single page app API routes
