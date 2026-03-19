@@ -5,7 +5,7 @@ use App\Http\Controllers\Web\UserController as WebUserController;
 use App\Http\Controllers\API\UserController;
 
 // Add single page app API routes
-Route::prefix("web")
+Route::prefix("v1/web")
     ->group(function () {
         Route::prefix("/user")->group(function () {
             Route::post("/register", [WebUserController::class, "register"]);
@@ -25,7 +25,7 @@ Route::prefix("web")
         )->middleware("auth:sanctum");
     });
 // Add third-party API routes
-Route::prefix("/user")->group(function () {
+Route::prefix("/v1/user")->group(function () {
     Route::post("/register", [UserController::class, "register"]);
     Route::post("/", [UserController::class, "login"]);
     Route::delete(
