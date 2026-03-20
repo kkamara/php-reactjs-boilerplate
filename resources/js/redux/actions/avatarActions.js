@@ -8,7 +8,7 @@ export const uploadAvatar = payload => {
     dispatch({ type: avatar.UPLOAD_AVATAR_PENDING, })
 
     const tokenID = "user-token"
-    await http.getData(http.domain+"/sanctum/csrf-cookie").then(
+    await http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
       http.postFormData(
         "/user/avatar",
         payload,

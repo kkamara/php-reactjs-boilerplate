@@ -9,7 +9,7 @@ export const getUsers = page => {
 
     const tokenID = "user-token"
     const path = page ? "/users/?page="+page : "/users"
-    await http.getData(http.domain+"/sanctum/csrf-cookie").then( 
+    await http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
       http.getData(path, tokenID)
         .then(res => {
           dispatch({

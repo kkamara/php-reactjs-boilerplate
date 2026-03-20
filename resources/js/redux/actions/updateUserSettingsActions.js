@@ -8,7 +8,7 @@ export const updateSettings = payload => {
     dispatch({ type: updateUserSettings.UPDATE_USER_SETTINGS_PENDING, })
 
     const tokenID = "user-token"
-    await http.getData(http.domain+"/sanctum/csrf-cookie").then(
+    await http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
       http.patchData(
         "/user",
         payload,
