@@ -30,7 +30,7 @@ class UserTest extends TestCase
                 array_merge(
                     $this->migrateFreshUsing(),
                     [
-                        "--path" => "database/migrations/v1"
+                        "--path" => "database/migrations/V1"
                     ],
                 )
             );
