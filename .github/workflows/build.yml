@@ -45,7 +45,7 @@ jobs:
       - name: Generate key
         run: php artisan key:generate -q -n
       - name: Migrate & seed database
-        run: php artisan migrate --seed --force
+        run: php artisan migrate --seed --force --path=database/migrations/V1 --no-interaction
       - name: Change directory permissions
         run: chmod -R 777 storage bootstrap/cache
       - name: Install JavaScript packages
