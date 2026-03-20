@@ -1,18 +1,11 @@
 <x-mail::message>
-    <x-mail::panel>
-        <style>
-            .lead {
-                font-size: 18px;
-                color: red;
-            }
-        </style>
-        <div class="lead">
-            This is a test email.
-        </div>
-    </x-mail::panel>
 
-    <div>
-        Thanks,<br>
-        ${config.appName} &copy; 2026.
-    </div>
+<x-mail::panel>
+<h1 style="color: red;">Hello world</h1>
+</x-mail::panel>
+
+<div>
+    Thanks,<br>
+    {{ config('app.name') }}
+</div>
 </x-mail::message>

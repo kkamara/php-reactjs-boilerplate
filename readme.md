@@ -16,6 +16,8 @@
 
 * [Feature Tests](#feature-tests)
 
+* [Sending & Viewing Test Emails](#test-emails)
+
 * [Misc.](#misc)
 
 * [Contributing](#contributing)
@@ -81,6 +83,19 @@ php artisan test --filter=API
 ```
 
 View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Feature/API/UserTest.php).
+
+<a name="test-emails"></a>
+## Sending & Viewing Test Emails
+
+#### Requirements
+
+- [Docker](https://www.docker.com)
+
+```bash
+docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog
+```
+
+Ensure `MAIL_MAILER` setting in your `.env` file is set to `smtp`. After running the above command this app should now be able to connect to the Mailhog email server running through Docker.
 
 ## Misc.
 

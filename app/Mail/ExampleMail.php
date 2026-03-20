@@ -17,8 +17,10 @@ class ExampleMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(protected string $subject = "Example Mail")
-    {}
+    public function __construct(string $subject)
+    {
+        $this->subject = $subject;
+    }
 
     /**
      * Get the message envelope.
@@ -36,7 +38,7 @@ class ExampleMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.example',
+            markdown: 'mail.example',
             text: 'mail.example-text',
         );
     }
