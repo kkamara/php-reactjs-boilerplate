@@ -9,7 +9,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css'])
 </head>
 <body>
