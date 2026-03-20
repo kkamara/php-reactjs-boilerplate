@@ -25,6 +25,7 @@ class User extends Authenticatable
         "last_name",
         "email",
         "password",
+        "avatar_name",
     ];
 
     /**
@@ -48,5 +49,11 @@ class User extends Authenticatable
             "email_verified_at" => "datetime",
             "password" => "hashed",
         ];
+    }
+
+    public function getAvatarPath(): string {
+        return $this->avatar_name ?
+                config('app.url')."/images/profile/".$this->avatar_name :
+                config('app.url')."/images/profile/default-avatar.webp";
     }
 }

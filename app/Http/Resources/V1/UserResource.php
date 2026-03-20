@@ -19,6 +19,7 @@ class UserResource extends JsonResource
             "firstName" => $this->first_name,
             "lastName" => $this->last_name,
             "email" => $this->email,
+            "avatarPath" => $this->getAvatarPath(),
             "createdAt" => $this->created_at,
             "updatedAt" => $this->updated_at,
             "token" => $this->when(isset($this->token), $this->token),
