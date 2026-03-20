@@ -44,7 +44,7 @@ class UserController extends Controller
         ) {
             return response()->json([
                 "email" => __(
-                    "V1.validation.exists",
+                    "V1/validation.exists",
                     ["attribute" => "email"],
                 ),
             ], Response::HTTP_BAD_REQUEST);
@@ -92,7 +92,7 @@ class UserController extends Controller
         ) {
             return response()->json([
                 "error" => __(
-                    "V1.validation.invalid_duo_combination",
+                    "V1/validation.invalid_duo_combination",
                     [
                         "attribute" => "name",
                         "attribute2" => "password",
