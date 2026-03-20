@@ -1,18 +1,21 @@
 import HttpService from "../../services/HttpService"
-import { users, } from "../types"
+import { updateUserSettings, } from "../types"
 
-export const getUsers = page => {
+export const updateSettings = payload => {
   return async dispatch => {
     const http = new HttpService()
 
-    dispatch({ type: users.GET_USERS_PENDING, })
+    dispatch({ type: updateUserSettings.UPDATE_USER_SETTINGS_PENDING, })
 
     const tokenID = "user-token"
-    const path = page ? "/users/?page="+page : "/users"
-    await http.getData(path, tokenID)
+    await http.patchData(
+      "/user",
+      payload,
+      tokenID,
+    )
       .then(res => {
         dispatch({
-          type: users.GET_USERS_SUCCESS,
+          type: updateUserSettings.UPDATE_USER_SETTINGS_SUCCESS,
           payload: res.data,
         })
       }).catch(error => {
@@ -25,7 +28,7 @@ export const getUsers = page => {
           message = "Something went wrong. Please come back later."
         }
         dispatch({ 
-          type: users.GET_USERS_ERROR, 
+          type: updateUserSettings.UPDATE_USER_SETTINGS_ERROR, 
           payload: message,
         })
       })

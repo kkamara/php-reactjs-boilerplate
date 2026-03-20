@@ -1,18 +1,21 @@
 import HttpService from "../../services/HttpService"
-import { users, } from "../types"
+import { avatar, } from "../types"
 
-export const getUsers = page => {
+export const uploadAvatar = payload => {
   return async dispatch => {
     const http = new HttpService()
 
-    dispatch({ type: users.GET_USERS_PENDING, })
+    dispatch({ type: avatar.UPLOAD_AVATAR_PENDING, })
 
     const tokenID = "user-token"
-    const path = page ? "/users/?page="+page : "/users"
-    await http.getData(path, tokenID)
+    await http.postFormData(
+      "/user/avatar",
+      payload,
+      tokenID,
+    )
       .then(res => {
         dispatch({
-          type: users.GET_USERS_SUCCESS,
+          type: avatar.UPLOAD_AVATAR_SUCCESS,
           payload: res.data,
         })
       }).catch(error => {
@@ -25,7 +28,7 @@ export const getUsers = page => {
           message = "Something went wrong. Please come back later."
         }
         dispatch({ 
-          type: users.GET_USERS_ERROR, 
+          type: avatar.UPLOAD_AVATAR_ERROR, 
           payload: message,
         })
       })

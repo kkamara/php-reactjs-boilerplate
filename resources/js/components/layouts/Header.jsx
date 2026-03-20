@@ -1,26 +1,31 @@
-import React, { useEffect, } from "react"
-import { useDispatch, } from "react-redux"
+import React from "react"
 import { useSelector, } from "react-redux"
 import { Link, } from "react-router-dom"
-import { authorize, } from "../../redux/actions/authActions"
 
 import "./Header.scss"
 
 export default function Header(props) {
-  const dispatch = useDispatch()
   const authResponse = useSelector(state=>state.auth)
 
-  useEffect(() => {
-    dispatch(authorize())
-  }, [])
-
   const renderNavLinks = () => {
-    if(authResponse.data) {
+    if(null !== authResponse.data) {
       return <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img
+            className="header-user-avatar"
+            src={authResponse.data.user.avatarPath}
+          />
           User
         </a>
         <ul className="dropdown-menu">
+          <li>
+            <Link
+              className="dropdown-item" 
+              to="/user/settings"
+            >
+              Settings
+            </Link>
+          </li>
           <li>
             <Link
               className="dropdown-item" 
@@ -54,9 +59,7 @@ export default function Header(props) {
       </>
     }
   }
-  // VITE_TEST
-  console.log(import.meta.env)
-  return <nav className="navbar navbar-expand-lg mb-4 bg-primary" data-bs-theme="dark">
+  return <nav className="navbar navbar-expand-lg mb-4 bg-primary header-container" data-bs-theme="dark">
     <div className="container">
       <Link className="navbar-brand" to="/">
         {import.meta.env.VITE_APP_NAME}
