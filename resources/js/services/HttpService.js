@@ -10,7 +10,7 @@ export default class HttpService
   _timeout = 5000
 
   constructor() {
-    this.domain = import.meta.env.VITE_APP_API_ROOT
+    this.domain = window.location.origin
     this.url = this.domain
   }
 
