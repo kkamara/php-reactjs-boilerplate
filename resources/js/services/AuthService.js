@@ -2,64 +2,54 @@ import HttpService from "./HttpService"
 
 export const RegisterUserService = (data) => {
   const http = new HttpService()
-  const tokenId = "user-token"
-  return new Promise((resolve, reject) => {
-    http.getData("sanctum/csrf-cookie").then(
-      () => http.postData("/user/register", data)
+  return http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
+    http.postData("/user/register", data)
       .then((response) => {
-        localStorage.setItem(tokenId, response.data.data.token)
-        return resolve(response.data.data)
+        return response.data
       })
-      .catch(err => reject(err))
-    ).catch(err => err)
-  })
+      .catch(err => { throw err })
+  )
 }
 
 export const LoginUserService = (credentials) => {
   const http = new HttpService()
-  const tokenId = "user-token"
-    
-  return new Promise((resolve, reject) => {
-    http.getData(http.domain+"/sanctum/csrf-cookie").then( 
-      // 419 when without csrf wrapper
-      () => http.postData("/user", credentials)
-        .then(response => {
-          localStorage.setItem(tokenId, response.data.data.token)
-          return resolve(response.data.data)
-        })
-        .catch(err => reject(err))
-    ).catch(err => reject(err))
-  })
+  const tokenID = "user-token"
+  
+  return http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
+    http.postData("/user", credentials)
+      .then(response => {
+        localStorage.setItem(tokenID, response.data.data.authToken)
+        return response.data
+      })
+      .catch(err => { throw err })
+  )
 }
 
 export const AuthorizeUserService = () => {
   const http = new HttpService()
-  const tokenId = "user-token"
-    
-  return new Promise((resolve, reject) => {
-    http.getData(http.domain+"/sanctum/csrf-cookie").then( 
-      // 419 when without csrf wrapper
-      () => http.getData("/user/authorize", tokenId)
-        .then(response => {
-          return resolve(response.data.data)
-        })
-        .catch(err => reject(err))
-    ).catch(err => reject(err))
-  })
+  const tokenID = "user-token"
+  
+  return http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
+    http.getData("/user/authorise", tokenID)
+      .then(response => {
+        return response.data
+      })
+      .catch(err => { throw err })
+  )
 }
 
 export const LogoutUserService = () => {
   const http = new HttpService()
-  const tokenId = "user-token"
-  return http.getData("sanctum/csrf-cookie").then(
-    () => http.getData("/users/logout", tokenId)
+  const tokenID = "user-token"
+  return http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
+    http.delData("/user", tokenID)
       .then((response) => {
-        if (localStorage.getItem(tokenId) !== null) {
-          localStorage.removeItem(tokenId)
+        if (null !== localStorage.getItem(tokenID)) {
+          localStorage.removeItem(tokenID)
         }
         window.location = "/user/login"
-        return response
+        return response.data
       })
-      .catch(err => err)
-  ).catch(err => err)
+      .catch(err => { throw err })
+  )
 }

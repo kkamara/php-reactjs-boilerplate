@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\V1;
 
-use App\Http\Pagination\JSONStandardPaginatedResourceResponse;
+use App\Http\Pagination\V1\JSONStandardPaginatedResourceResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

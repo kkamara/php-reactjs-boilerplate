@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\V1;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,9 +21,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        "name",
+        "first_name",
+        "last_name",
         "email",
         "password",
+        "avatar_name",
     ];
 
     /**
@@ -47,5 +49,11 @@ class User extends Authenticatable
             "email_verified_at" => "datetime",
             "password" => "hashed",
         ];
+    }
+
+    public function getAvatarPath(): string {
+        return $this->avatar_name ?
+                config('app.url')."/images/profile/".$this->avatar_name :
+                config('app.url')."/images/profile/default-avatar.webp";
     }
 }

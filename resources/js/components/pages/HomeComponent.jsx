@@ -4,8 +4,7 @@ import ReactPaginate from "react-paginate"
 import moment from "moment"
 import { Helmet, } from "react-helmet"
 import { getUsers, } from "../../redux/actions/usersActions"
-
-import "./HomeComponent.scss"
+import ErrorComponent from "../layouts/ErrorComponent"
 
 export default function HomeComponent() {
   const dispatch = useDispatch()
@@ -18,16 +17,9 @@ export default function HomeComponent() {
     dispatch(getUsers())
   }, [])
 
-  useEffect(() => {
-    if (state.auth.error) {
-      localStorage.removeItem("user-token")
-      window.location.href = "/user/login"
-    }
-  }, [state.auth])
-
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1
-    if (newPage > state.users.data.meta.lastPage) {
+    if (newPage > state.users.data.meta.pages) {
       return
     }
     dispatch(getUsers(newPage))
@@ -51,7 +43,7 @@ export default function HomeComponent() {
       breakLabel="..."
       breakClassName="page-item"
       breakLinkClassName="page-link"
-      pageCount={state.users.data.meta.lastPage}
+      pageCount={state.users.data.meta.pages}
       marginPagesDisplayed={2}
       pageRangeDisplayed={5}
       containerClassName="pagination"
@@ -63,9 +55,9 @@ export default function HomeComponent() {
   const paginationDetail = () => {
     return <div className="text-center">
       <strong>Page</strong> ({state.users.data.meta.currentPage}),&nbsp;
-      <strong>Page Count</strong> ({state.users.data.meta.lastPage}),&nbsp;
+      <strong>Page Count</strong> ({state.users.data.meta.pages}),&nbsp;
       <strong>Displayed Items</strong> ({state.users.data.data.length}),&nbsp;
-      <strong>Items</strong> ({state.users.data.meta.total})
+      <strong>Items</strong> ({state.users.data.meta.items})
     </div>
   }
 
@@ -81,10 +73,10 @@ export default function HomeComponent() {
         <ul className="list-group">
           {state.users.data.data.map((user, index) => (
             <li key={index} className="list-group-item home-item">
-              <strong>name</strong> ({user.name}),&nbsp;
+              <strong>name</strong> ({user.firstName} {user.lastName}),&nbsp;
               <strong>email</strong> ({user.email}),&nbsp;
-              <strong>created_at</strong> ({parseDate(user.created_at)}),&nbsp;
-              <strong>updated_at</strong> ({parseDate(user.updated_at)})
+              <strong>created_at</strong> ({parseDate(user.createdAt)}),&nbsp;
+              <strong>updated_at</strong> ({parseDate(user.updatedAt)})
             </li>
           ))}
         </ul>
@@ -93,20 +85,6 @@ export default function HomeComponent() {
     )
   }
 
-  if (
-    !state.auth.loading &&
-    typeof state.auth.data === "object" &&
-    null !== state.auth.data
-  ) {
-    console.log("authenticated", state.auth.data)
-  }
-  if (
-    !state.users.loading &&
-    typeof state.users.data === "object" &&
-    null !== state.users.data
-  ) {
-    console.log("users", state.users.data)
-  }
   if (state.auth.loading || state.users.loading) {
     return <div className="container home-container text-center">
       <Helmet>
@@ -121,6 +99,7 @@ export default function HomeComponent() {
       <Helmet>
         <title>Home - {import.meta.env.VITE_APP_NAME}</title>
       </Helmet>
+      <ErrorComponent error={state.auth.error || state.users.error}/>
       <div className="text-center">
         <button className="btn btn-primary home-button">
           Test Button

@@ -1,16 +1,17 @@
 import React, { useEffect, useState, } from "react"
-import { useNavigate, } from "react-router-dom"
 import { useDispatch, useSelector, } from "react-redux"
 import { Helmet, } from "react-helmet"
-import { login, authorize, } from "../../../redux/actions/authActions"
+import { login, authorise, } from "../../../redux/actions/authActions"
+import ErrorComponent from "../../layouts/ErrorComponent"
 
 import "./LoginComponent.scss"
 
-export default function LoginComponent() {
-  const navigate = useNavigate()
+const defaultEmailState = "jane@doe.com"
+const defaultPasswordState = "secret"
 
-  const [email, setEmail] = useState("jane@doe.com")
-  const [password, setPassword] = useState("secret")
+export default function LoginComponent() {
+  const [email, setEmail] = useState(defaultEmailState)
+  const [password, setPassword] = useState(defaultPasswordState)
 
   const dispatch = useDispatch()
   const state = useSelector(state => ({
@@ -18,10 +19,12 @@ export default function LoginComponent() {
   }))
 
   useEffect(() => {
-    if (state.auth.data) {
+    dispatch(authorise())
+  }, [])
+
+  useEffect(() => {
+    if (null !== state.auth.data) {
       window.location.href = "/"
-    } else if (state.auth.loading) {
-      dispatch(authorize())
     }
   }, [state.auth])
 
@@ -58,22 +61,19 @@ export default function LoginComponent() {
     <div className="col-md-4 offset-md-4">
       <h1 className="login-lead fw-bold">Sign In</h1>
       <form method="post" onSubmit={onFormSubmit}>
-        {state.auth.error ?
-          <div className="alert alert-warning alert-dismissible fade show" role="alert">
-            {state.auth.error}
-            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div> : null}
+        <ErrorComponent error={state.auth.error} />
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input 
             name="email" 
             className="form-control"
             value={email}
             onChange={onEmailChange}
+            autoComplete="on"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input 
             type="password"
             name="password" 

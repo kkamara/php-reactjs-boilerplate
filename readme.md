@@ -4,7 +4,7 @@
 
 # PHP ReactJS Boilerplate [![API](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/php-reactjs-boilerplate/actions/workflows/build.yml)
 
-(2021) A Laravel 12.x boilerplate with ReactJS 19 Redux SPA.
+(2021) A Laravel 13.x boilerplate with ReactJS 19 Redux SPA.
 
 * [Using Postman?](#postman)
 
@@ -15,6 +15,8 @@
 * [API Documentation](#api-documentation)
 
 * [Feature Tests](#feature-tests)
+
+* [Sending & Viewing Test Emails](#test-emails)
 
 * [Misc.](#misc)
 
@@ -47,7 +49,8 @@ composer i
 php artisan key:generate
 # Before running the next command:
 # Update your database details in .env
-php artisan migrate --seed
+php artisan migrate:status --path=database/migrations/V1
+php artisan migrate --path=database/migrations/V1 --seed
 ```
 
 #### Frontend Installation
@@ -69,12 +72,6 @@ php artisan serve --port=8000
 
 ```bash
 php artisan route:list
-# output
-...
-POST       api/user ............................ login › API\UserController@login
-GET|HEAD   api/user/authorize .................. API\UserController@authorizeUser
-POST       api/user/register ................... API\UserController@register
-...
 ```
 
 View the API collection [here](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
@@ -87,29 +84,32 @@ php artisan test --filter=API
 
 View the feature test code [here](https://raw.githubusercontent.com/kkamara/php-reactjs-boilerplate/main/tests/Feature/API/UserTest.php).
 
+<a name="test-emails"></a>
+## Sending & Viewing Test Emails
+
+#### Requirements
+
+- [Docker](https://www.docker.com)
+
+```bash
+docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog
+```
+
+Ensure `MAIL_MAILER` setting in your `.env` file is set to `smtp`. After running the above command this app should now be able to connect to the Mailhog email server running through Docker.
+
 ## Misc.
 
-[See ReactJS Native Mobile Boilerplate](https://github.com/kkamara/ReactJSNativeMobileBoilerplate).
+* [See PHP ReactJS Boilerplate](https://github.com/kkamara/php-reactjs-boilerplate)
 
-[See Multi-Window Desktop App](https://github.com/kkamara/multi-window-desktop-app).
+* [See ReactJS Native Mobile App Boilerplate](https://github.com/kkamara/ReactJSNativeMobileAppBoilerplate)
 
-[See PHP Scraper](https://github.com/kkamara/php-scraper).
+* [See MRVL Desktop](https://github.com/kkamara/mrvl-desktop)
 
-[See Users API Repository Design app](https://github.com/kkamara/users-api-repository-design).
+* [See MRVL Web](https://github.com/kkamara/mrvl-web)
 
-[See Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system).
+* [See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton)
 
-[See Book Store Management System](https://github.com/kkamara/book-store-management-system).
-
-[See Laravel 10 API 3](https://github.com/kkamara/laravel-10-api-3).
-
-[See MRVL Desktop](https://github.com/kkamara/mrvl-desktop).
-
-[See MRVL Web](https://github.com/kkamara/mrvl-web).
-
-[See PHP Docker Skeleton](https://github.com/kkamara/php-docker-skeleton).
-
-[See Python Docker Skeleton](https://github.com/kkamara/python-docker-skeleton).
+* [See PHP Scraper](https://github.com/kkamara/php-scraper).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

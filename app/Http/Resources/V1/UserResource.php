@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -16,8 +16,10 @@ class UserResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name,
+            "firstName" => $this->first_name,
+            "lastName" => $this->last_name,
             "email" => $this->email,
+            "avatarPath" => $this->getAvatarPath(),
             "createdAt" => $this->created_at,
             "updatedAt" => $this->updated_at,
             "token" => $this->when(isset($this->token), $this->token),

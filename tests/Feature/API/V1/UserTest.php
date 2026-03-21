@@ -1,13 +1,15 @@
 <?php
 
-namespace Tests\Feature\API;
+namespace Tests\Feature\API\V1;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabaseState;
+use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
-use App\Models\User;
+use App\Models\V1\User;
 
 class UserTest extends TestCase
 {
@@ -15,24 +17,50 @@ class UserTest extends TestCase
 
     protected $headers = ["Content-Type" => "application/json"];
 
+    /**
+     * Refresh a conventional test database.
+     *
+     * @return void
+     */
+    protected function refreshTestDatabase()
+    {
+        if (!RefreshDatabaseState::$migrated) {
+            $this->artisan(
+                'migrate:fresh',
+                array_merge(
+                    $this->migrateFreshUsing(),
+                    [
+                        "--path" => "database/migrations/V1"
+                    ],
+                )
+            );
+
+            $this->app[Kernel::class]->setArtisan(null);
+            RefreshDatabaseState::$migrated = true;
+        }
+
+        $this->beginDatabaseTransaction();
+    }
+
     public function testRegisterUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user/register", 
+                "/api/v1/user/register", 
                 [
-                    "name" => $this->faker->unique()->name,
+                    "firstName" => $this->faker->unique()->firstName,
+                    "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
-                    "password_confirmation" => "secret",
+                    "passwordConfirmation" => "secret",
                 ],
             );
-
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
@@ -44,11 +72,11 @@ class UserTest extends TestCase
     public function testRegisterUserInvalidData(): void
     {
         $response = $this->withHeaders($this->headers)
-            ->postJson("/api/user/register");
+            ->postJson("/api/v1/user/register");
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonStructure([
-                "name", "email", "password",
+                "firstName", "lastName", "email", "password",
             ]);
     }
 
@@ -58,12 +86,13 @@ class UserTest extends TestCase
         User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user/register", 
+                "/api/v1/user/register", 
                 [
-                    "name" => $this->faker->unique()->name,
+                    "firstName" => $this->faker->unique()->firstName,
+                    "lastName" => $this->faker->unique()->lastName,
                     "email" => $email,
                     "password" => "secret",
-                    "password_confirmation" => "secret",
+                    "passwordConfirmation" => "secret",
                 ],
             );
 
@@ -77,14 +106,15 @@ class UserTest extends TestCase
         $user = User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user", 
+                "/api/v1/user", 
                 ["email" => $user->email, "password" => "secret"],
             );
 
         $response->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
@@ -98,7 +128,7 @@ class UserTest extends TestCase
         $email = $this->faker->unique()->safeEmail;
         User::factory()->create(["email" => $email]);
         $response = $this->withHeaders($this->headers)
-            ->postJson("/api/user");
+            ->postJson("/api/v1/user");
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonStructure(["email", "password"]);
@@ -111,7 +141,7 @@ class UserTest extends TestCase
         ]);
         $response = $this->withHeaders($this->headers)
             ->postJson(
-                "/api/user", 
+                "/api/v1/user", 
                 ["email" => $user->email, "password" => "invalid_password"],
             );
 
@@ -119,7 +149,7 @@ class UserTest extends TestCase
             ->assertJsonStructure(["error"]);
     }
 
-    public function testAuthorizeUser(): void
+    public function testAuthoriseUser(): void
     {
         $email = $this->faker->unique()->safeEmail;
         $user = User::factory()->create(["email" => $email]);
@@ -127,12 +157,13 @@ class UserTest extends TestCase
         Sanctum::actingAs($user);
         
         $authResponse = $this->withHeaders($this->headers)
-            ->getJson("/api/user/authorize");
+            ->getJson("/api/v1/user/authorise");
 
         $authResponse->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
                 "data" => [
-                    "name",
+                    "firstName",
+                    "lastName",
                     "email",
                     "createdAt",
                     "updatedAt",
@@ -140,10 +171,10 @@ class UserTest extends TestCase
             ]);
     }
 
-    public function testAuthorizeUserAuthenticationError(): void
+    public function testAuthoriseUserAuthenticationError(): void
     {        
         $response = $this->withHeaders($this->headers)
-            ->getJson("/api/user/authorize");
+            ->getJson("/api/v1/user/authorise");
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
             ->assertJson(
@@ -160,7 +191,7 @@ class UserTest extends TestCase
         Sanctum::actingAs($user);
         
         $authResponse = $this->withHeaders($this->headers)
-            ->deleteJson("/api/user/logout");
+            ->deleteJson("/api/v1/user/logout");
 
         $authResponse->assertStatus(Response::HTTP_OK)
             ->assertJson(
@@ -172,7 +203,7 @@ class UserTest extends TestCase
     public function testLogoutUserAuthenticationError(): void
     {        
         $response = $this->withHeaders($this->headers)
-            ->deleteJson("/api/user/logout");
+            ->deleteJson("/api/v1/user/logout");
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
             ->assertJson(
