@@ -1,10 +1,12 @@
 import React, { useEffect, } from "react"
 import { useDispatch, useSelector, } from "react-redux"
-import ReactPaginate from "react-paginate"
+import ReactPaginateModule from "react-paginate"
 import moment from "moment"
 import { Helmet, } from "react-helmet"
 import { getUsers, } from "../../redux/actions/usersActions"
 import ErrorComponent from "../layouts/ErrorComponent"
+
+const ReactPaginate = ReactPaginateModule?.default ?? ReactPaginateModule
 
 export default function HomeComponent() {
   const dispatch = useDispatch()
@@ -19,7 +21,7 @@ export default function HomeComponent() {
 
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1
-    if (newPage > state.users.data.meta.pages) {
+    if (newPage > state.users.data.meta.lastPage) {
       return
     }
     dispatch(getUsers(newPage))
@@ -29,7 +31,7 @@ export default function HomeComponent() {
     if (!state.users.data) {
         return null
     }
-
+    
     return <ReactPaginate
       onPageChange={handlePageChange}
       previousLabel="Previous"
@@ -43,7 +45,7 @@ export default function HomeComponent() {
       breakLabel="..."
       breakClassName="page-item"
       breakLinkClassName="page-link"
-      pageCount={state.users.data.meta.pages}
+      pageCount={state.users.data.meta.lastPage}
       marginPagesDisplayed={2}
       pageRangeDisplayed={5}
       containerClassName="pagination"
@@ -53,11 +55,12 @@ export default function HomeComponent() {
   }
 
   const paginationDetail = () => {
+    console.log("paginationDetail users data", state.users.data)
     return <div className="text-center">
       <strong>Page</strong> ({state.users.data.meta.currentPage}),&nbsp;
-      <strong>Page Count</strong> ({state.users.data.meta.pages}),&nbsp;
+      <strong>Page Count</strong> ({state.users.data.meta.lastPage}),&nbsp;
       <strong>Displayed Items</strong> ({state.users.data.data.length}),&nbsp;
-      <strong>Items</strong> ({state.users.data.meta.items})
+      <strong>Items</strong> ({state.users.data.meta.total})
     </div>
   }
 
@@ -93,7 +96,7 @@ export default function HomeComponent() {
       <p>Loading...</p>
     </div>
   }
-
+  
   return (
     <div className="container home-container">
       <Helmet>
