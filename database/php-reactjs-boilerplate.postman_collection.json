@@ -179,13 +179,12 @@
                       }
                     ],
                     "url": {
-                      "raw": "{{API}}/user/logout",
+                      "raw": "{{API}}/user",
                       "host": [
                         "{{API}}"
                       ],
                       "path": [
-                        "user",
-                        "logout"
+                        "user"
                       ]
                     }
                   },
@@ -383,7 +382,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"password_confirmation\": \"secret\"\n}",
+                      "raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"passwordConfirmation\": \"secret\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -715,13 +714,12 @@
                       }
                     },
                     "url": {
-                      "raw": "{{web}}/user/logout",
+                      "raw": "{{web}}/user",
                       "host": [
                         "{{web}}"
                       ],
                       "path": [
-                        "user",
-                        "logout"
+                        "user"
                       ]
                     }
                   },
