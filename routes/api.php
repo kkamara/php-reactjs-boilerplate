@@ -26,6 +26,10 @@ Route::prefix("v1/web")
                 "/avatar",
                 [WebUserController::class, "uploadAvatar"],
             );
+            Route::delete(
+                "/avatar",
+                [WebUserController::class, "removeAvatar"],
+            );
         });
         Route::get(
             "/users",

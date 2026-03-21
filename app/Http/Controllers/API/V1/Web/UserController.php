@@ -187,4 +187,22 @@ class UserController extends Controller
             "message" => "Success",
         ]);
     }
+
+    public function removeAvatar(Request $request): JsonResponse {
+        $user = $request->user();
+        if ($user->avatar_name) {
+            $oldAvatarPath = storage_path(
+                "app/public/images/profile/{$user->avatar_name}"
+            );
+            if (file_exists($oldAvatarPath)) {
+                unlink($oldAvatarPath);
+            }
+            $user->avatar_name = null;
+            $user->save();
+        }
+
+        return response()->json([
+            "message" => "Success",
+        ]);
+    }
 }
