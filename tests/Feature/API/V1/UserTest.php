@@ -58,7 +58,7 @@ class UserTest extends TestCase
             );
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJsonStructure([
-                "data" => [
+                "user" => [
                     "firstName",
                     "lastName",
                     "email",
@@ -113,12 +113,14 @@ class UserTest extends TestCase
         $response->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure([
                 "data" => [
-                    "firstName",
-                    "lastName",
-                    "email",
-                    "createdAt",
-                    "updatedAt",
-                    "token",
+                    "user" => [
+                        "firstName",
+                        "lastName",
+                        "email",
+                        "createdAt",
+                        "updatedAt",
+                        "token",
+                    ],
                 ],
             ]);
     }
@@ -191,7 +193,7 @@ class UserTest extends TestCase
         Sanctum::actingAs($user);
         
         $authResponse = $this->withHeaders($this->headers)
-            ->deleteJson("/api/v1/user/logout");
+            ->deleteJson("/api/v1/user");
 
         $authResponse->assertStatus(Response::HTTP_OK)
             ->assertJson(
@@ -203,7 +205,7 @@ class UserTest extends TestCase
     public function testLogoutUserAuthenticationError(): void
     {        
         $response = $this->withHeaders($this->headers)
-            ->deleteJson("/api/v1/user/logout");
+            ->deleteJson("/api/v1/user");
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
             ->assertJson(
