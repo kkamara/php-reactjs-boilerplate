@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "8823c0b1-1cd3-4e03-9f05-1277fa4569b9",
+    "_postman_id": "41dd6dec-9642-4cc6-8b73-538e6fd8a524",
     "name": "php-reactjs-boilerplate",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "17125932"
@@ -87,15 +87,6 @@
                       "originalRequest": {
                         "method": "GET",
                         "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
                         "url": {
                           "raw": "{{API}}/user/authorize",
                           "host": [
