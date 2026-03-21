@@ -30,10 +30,9 @@ class UserController extends Controller
         );
 
         if ($validator->fails()) {
-            return response()->json(
-                $validator->errors(),
-                Response::HTTP_BAD_REQUEST,
-            );
+            return response()->json([
+                "message" => $validator->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
         }
         $cleanEmailInput = filter_var(
             trim($request->input("email")),
@@ -75,10 +74,9 @@ class UserController extends Controller
             ],
         );
         if($validation->fails()) {
-            return response()->json(
-                $validation->errors(),
-                Response::HTTP_BAD_REQUEST,
-            );
+            return response()->json([
+                "message" => $validation->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
         }
         $cleanEmailInput = filter_var(
             trim($request->input("email")),
@@ -159,10 +157,9 @@ class UserController extends Controller
             ],
         );
         if($validation->fails()) {
-            return response()->json(
-                $validation->errors(),
-                Response::HTTP_BAD_REQUEST,
-            );
+            return response()->json([
+                "message" => $validation->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
         }
         $path = $request->avatar->store(
             "images/profile",
