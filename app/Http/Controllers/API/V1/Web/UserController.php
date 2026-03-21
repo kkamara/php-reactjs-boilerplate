@@ -130,8 +130,8 @@ class UserController extends Controller
     public function logout(Request $request): JsonResponse {
         $currentAccessToken = $request->user()->currentAccessToken();
 
-        if (!($currentAccessToken instanceof TransientToken)) {
-            $currentAccessToken?->delete();
+        if (method_exists($currentAccessToken, 'delete')) {
+            $currentAccessToken->delete();
         }
         
         return response()->json([
