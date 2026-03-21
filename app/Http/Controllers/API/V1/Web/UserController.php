@@ -128,7 +128,12 @@ class UserController extends Controller
     }
 
     public function logout(Request $request): JsonResponse {
-        $request->user()->currentAccessToken()->delete();
+        $currentAccessToken = $request->user()->currentAccessToken();
+
+        if (!($currentAccessToken instanceof TransientToken)) {
+            $currentAccessToken?->delete();
+        }
+        
         return response()->json([
             "message" => "Success",
         ]);
