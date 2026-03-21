@@ -18,6 +18,10 @@ Route::prefix("v1/web")
                 "/",
                 [WebUserController::class, "logout"],
             )->middleware("auth:sanctum");
+            Route::put(
+                "/",
+                [WebUserController::class, "updateUser"],
+            )->middleware("auth:sanctum");
             Route::get(
                 "/authorise",
                 [WebUserController::class, "authorizeUser"],

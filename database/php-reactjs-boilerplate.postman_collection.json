@@ -326,6 +326,42 @@
                       "body": "{\n    \"message\": \"Success\"\n}"
                     }
                   ]
+                },
+                {
+                  "name": "Update User",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{web}}/user",
+                      "host": [
+                        "{{web}}"
+                      ],
+                      "path": [
+                        "user"
+                      ]
+                    }
+                  },
+                  "response": []
                 }
               ]
             },

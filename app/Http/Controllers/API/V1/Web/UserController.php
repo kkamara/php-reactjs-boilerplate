@@ -205,4 +205,38 @@ class UserController extends Controller
             "message" => "Success",
         ]);
     }
+
+    public function updateUser(Request $request): JsonResponse {
+        $user = $request->user();
+        $validation = Validator::make(
+            $request->only(["firstName", "lastName", "email", "password", "passwordConfirmation"]),
+            [
+                "firstName" => "required|min:3|max:30",
+                "lastName" => "required|min:3|max:30",
+                "email" => [
+                    "required",
+                    "email",
+                    "max:255",
+                    Rule::unique("users")->ignore($user->id),
+                ],
+                "password" => "required|confirmed:passwordConfirmation|min:6|max:30",
+            ],
+        );
+        if($validation->fails()) {
+            return response()->json([
+                "message" => $validation->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
+        }
+        $user->first_name = htmlspecialchars(trim($request->input("firstName")));
+        $user->last_name = htmlspecialchars(trim($request->input("lastName")));
+        $user->email = filter_var(trim(
+            $request->input("email")
+        ), FILTER_SANITIZE_EMAIL);
+        $user->password = Hash::make($request->input("password"));
+        $user->save();
+
+        return response()->json([
+            "data" => new UserResource($user),
+        ]);
+    }
 }
