@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "8823c0b1-1cd3-4e03-9f05-1277fa4569b9",
+    "_postman_id": "41dd6dec-9642-4cc6-8b73-538e6fd8a524",
     "name": "php-reactjs-boilerplate",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "17125932"
@@ -87,15 +87,6 @@
                       "originalRequest": {
                         "method": "GET",
                         "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
                         "url": {
                           "raw": "{{API}}/user/authorize",
                           "host": [
@@ -179,13 +170,12 @@
                       }
                     ],
                     "url": {
-                      "raw": "{{API}}/user/logout",
+                      "raw": "{{API}}/user",
                       "host": [
                         "{{API}}"
                       ],
                       "path": [
-                        "user",
-                        "logout"
+                        "user"
                       ]
                     }
                   },
@@ -336,6 +326,42 @@
                       "body": "{\n    \"message\": \"Success\"\n}"
                     }
                   ]
+                },
+                {
+                  "name": "Update User",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{web}}/user",
+                      "host": [
+                        "{{web}}"
+                      ],
+                      "path": [
+                        "user"
+                      ]
+                    }
+                  },
+                  "response": []
                 }
               ]
             },
@@ -383,7 +409,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"password_confirmation\": \"secret\"\n}",
+                      "raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"passwordConfirmation\": \"secret\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -468,6 +494,12 @@
                     "key": "Accept",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "timezone",
+                    "value": "Europe/Moscow",
+                    "type": "text",
+                    "disabled": true
                   }
                 ],
                 "body": {
@@ -715,13 +747,12 @@
                       }
                     },
                     "url": {
-                      "raw": "{{web}}/user/logout",
+                      "raw": "{{web}}/user",
                       "host": [
                         "{{web}}"
                       ],
                       "path": [
-                        "user",
-                        "logout"
+                        "user"
                       ]
                     }
                   },

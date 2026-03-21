@@ -15,13 +15,25 @@ Route::prefix("v1/web")
             Route::post("/register", [WebUserController::class, "register"]);
             Route::post("/", [WebUserController::class, "login"]);
             Route::delete(
-                "/logout",
+                "/",
                 [WebUserController::class, "logout"],
+            )->middleware("auth:sanctum");
+            Route::put(
+                "/",
+                [WebUserController::class, "updateUser"],
             )->middleware("auth:sanctum");
             Route::get(
                 "/authorise",
                 [WebUserController::class, "authorizeUser"],
             )->middleware("auth:sanctum");
+            Route::post(
+                "/avatar",
+                [WebUserController::class, "uploadAvatar"],
+            );
+            Route::delete(
+                "/avatar",
+                [WebUserController::class, "removeAvatar"],
+            );
         });
         Route::get(
             "/users",
@@ -40,7 +52,7 @@ Route::prefix("/v1/user")->group(function () {
     Route::post("/register", [UserController::class, "register"]);
     Route::post("/", [UserController::class, "login"]);
     Route::delete(
-        "/logout",
+        "/",
         [UserController::class, "logout"],
     )->middleware("auth:sanctum");
     Route::get(

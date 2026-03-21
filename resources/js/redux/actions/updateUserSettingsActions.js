@@ -9,7 +9,7 @@ export const updateSettings = payload => {
 
     const tokenID = "user-token"
     await http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
-      http.patchData(
+      http.putData(
         "/user",
         payload,
         tokenID,

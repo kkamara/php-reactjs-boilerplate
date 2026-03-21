@@ -18,7 +18,7 @@ export const LoginUserService = (credentials) => {
   return http.getData(http.domain+"/sanctum/csrf-cookie").then(() =>
     http.postData("/user", credentials)
       .then(response => {
-        localStorage.setItem(tokenID, response.data.data.authToken)
+        localStorage.setItem(tokenID, response.data.data.user.token)
         return response.data
       })
       .catch(err => { throw err })

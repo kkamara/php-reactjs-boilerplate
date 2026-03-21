@@ -20,8 +20,18 @@ class UserResource extends JsonResource
             "lastName" => $this->last_name,
             "email" => $this->email,
             "avatarPath" => $this->getAvatarPath(),
-            "createdAt" => $this->created_at,
-            "updatedAt" => $this->updated_at,
+            "createdAt" => $this->created_at
+                ->timezone(config(
+                    "app.client_timezone",
+                    config("app.timezone")
+                ))
+                ->toDateTimeString(),
+            "updatedAt" => $this->updated_at
+                ->timezone(config(
+                    "app.client_timezone",
+                    config("app.timezone")
+                ))
+                ->toDateTimeString(),
             "token" => $this->when(isset($this->token), $this->token),
         ];
     }

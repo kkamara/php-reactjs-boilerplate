@@ -179,7 +179,10 @@ export default class HttpService
   getRequestOptions = (token) => {
     const requestOptions = {
       method: "GET",
-      headers: { "Content-type" : "application/json", }
+      headers: {
+        "Content-type" : "application/json",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
     }
     if (token) {
       requestOptions.headers.Authorization = "Bearer " +token
@@ -190,7 +193,10 @@ export default class HttpService
   postRequestOptions = ({ token, item, }) => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-type" : "application/json", },
+      headers: {
+        "Content-type" : "application/json",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
       data : item || undefined,
     }
     if (token) {
@@ -202,7 +208,10 @@ export default class HttpService
   putRequestOptions = ({ token, item, }) => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-type" : "application/json", },
+      headers: {
+        "Content-type" : "application/json",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
       data : item || undefined,
     }
     if (token) {
@@ -214,7 +223,10 @@ export default class HttpService
   patchRequestOptions = ({ token, item, }) => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-type" : "application/json", },
+      headers: {
+        "Content-type" : "application/json",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
       data : item || undefined,
     }
     if (token) {
@@ -226,7 +238,10 @@ export default class HttpService
   delRequestOptions = (token) => {
     const requestOptions = {
       method: "GET",
-      headers: { "Content-type" : "application/json", }
+      headers: {
+        "Content-type" : "application/json",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
     }
     if (token) {
       requestOptions.headers.Authorization = "Bearer " +token

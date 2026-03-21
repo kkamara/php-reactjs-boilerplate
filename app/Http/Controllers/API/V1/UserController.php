@@ -28,10 +28,9 @@ class UserController extends Controller
         );
     
         if ($validator->fails()) {
-            return response()->json(
-                $validator->errors(),
-                Response::HTTP_BAD_REQUEST,
-            );
+            return response()->json([
+                "message" => $validator->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
         }
         $cleanEmailInput = filter_var(
             trim($request->input("email")),
@@ -60,7 +59,7 @@ class UserController extends Controller
         });
      
         return response()->json([
-            "data" => new UserResource($user),
+            "user" => new UserResource($user),
         ], Response::HTTP_CREATED);
     }
 
@@ -73,10 +72,9 @@ class UserController extends Controller
             ],
         );
         if($validation->fails()) {
-            return response()->json(
-                $validation->errors(),
-                Response::HTTP_BAD_REQUEST,
-            );
+            return response()->json([
+                "message" => $validation->errors()->first()
+            ], Response::HTTP_BAD_REQUEST);
         }
         $cleanEmailInput = filter_var(
             trim($request->input("email")),
@@ -105,7 +103,11 @@ class UserController extends Controller
         $user->tap(function(User $user) {
             $user->token = $user->createToken("token")->plainTextToken;
         });
-        return new UserResource($user);
+        return response()->json([
+            "data" => [
+                "user" => new UserResource($user)
+            ]
+        ]);
     }
 
     public function authorizeUser(Request $request): JsonResponse|UserResource {
@@ -118,11 +120,18 @@ class UserController extends Controller
             $cleanEmailInput,
         )->firstOrFail();
 
-        return new UserResource($user);
+        return response()->json([
+            "data" => new UserResource($user)
+        ]);
     }
 
     public function logout(Request $request): JsonResponse {
-        $request->user()->currentAccessToken()->delete();
+        $currentAccessToken = $request->user()->currentAccessToken();
+
+        if (method_exists($currentAccessToken, 'delete')) {
+            $currentAccessToken->delete();
+        }
+
         return response()->json(["message" => "Success"]);
     }
 }
