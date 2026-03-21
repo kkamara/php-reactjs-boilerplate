@@ -15,7 +15,7 @@ Route::prefix("v1/web")
             Route::post("/register", [WebUserController::class, "register"]);
             Route::post("/", [WebUserController::class, "login"]);
             Route::delete(
-                "/logout",
+                "/",
                 [WebUserController::class, "logout"],
             )->middleware("auth:sanctum");
             Route::get(
@@ -40,7 +40,7 @@ Route::prefix("/v1/user")->group(function () {
     Route::post("/register", [UserController::class, "register"]);
     Route::post("/", [UserController::class, "login"]);
     Route::delete(
-        "/logout",
+        "/",
         [UserController::class, "logout"],
     )->middleware("auth:sanctum");
     Route::get(
