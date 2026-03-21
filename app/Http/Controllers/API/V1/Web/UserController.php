@@ -60,7 +60,7 @@ class UserController extends Controller
         });
 
         return response()->json([
-            "data" => new UserResource($user),
+            "user" => new UserResource($user),
         ], Response::HTTP_CREATED);
     }
 
@@ -105,7 +105,11 @@ class UserController extends Controller
         $user->tap(function(User $user) {
             $user->token = $user->createToken("token")->plainTextToken;
         });
-        return new UserResource($user);
+        return response()->json([
+            "data" => [
+                "user" => new UserResource($user)
+            ]
+        ]);
     }
 
     public function authorizeUser(Request $request): JsonResponse|UserResource {
@@ -118,7 +122,9 @@ class UserController extends Controller
             $cleanEmailInput,
         )->firstOrFail();
 
-        return new UserResource($user);
+        return response()->json([
+            "user" => new UserResource($user)
+        ]);
     }
 
     public function logout(Request $request): JsonResponse {
