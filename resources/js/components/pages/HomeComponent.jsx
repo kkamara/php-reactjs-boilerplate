@@ -55,7 +55,6 @@ export default function HomeComponent() {
   }
 
   const paginationDetail = () => {
-    console.log("paginationDetail users data", state.users.data)
     return <div className="text-center">
       <strong>Page</strong> ({state.users.data.meta.currentPage}),&nbsp;
       <strong>Page Count</strong> ({state.users.data.meta.lastPage}),&nbsp;
