@@ -494,6 +494,12 @@
                     "key": "Accept",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "timezone",
+                    "value": "Europe/Moscow",
+                    "type": "text",
+                    "disabled": true
                   }
                 ],
                 "body": {
