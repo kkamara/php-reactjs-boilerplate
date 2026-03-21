@@ -11,6 +11,8 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Models\V1\User;
 use App\Http\Resources\V1\UserResource;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 
 class UserController extends Controller
 {
@@ -134,6 +136,53 @@ class UserController extends Controller
             $currentAccessToken?->delete();
         }
         
+        return response()->json([
+            "message" => "Success",
+        ]);
+    }
+
+    public function uploadAvatar(Request $request): JsonResponse {
+        $validation = Validator::make(
+            $request->only(["avatar"]),
+            [
+                "avatar" => [
+                    "required",
+                    File::image()
+                        ->max(3145.728) // 3.5MB in kilobytes
+                        ->dimensions(
+                            Rule::dimensions()
+                                ->maxWidth(1000)
+                                ->maxHeight(500)
+                            ),
+                    "mimetypes:image/jpg,image/jpeg,image/png,image/webp",
+                ],
+            ],
+        );
+        if($validation->fails()) {
+            return response()->json(
+                $validation->errors(),
+                Response::HTTP_BAD_REQUEST,
+            );
+        }
+        $path = $request->avatar->store(
+            "images/profile",
+            "public"
+        );
+        $newFilename = substr($path, strrpos($path, "/") + 1);
+
+        $user = $request->user();
+        if ($user->avatar_name) {
+            $oldAvatarPath = storage_path(
+                "app/public/images/profile/{$user->avatar_name}"
+            );
+            if (file_exists($oldAvatarPath)) {
+                unlink($oldAvatarPath);
+            }
+        }
+
+        $user->avatar_name = $newFilename;
+        $user->save();
+
         return response()->json([
             "message" => "Success",
         ]);

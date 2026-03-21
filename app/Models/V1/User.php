@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function getAvatarPath(): string {
         return $this->avatar_name ?
-                config('app.url')."/images/profile/".$this->avatar_name :
-                config('app.url')."/images/profile/default-avatar.webp";
+                config('app.url')."/storage/images/profile/".$this->avatar_name :
+                config('app.url')."/storage/images/profile/default-avatar.webp";
     }
 }

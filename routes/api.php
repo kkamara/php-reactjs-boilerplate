@@ -22,6 +22,10 @@ Route::prefix("v1/web")
                 "/authorise",
                 [WebUserController::class, "authorizeUser"],
             )->middleware("auth:sanctum");
+            Route::post(
+                "/avatar",
+                [WebUserController::class, "uploadAvatar"],
+            );
         });
         Route::get(
             "/users",
