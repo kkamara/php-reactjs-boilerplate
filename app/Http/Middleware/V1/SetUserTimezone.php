@@ -22,6 +22,9 @@ class SetUserTimezone
         if ($request->hasHeader("timezone")) {
             try {
                 $timezoneId = $request->header("timezone");
+                // This will throw an exception if the
+                // timezone header is invalid. And the
+                // config value will remain unset.
                 new DateTimeZone($timezoneId);
                 Config::set(
                     "app.client_timezone",
