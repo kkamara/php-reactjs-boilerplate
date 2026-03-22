@@ -21,7 +21,7 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "php": "^8.5",
+        "php": "^8.3",
         "laravel/framework": "^13.0",
         "laravel/sanctum": "^4.0.8",
         "laravel/tinker": "^3.0",
