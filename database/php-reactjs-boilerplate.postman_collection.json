@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "41dd6dec-9642-4cc6-8b73-538e6fd8a524",
+    "_postman_id": "093d65ca-8735-4064-a3ea-82972a5b7221",
     "name": "php-reactjs-boilerplate",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "17125932"
@@ -59,6 +59,12 @@
                         "key": "Accept",
                         "value": "application/json",
                         "type": "text"
+                      },
+                      {
+                        "key": "timezone",
+                        "value": "Europe/Moscow",
+                        "type": "text",
+                        "disabled": true
                       }
                     ],
                     "body": {

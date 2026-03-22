@@ -21,13 +21,13 @@ class UserResource extends JsonResource
             "email" => $this->email,
             "avatarPath" => $this->getAvatarPath(),
             "createdAt" => $this->created_at
-                ->timezone(config(
+                ->tz(config(
                     "app.client_timezone",
                     config("app.timezone")
                 ))
                 ->toDateTimeString(),
             "updatedAt" => $this->updated_at
-                ->timezone(config(
+                ->tz(config(
                     "app.client_timezone",
                     config("app.timezone")
                 ))
