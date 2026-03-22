@@ -46,6 +46,8 @@ cp .env.example .env
 # Install our app dependencies.
 composer i
 php artisan key:generate
+# Link storage/public to public/storage folder.
+php artisan storage:link
 # Before running the next command:
 # Update your database details in .env
 php artisan migrate:status --path=database/migrations/V1
