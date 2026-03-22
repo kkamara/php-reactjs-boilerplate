@@ -25,6 +25,7 @@ class SetUserTimezone
                 // This will throw an exception if the
                 // timezone header is invalid. And the
                 // config value will remain unset.
+                // Empty string also throws error.
                 new DateTimeZone($timezoneId);
                 Config::set(
                     "app.client_timezone",
