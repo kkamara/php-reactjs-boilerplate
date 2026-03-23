@@ -6,7 +6,6 @@ namespace App\Models\V1;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Traits\Tappable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -15,6 +14,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory, Notifiable;
     use Tappable;
+    use TimeStampHandling;
 
     /**
      * The attributes that are mass assignable.
@@ -50,32 +50,6 @@ class User extends Authenticatable
             "email_verified_at" => "datetime",
             "password" => "hashed",
         ];
-    }
-
-    public function setCreatedAtAttribute(mixed $value): void
-    {
-        if ($value === null) {
-            $this->attributes['created_at'] = null;
-
-            return;
-        }
-
-        $this->attributes['created_at'] = Carbon::parse($value)
-            ->utc()
-            ->toDateTimeString();
-    }
-
-    public function setUpdatedAtAttribute(mixed $value): void
-    {
-        if ($value === null) {
-            $this->attributes['updated_at'] = null;
-
-            return;
-        }
-
-        $this->attributes['updated_at'] = Carbon::parse($value)
-            ->utc()
-            ->toDateTimeString();
     }
 
     public function getAvatarPath(): string
