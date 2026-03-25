@@ -13,7 +13,13 @@
           "name": "Hello",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Time-Zone",
+                "value": "Europe/London",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{mobileAPI}}/hello",
               "host": [
@@ -61,8 +67,8 @@
                         "type": "text"
                       },
                       {
-                        "key": "timezone",
-                        "value": "Europe/Moscow",
+                        "key": "Time-Zone",
+                        "value": "Europe/London",
                         "type": "text",
                         "disabled": true
                       }
@@ -172,6 +178,11 @@
                       {
                         "key": "Accept",
                         "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Time-Zone",
+                        "value": "Europe/London",
                         "type": "text"
                       }
                     ],
@@ -347,7 +358,23 @@
                       ]
                     },
                     "method": "PUT",
-                    "header": [],
+                    "header": [
+                      {
+                        "key": "Time-Zone",
+                        "value": "Europe/London",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
                     "body": {
                       "mode": "raw",
                       "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
@@ -384,6 +411,11 @@
                   {
                     "key": "Accept",
                     "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Time-Zone",
+                    "value": "Europe/London",
                     "type": "text"
                   }
                 ],
@@ -502,10 +534,9 @@
                     "type": "text"
                   },
                   {
-                    "key": "timezone",
-                    "value": "Europe/Moscow",
-                    "type": "text",
-                    "disabled": true
+                    "key": "Time-Zone",
+                    "value": "Europe/London",
+                    "type": "text"
                   }
                 ],
                 "body": {
@@ -698,6 +729,11 @@
                         "key": "Accept",
                         "value": "application/json",
                         "type": "text"
+                      },
+                      {
+                        "key": "Time-Zone",
+                        "value": "Europe/London",
+                        "type": "text"
                       }
                     ],
                     "body": {
@@ -740,6 +776,11 @@
                       {
                         "key": "Accept",
                         "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Time-Zone",
+                        "value": "Europe/London",
                         "type": "text"
                       }
                     ],
@@ -785,6 +826,11 @@
                 "key": "Accept",
                 "value": "application/json",
                 "type": "text"
+              },
+              {
+                "key": "Time-Zone",
+                "value": "Europe/London",
+                "type": "text"
               }
             ],
             "body": {
@@ -824,6 +870,11 @@
               {
                 "key": "Accept",
                 "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Time-Zone",
+                "value": "Europe/London",
                 "type": "text"
               }
             ],
@@ -870,6 +921,11 @@
               {
                 "key": "Accept",
                 "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Time-Zone",
+                "value": "Europe/London",
                 "type": "text"
               }
             ],
