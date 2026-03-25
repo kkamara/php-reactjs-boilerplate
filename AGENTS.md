@@ -15,10 +15,12 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - laravel/sanctum (SANCTUM) - v4
 - laravel/boost (BOOST) - v2
 - laravel/mcp (MCP) - v0
+- laravel/pail (PAIL) - v1
 - laravel/pint (PINT) - v1
 - laravel/sail (SAIL) - v1
 - phpunit/phpunit (PHPUNIT) - v11
 - react (REACT) - v19
+- tailwindcss (TAILWINDCSS) - v4
 
 ## Conventions
 
@@ -127,6 +129,13 @@ protected function isAccessible(User $user, ?string $path = null): bool
 ## PHPDoc Blocks
 
 - Add useful array shape type definitions when appropriate.
+
+=== herd rules ===
+
+# Laravel Herd
+
+- The application is served by Laravel Herd and will be available at: `https?://[kebab-case-project-dir].test`. Use the `get-absolute-url` tool to generate valid URLs for the user.
+- You must not run any commands to make the site available via HTTP(S). It is always available through Laravel Herd.
 
 === tests rules ===
 
