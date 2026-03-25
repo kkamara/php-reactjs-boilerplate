@@ -181,7 +181,7 @@ export default class HttpService
       method: "GET",
       headers: {
         "Content-type" : "application/json",
-        "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        "Time-Zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       }
     }
     if (token) {
@@ -195,7 +195,7 @@ export default class HttpService
       method: "POST",
       headers: {
         "Content-type" : "application/json",
-        "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        "Time-Zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       },
       data : item || undefined,
     }
@@ -210,7 +210,7 @@ export default class HttpService
       method: "POST",
       headers: {
         "Content-type" : "application/json",
-        "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        "Time-Zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       },
       data : item || undefined,
     }
@@ -225,7 +225,7 @@ export default class HttpService
       method: "POST",
       headers: {
         "Content-type" : "application/json",
-        "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        "Time-Zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       },
       data : item || undefined,
     }
@@ -240,7 +240,7 @@ export default class HttpService
       method: "GET",
       headers: {
         "Content-type" : "application/json",
-        "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        "Time-Zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       }
     }
     if (token) {

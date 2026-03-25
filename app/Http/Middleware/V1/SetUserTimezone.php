@@ -19,9 +19,9 @@ class SetUserTimezone
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->hasHeader("timezone")) {
+        if ($request->hasHeader("Time-Zone")) {
             try {
-                $timezoneId = $request->header("timezone");
+                $timezoneId = $request->header("Time-Zone");
                 // This will throw an exception if the
                 // timezone header is invalid. And the
                 // config value will remain unset.
@@ -29,7 +29,7 @@ class SetUserTimezone
                 new DateTimeZone($timezoneId);
                 Config::set(
                     "app.client_timezone",
-                    $request->header("timezone"),
+                    $request->header("Time-Zone"),
                 );
             } catch (Exception $e) {
                 Log::info("Invalid timezone provided in request header: " . $request->header("timezone"));
