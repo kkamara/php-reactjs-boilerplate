@@ -19,7 +19,7 @@ class Seeder extends IlluminateSeeder
         User::factory()->create([
             "first_name" => "Jane",
             "last_name" => "Doe",
-            "email" => "jane@doe.com",
+            "email" => "jane@example.com",
         ]);
     }
 }

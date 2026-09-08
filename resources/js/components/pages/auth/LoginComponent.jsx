@@ -6,7 +6,7 @@ import ErrorComponent from "../../layouts/ErrorComponent"
 
 import "./LoginComponent.scss"
 
-const defaultEmailState = "jane@doe.com"
+const defaultEmailState = "jane@example.com"
 const defaultPasswordState = "secret"
 
 export default function LoginComponent() {
