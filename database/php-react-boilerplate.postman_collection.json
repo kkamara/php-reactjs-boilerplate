@@ -93,72 +93,7 @@
                       ]
                     }
                   },
-                  "response": [
-                    {
-                      "name": "Authorize User",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "{{API}}/user/authorize",
-                          "host": [
-                            "{{API}}"
-                          ],
-                          "path": [
-                            "user",
-                            "authorize"
-                          ]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "localhost:80"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Sat, 16 Apr 2022 17:31:35 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Sat, 16 Apr 2022 17:31:35 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.0.17"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "X-RateLimit-Limit",
-                          "value": "60"
-                        },
-                        {
-                          "key": "X-RateLimit-Remaining",
-                          "value": "59"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "body": "{\n    \"data\": {\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Doe\",\n        \"email\": \"jane@doe.com\",\n        \"created_at\": \"2022-04-16T17:31:23.000000Z\",\n        \"updated_at\": \"2022-04-16T17:31:23.000000Z\",\n        \"token\": \"6|p2ISZDjpMAk1yLWBqy3qctHXpRQPoQjhXWimbida\"\n    }\n}"
-                    }
-                  ]
+                  "response": []
                 },
                 {
                   "name": "Logout User",
@@ -207,23 +142,20 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
-                    "value": "application/json",
-                    "type": "text"
+                    "value": "application/json"
                   },
                   {
                     "key": "Time-Zone",
-                    "value": "Europe/London",
-                    "type": "text"
+                    "value": "Europe/London"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"passwordConfirmation\": \"secret\"\n}",
+                  "raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@example.com\",\n    \"password\": \"secret\",\n    \"passwordConfirmation\": \"secret\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -241,81 +173,7 @@
                   ]
                 }
               },
-              "response": [
-                {
-                  "name": "Register User",
-                  "originalRequest": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\",\n    \"passwordConfirmation\": \"secret\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "{{host}}/user/register",
-                      "host": [
-                        "{{host}}"
-                      ],
-                      "path": [
-                        "user",
-                        "register"
-                      ]
-                    }
-                  },
-                  "status": "Created",
-                  "code": 201,
-                  "_postman_previewlanguage": "json",
-                  "header": [
-                    {
-                      "key": "Host",
-                      "value": "localhost:80"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Sat, 16 Apr 2022 17:31:23 GMT"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Sat, 16 Apr 2022 17:31:23 GMT"
-                    },
-                    {
-                      "key": "Connection",
-                      "value": "close"
-                    },
-                    {
-                      "key": "X-Powered-By",
-                      "value": "PHP/8.0.17"
-                    },
-                    {
-                      "key": "Cache-Control",
-                      "value": "no-cache, private"
-                    },
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    },
-                    {
-                      "key": "X-RateLimit-Limit",
-                      "value": "60"
-                    },
-                    {
-                      "key": "X-RateLimit-Remaining",
-                      "value": "59"
-                    },
-                    {
-                      "key": "Access-Control-Allow-Origin",
-                      "value": "*"
-                    }
-                  ],
-                  "cookie": [],
-                  "body": "{\n    \"data\": {\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Doe\",\n        \"email\": \"jane@doe.com\",\n        \"created_at\": \"2022-04-16T17:31:23.000000Z\",\n        \"updated_at\": \"2022-04-16T17:31:23.000000Z\",\n        \"token\": \"5|wwgfkvQpDtgpT8POT4dwXED8XGexIrYSzWKRdZBH\"\n    }\n}"
-                }
-              ]
+              "response": []
             },
             {
               "name": "Login User",
@@ -327,23 +185,20 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
-                    "value": "application/json",
-                    "type": "text"
+                    "value": "application/json"
                   },
                   {
                     "key": "Time-Zone",
-                    "value": "Europe/London",
-                    "type": "text"
+                    "value": "Europe/London"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"email\": \"jane@doe.com\",\n    \"password\": \"secret\"\n}",
+                  "raw": "{\n    \"email\": \"jane@example.com\",\n    \"password\": \"secret\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -551,23 +406,20 @@
                     "header": [
                       {
                         "key": "Time-Zone",
-                        "value": "Europe/London",
-                        "type": "text"
+                        "value": "Europe/London"
                       },
                       {
                         "key": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
+                        "value": "application/json"
                       },
                       {
                         "key": "Accept",
-                        "value": "application/json",
-                        "type": "text"
+                        "value": "application/json"
                       }
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
+                      "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@example.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -600,23 +452,20 @@
             "header": [
               {
                 "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "value": "application/json"
               },
               {
                 "key": "Accept",
-                "value": "application/json",
-                "type": "text"
+                "value": "application/json"
               },
               {
                 "key": "Time-Zone",
-                "value": "Europe/London",
-                "type": "text"
+                "value": "Europe/London"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\"\r\n}",
+              "raw": "{\r\n    \"email\": \"jane@example.com\",\r\n    \"password\": \"secret\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -645,23 +494,20 @@
             "header": [
               {
                 "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "value": "application/json"
               },
               {
                 "key": "Accept",
-                "value": "application/json",
-                "type": "text"
+                "value": "application/json"
               },
               {
                 "key": "Time-Zone",
-                "value": "Europe/London",
-                "type": "text"
+                "value": "Europe/London"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@doe.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
+              "raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane@example.com\",\r\n    \"password\": \"secret\",\r\n    \"passwordConfirmation\": \"secret\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
